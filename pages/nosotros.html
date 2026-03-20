@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilie | Inteligencia Artificial & Automatización</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CHILIE<span>IA</span></div>
+        <div class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="nosotros.html" class="active">Nosotros</a>
+            
+            <a href="contacto.html" class="nav-btn-link">
+                <button class="nav-btn">Empezar Proyecto</button>
+            </a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <span class="badge-ia">El Equipo</span>
+        <h1>De un examen a <span>Chilie</span></h1>
+        <p>Dos ingenieros de la UFV rediseñando la eficiencia empresarial a través de la IA.</p>
+    </header>
+
+    <section class="team-section">
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-img" style="background-image: url('img/inigo.jpg');"></div>
+                <div class="member-info">
+                    <h3>Iñigo</h3>
+                    <span>Backend Architect</span>
+                    <p>El motor detrás de la lógica. Especialista en Node.js y gestión de bases de datos MySQL para que todo fluya sin errores.</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-img" style="background-image: url('img/carlos.jpg');"></div>
+                <div class="member-info">
+                    <h3>Carlos</h3>
+                    <span>Frontend & UX Lead</span>
+                    <p>El ojo crítico. Encargado de que la interfaz no solo sea visualmente impactante, sino que la experiencia de usuario sea perfecta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy-section alt-bg">
+        <div class="container">
+            <div class="philosophy-content">
+                <h2>¿Cómo nació <span>Chilie</span>?</h2>
+                <p class="history-text">Todo empezó en las aulas de la Universidad Francisco de Vitoria. Justo antes de un examen, en lugar de repasar apuntes, nos hicimos una pregunta: <strong>"¿Y si empezamos a automatizar procesos de verdad?"</strong>. <br><br>
+                Desde ese momento, nuestra capacidad de aprendizaje rápido y nuestra coordinación nos permitieron pasar de la teoría a la práctica, conectando APIs de OpenAI y Shopify (entre otras) para crear soluciones que realmente impactan.</p>
+                
+                <div class="phi-grid">
+                    <div class="phi-item">
+                        <h4>Misión</h4>
+                        <p>Liberar a los trabajadores de tareas repetitivas para que puedan centrarse en lo que realmente aporta valor a su área.</p>
+                    </div>
+                    <div class="phi-item">
+                        <h4>Visión</h4>
+                        <p>Ser la agencia de referencia para empresas que buscan una IA integrada, no un parche externo.</p>
+                    </div>
+                    <div class="phi-item">
+                        <h4>Stack</h4>
+                        <p>Dominamos Node.js, MySQL y el despliegue profesional en Render, asegurando estabilidad total.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">CHILIE<span>IA</span></div>
+                    <p>Especialistas en mantenimiento de ecosistemas inteligentes y automatización de alto impacto.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Hablemos</h4>
+                    <p>chilieagencia@gmail.com</p>
+                    <p>Madrid, España</p>
+                    <div class="footer-social">
+                        <small>Disponibles para nuevos proyectos</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+        
+        <div class="chat-button" onclick="toggleChat()">
+            <span>🤖</span>
+        </div>
+
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                Asistente IA de la Agencia
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">¡Hola! Soy vuestro agente IA. ¿En qué puedo ayudarte hoy?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+
+        <script src="../script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilie | Inteligencia Artificial & Automatización</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CHILIE<span>IA</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="pages/servicios.html">Servicios</a>
+            <a href="pages/nosotros.html">Nosotros</a>
+            
+            <a href="pages/contacto.html" class="nav-btn-link">
+                <button class="nav-btn">Empezar Proyecto</button>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero-agency">
+        <div class="hero-visual" style="background-image: url('img/fondo.png');"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="badge-ia">Agencia de Automatización</span>
+            <h1 class="hero-title">IA que escala <br><span>tu negocio.</span></h1>
+            <p class="hero-subtitle">Convertimos procesos complejos en flujos automáticos y <br> visitantes en clientes con agentes inteligentes.</p>
+            
+            <div class="cta-group">
+                <button class="btn-ia" onclick="toggleChat()">Probar Demo</button>
+                <a href="#servicios" class="nav-btn-outline">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <span class="pre-title">Nuestra Experiencia</span>
+            <h2>Soluciones de <span>Próxima Generación</span></h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="services-gallery">
+            <div class="agency-card">
+                <div class="service-img" style="background-image: url('img/chatbots.png');"></div>
+                <div class="service-info">
+                    <h3>Chatbots con IA</h3>
+                    <p>Soporte técnico y optimización continua para que tus agentes inteligentes funcionen siempre con la máxima precisión.</p>
+                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
+                </div>
+            </div>
+
+            <div class="agency-card">
+                <div class="service-img" style="background-image: url('img/automation.png');"></div>
+                <div class="service-info">
+                    <h3>Automatización</h3>
+                    <p>Sincronizamos tus apps favoritas para que tu negocio funcione solo.</p>
+                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
+                </div>
+            </div>
+
+            <div class="agency-card">
+                <div class="service-img" style="background-image: url('img/dev.png');"></div>
+                <div class="service-info">
+                    <h3>Webs de Alto Impacto</h3>
+                    <p>Diseño futurista optimizado para la conversión y la velocidad.</p>
+                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="nosotros">
+        <div class="section-header">
+            <span class="badge-ia">Diferencial</span>
+            <h2>IA Humana, <span>Resultados Reales</span></h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🚀</span>
+                <h4>Escalabilidad</h4>
+                <p>Sistemas diseñados para crecer con tu empresa sin aumentar costes operativos.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🛡️</span>
+                <h4>Seguridad</h4>
+                <p>Protección de datos y privacidad en cada flujo de información que creamos.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💎</span>
+                <h4>Mantenimiento Elite</h4>
+                <p>No te entregamos un bot y nos vamos. Supervisamos su evolución mes a mes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">CHILIE<span>IA</span></div>
+                <p>Especialistas en mantenimiento de ecosistemas inteligentes y automatización de alto impacto.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="pages/servicios.html">Servicios</a></li>
+                    <li><a href="pages/nosotros.html">Nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Hablemos</h4>
+                <p>chilieagencia@gmail.com</p>
+                <p>Madrid, España</p>
+                <div class="footer-social">
+                    <small>Disponibles para nuevos proyectos</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="chat-button" onclick="toggleChat()">
+        <span>🤖</span>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            Asistente IA de la Agencia
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">¡Hola! Soy vuestro agente IA. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
