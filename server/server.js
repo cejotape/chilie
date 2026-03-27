@@ -26,17 +26,26 @@ const PORT = process.env.PORT || 3001;
 // Needed only when frontend is served from a different origin
 // (e.g. local dev with live-reload). In production both frontend
 // and API share the same origin, so CORS is a no-op.
+// ── CORS ───────────────────────────────────────────────────
+const allowedOrigins = [
+  'https://chilieia.com',
+  'https://www.chilieia.com',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:3001',
+  ...(process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()).filter(Boolean)
+    : [])
+];
+
 app.use(cors({
   origin(origin, cb) {
     if (!origin || origin === 'null') return cb(null, true);
-    if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return cb(null, true);
-    const extra = process.env.ALLOWED_ORIGINS
-      ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim())
-      : [];
-    if (extra.includes(origin)) return cb(null, true);
-    cb(new Error('Not allowed by CORS'));
+    if (allowedOrigins.includes(origin)) return cb(null, true);
+    return cb(new Error(`Not allowed by CORS: ${origin}`));
   },
-  methods: ['POST', 'GET'],
+  methods: ['GET', 'POST', 'OPTIONS'],
 }));
 app.use(express.json({ limit: '10kb' }));
 
