@@ -279,10 +279,24 @@ app.post('/api/contact', rateLimit, async (req, res) => {
   }
 });
 
+// ── Clean URL routes ──────────────────────────────────────
+// Serve each page at its clean public path.
+app.get('/servicios', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'servicios.html')));
+app.get('/nosotros', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'nosotros.html')));
+app.get('/contacto', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'contacto.html')));
+
+// ── 301 redirects from legacy .html URLs ─────────────────
+app.get('/index.html',           (_req, res) => res.redirect(301, '/'));
+app.get('/pages/servicios.html', (_req, res) => res.redirect(301, '/servicios'));
+app.get('/pages/nosotros.html',  (_req, res) => res.redirect(301, '/nosotros'));
+app.get('/pages/contacto.html',  (_req, res) => res.redirect(301, '/contacto'));
+
 // ── Serve static frontend ─────────────────────────────────
 // The frontend lives one level up from this server/ directory.
-// This means a single Render Web Service handles both the site
-// and the API — no separate static site deploy needed.
+// Handles CSS, JS, images, fonts, robots.txt, sitemap.xml, etc.
 app.use(express.static(path.join(__dirname, '..')));
 
 // ── Start ─────────────────────────────────────────────────
