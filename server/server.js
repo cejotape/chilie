@@ -248,7 +248,7 @@ app.post('/api/contact', rateLimit, async (req, res) => {
         safe.mensaje,
       ].join('\n'),
       html: `
-        <h2 style="font-family:sans-serif;margin-bottom:16px">Nuevo lead — chilie.com</h2>
+        <h2 style="font-family:sans-serif;margin-bottom:16px">Nuevo lead — chilieia.com</h2>
         <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;margin-bottom:20px">
           <tr><td style="padding:6px 14px;font-weight:600;color:#555;white-space:nowrap">Nombre</td><td style="padding:6px 14px">${escHtml(safe.nombre)}</td></tr>
           <tr style="background:#f9f9f9"><td style="padding:6px 14px;font-weight:600;color:#555;white-space:nowrap">Email</td><td style="padding:6px 14px"><a href="mailto:${escHtml(safe.email)}">${escHtml(safe.email)}</a></td></tr>
