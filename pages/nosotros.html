@@ -1,128 +1,249 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilie | Inteligencia Artificial & Automatización</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Chilie IA | El Equipo Detrás de los Chatbots</title>
+  <meta name="description" content="Iñigo y Carlos, dos ingenieros en Madrid construyendo chatbots de IA a medida. Sin intermediarios ni subcontratas — hablas directamente con quien construye tu sistema.">
+  <link rel="canonical" href="https://chilie.com/pages/nosotros.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chilie.com/pages/nosotros.html">
+  <meta property="og:title" content="Nosotros — Chilie IA | El Equipo Detrás de los Chatbots">
+  <meta property="og:description" content="Iñigo y Carlos, dos ingenieros en Madrid construyendo chatbots de IA a medida. Hablas directamente con quien construye tu sistema.">
+  <meta property="og:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nosotros — Chilie IA | El Equipo Detrás de los Chatbots">
+  <meta name="twitter:description" content="Dos ingenieros en Madrid. Sin intermediarios — hablas directamente con quien construye tu chatbot de IA.">
+  <meta name="twitter:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta name="twitter:url" content="https://chilie.com/pages/nosotros.html">
+
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CHILIE<span>IA</span></div>
-        <div class="nav-links">
-            <a href="../index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="nosotros.html" class="active">Nosotros</a>
-            
-            <a href="contacto.html" class="nav-btn-link">
-                <button class="nav-btn">Empezar Proyecto</button>
-            </a>
-        </div>
-    </nav>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-    <header class="page-header">
-        <span class="badge-ia">El Equipo</span>
-        <h1>De un examen a <span>Chilie</span></h1>
-        <p>Dos ingenieros de la UFV rediseñando la eficiencia empresarial a través de la IA.</p>
-    </header>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <section class="team-section">
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="member-img" style="background-image: url('img/inigo.jpg');"></div>
-                <div class="member-info">
-                    <h3>Iñigo</h3>
-                    <span>Backend Architect</span>
-                    <p>El motor detrás de la lógica. Especialista en Node.js y gestión de bases de datos MySQL para que todo fluya sin errores.</p>
-                </div>
-            </div>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="logo">CHILIE<span>IA</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html" class="active">Nosotros</a>
+      <div class="nav-cta-wrap">
+        <a href="contacto.html" class="nav-cta">Empezar Proyecto</a>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-            <div class="team-card">
-                <div class="member-img" style="background-image: url('img/carlos.jpg');"></div>
-                <div class="member-info">
-                    <h3>Carlos</h3>
-                    <span>Frontend & UX Lead</span>
-                    <p>El ojo crítico. Encargado de que la interfaz no solo sea visualmente impactante, sino que la experiencia de usuario sea perfecta.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <header class="page-hero">
+    <span class="chip">El equipo</span>
+    <h1>De un examen a <span>Chilie</span></h1>
+    <p>Dos ingenieros de la Universidad Francisco de Vitoria que decidieron que la mejor forma de aprender era construir cosas reales para empresas reales.</p>
+  </header>
 
-    <section class="philosophy-section alt-bg">
-        <div class="container">
-            <div class="philosophy-content">
-                <h2>¿Cómo nació <span>Chilie</span>?</h2>
-                <p class="history-text">Todo empezó en las aulas de la Universidad Francisco de Vitoria. Justo antes de un examen, en lugar de repasar apuntes, nos hicimos una pregunta: <strong>"¿Y si empezamos a automatizar procesos de verdad?"</strong>. <br><br>
-                Desde ese momento, nuestra capacidad de aprendizaje rápido y nuestra coordinación nos permitieron pasar de la teoría a la práctica, conectando APIs de OpenAI y Shopify (entre otras) para crear soluciones que realmente impactan.</p>
-                
-                <div class="phi-grid">
-                    <div class="phi-item">
-                        <h4>Misión</h4>
-                        <p>Liberar a los trabajadores de tareas repetitivas para que puedan centrarse en lo que realmente aporta valor a su área.</p>
-                    </div>
-                    <div class="phi-item">
-                        <h4>Visión</h4>
-                        <p>Ser la agencia de referencia para empresas que buscan una IA integrada, no un parche externo.</p>
-                    </div>
-                    <div class="phi-item">
-                        <h4>Stack</h4>
-                        <p>Dominamos Node.js, MySQL y el despliegue profesional en Render, asegurando estabilidad total.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="main-footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">CHILIE<span>IA</span></div>
-                    <p>Especialistas en mantenimiento de ecosistemas inteligentes y automatización de alto impacto.</p>
-                </div>
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <span class="chip">Las personas detrás del código</span>
+      <h2 class="section-title fade-up">Técnicos primero.<br><em>Vendedores nunca.</em></h2>
+      <p class="section-sub fade-up">Somos dos. Eso significa que cuando hablas con Chilie, hablas con quien construye tu sistema — no con un comercial que lo subcontrata.</p>
 
-                <div class="footer-links">
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Hablemos</h4>
-                    <p>chilieagencia@gmail.com</p>
-                    <p>Madrid, España</p>
-                    <div class="footer-social">
-                        <small>Disponibles para nuevos proyectos</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
-            </div>
-        </footer>
-        
-        <div class="chat-button" onclick="toggleChat()">
-            <span>🤖</span>
+      <div class="team-grid">
+        <div class="team-card fade-up">
+          <div class="member-photo">
+            <img src="../img/inigo.jpg" alt="Iñigo — Backend Architect en Chilie IA">
+          </div>
+          <h3 class="member-name">Iñigo</h3>
+          <span class="member-role">Backend Architect</span>
+          <p class="member-bio">El motor del equipo. Diseña la arquitectura de cada chatbot — APIs, bases de datos, flujos de conversación y la lógica que hace que todo funcione sin fallos. Especialista en Node.js, OpenAI y despliegues en producción.</p>
         </div>
 
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                Asistente IA de la Agencia
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">¡Hola! Soy vuestro agente IA. ¿En qué puedo ayudarte hoy?</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
-                <button onclick="sendMessage()">➤</button>
-            </div>
+        <div class="team-card fade-up">
+          <div class="member-photo">
+            <img src="../img/carlos.jpg" alt="Carlos — Frontend & UX Lead en Chilie IA">
+          </div>
+          <h3 class="member-name">Carlos</h3>
+          <span class="member-role">Frontend &amp; UX Lead</span>
+          <p class="member-bio">El ojo crítico. Traduce las soluciones técnicas en interfaces que los usuarios entienden y disfrutan. Responsable de que cada chatbot no solo funcione, sino que convierta visitas en clientes.</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <script src="../script.js"></script>
-    </body>
+  <!-- Why us -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="chip">Por qué trabajar con nosotros</span>
+      <h2 class="section-title fade-up">Pequeños en tamaño.<br><em>Grandes en foco.</em></h2>
+      <p class="section-sub fade-up">Elegimos no crecer más rápido de lo que podemos mantener la calidad. Cada cliente recibe atención directa del equipo que construye su sistema.</p>
+
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 5l13 7.5v15L20 35 7 27.5v-15L20 5z"/><path d="M20 12v16M13 15.5l7 4.5 7-4.5"/>
+          </svg>
+          <h4>Transparencia total</h4>
+          <p>Te decimos exactamente qué vamos a construir, cuánto va a costar y qué puede fallar. Sin sorpresas. Sin letra pequeña.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="13"/><path d="M20 13v7l5 3"/>
+          </svg>
+          <h4>Velocidad real</h4>
+          <p>Entregamos en 7-10 días hábiles porque tenemos el proceso refinado. No meses de metodologías ágiles que en realidad son todo reuniones.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 32l9-9 6 6L32 14"/><circle cx="33" cy="12" r="3.5"/>
+          </svg>
+          <h4>Resultados medibles</h4>
+          <p>Definimos las métricas antes de empezar. Tickets reducidos, leads cualificados, horas ahorradas. Si no lo podemos medir, no te lo vendemos.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 20h20M10 13h20M10 27h14"/><circle cx="31" cy="27" r="4"/><path d="M31 24v3h3"/>
+          </svg>
+          <h4>Soporte real</h4>
+          <p>Te respondemos. No un chatbot, no un equipo de nivel 1. Directamente Iñigo o Carlos, en menos de 24 horas.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="8" width="10" height="10" rx="2"/><rect x="22" y="8" width="10" height="10" rx="2"/><rect x="8" y="22" width="10" height="10" rx="2"/><path d="M27 22v10M22 27h10"/>
+          </svg>
+          <h4>Stack moderno</h4>
+          <p>Node.js, GPT-4o, n8n, WhatsApp Business API, Supabase, Pinecone. Las herramientas que las empresas más avanzadas del mundo usan hoy.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 8C13.37 8 8 13.37 8 20s5.37 12 12 12 12-5.37 12-12"/><path d="M26 8l6 6-6 6"/>
+          </svg>
+          <h4>Evolución continua</h4>
+          <p>Los modelos de IA mejoran cada mes. Nos encargamos de que tu chatbot evolucione con ellos sin que tengas que hacer nada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section section--compact-bottom">
+    <div class="container">
+      <span class="chip chip--center">La historia</span>
+      <h2 class="section-title fade-up">¿Cómo nació <em>Chilie</em>?</h2>
+
+      <p class="history-text fade-up">
+        Todo empezó en las aulas de la Universidad Francisco de Vitoria. Justo antes de un examen, en lugar de repasar apuntes, nos hicimos una pregunta: <strong>"¿Y si empezamos a construir chatbots de verdad?"</strong>
+        <br><br>
+        Esa noche conectamos por primera vez la API de OpenAI con un sistema de reservas para una clínica. Funcionó. Y algo hizo clic.
+        <br><br>
+        Desde ese momento pasamos de la teoría a la práctica: clientes reales, problemas reales, soluciones reales. Un chatbot de atención al cliente aquí, un sistema de cualificación de leads allá, una integración de WhatsApp Business más allá. Cada proyecto nos enseñó algo que el siguiente aprovechó.
+        <br><br>
+        Hoy Chilie existe para que otras empresas no tengan que descubrir por su cuenta lo que nosotros ya sabemos. <strong>Para que tu equipo deje de perder tiempo respondiendo siempre las mismas preguntas.</strong>
+      </p>
+
+      <div class="phi-grid">
+        <div class="phi-item fade-up">
+          <div class="phi-label">Misión</div>
+          <p>Liberar a los equipos de tareas conversacionales repetitivas para que puedan centrarse en el trabajo que requiere criterio humano, creatividad y relaciones.</p>
+        </div>
+        <div class="phi-item fade-up">
+          <div class="phi-label">Visión</div>
+          <p>Ser la agencia de referencia para empresas españolas que quieren chatbots de IA integrados en su operativa — no como un parche externo, sino como parte del tejido de su negocio.</p>
+        </div>
+        <div class="phi-item fade-up">
+          <div class="phi-label">Stack</div>
+          <p>Node.js · OpenAI GPT-4o · n8n · WhatsApp Business API · Supabase · MySQL · Pinecone · Render · Railway · Stripe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-block">
+    <div class="cta-inner">
+      <span class="chip">Trabaja con nosotros</span>
+      <h2 class="fade-up">¿Quieres que seamos<br><em>tu equipo de IA?</em></h2>
+      <p class="fade-up">Somos directos, técnicos y sabemos exactamente lo que hacemos. Si tienes un problema que automatizar, hablemos.</p>
+      <div class="cta-btns fade-up">
+        <a href="contacto.html" class="btn btn-primary">
+          Empezar proyecto
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="servicios.html" class="btn btn-ghost">Ver qué construimos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">CHILIE<span>IA</span></span>
+        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
+        <p>Madrid, España</p>
+        <span class="available">Disponibles para nuevos proyectos</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+      <p>chilieagencia@gmail.com · Madrid, España</p>
+    </div>
+  </footer>
+
+  <!-- Chat -->
+  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
+    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-info">
+        <div class="chat-name">Asistente Chilie IA</div>
+        <div class="chat-status">En línea · responde al instante</div>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
+    <div class="chat-quick-replies" id="quickReplies"></div>
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button class="chat-send" id="chatSend">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../script.js"></script>
+</body>
 </html>

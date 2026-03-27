@@ -1,0 +1,20 @@
+# Dependencies
+server/node_modules/
+
+# Environment variables — NEVER commit these
+server/.env
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Build artifacts / logs
+*.log
+npm-debug.log*

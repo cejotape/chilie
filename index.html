@@ -1,154 +1,497 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilie | Inteligencia Artificial & Automatización</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chilie IA — Chatbots de IA a medida para empresas</title>
+  <meta name="description" content="Diseñamos e implementamos chatbots de inteligencia artificial que atienden a tus clientes, cualifican leads y automatizan tu operativa. Sin precios fijos — cada solución es a medida.">
+  <link rel="canonical" href="https://chilie.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chilie.com/">
+  <meta property="og:title" content="Chilie IA — Chatbots de IA a medida para empresas">
+  <meta property="og:description" content="Diseñamos e implementamos chatbots de inteligencia artificial que atienden a tus clientes, cualifican leads y automatizan tu operativa.">
+  <meta property="og:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chilie IA — Chatbots de IA a medida para empresas">
+  <meta name="twitter:description" content="Diseñamos e implementamos chatbots de IA a medida que atienden a tus clientes 24/7.">
+  <meta name="twitter:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta name="twitter:url" content="https://chilie.com/">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CHILIE<span>IA</span></div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="pages/servicios.html">Servicios</a>
-            <a href="pages/nosotros.html">Nosotros</a>
-            
-            <a href="pages/contacto.html" class="nav-btn-link">
-                <button class="nav-btn">Empezar Proyecto</button>
-            </a>
-        </div>
-    </nav>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-    <section class="hero-agency">
-        <div class="hero-visual" style="background-image: url('img/fondo.png');"></div>
-        <div class="hero-overlay"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-        <div class="hero-content">
-            <span class="badge-ia">Agencia de Automatización</span>
-            <h1 class="hero-title">IA que escala <br><span>tu negocio.</span></h1>
-            <p class="hero-subtitle">Convertimos procesos complejos en flujos automáticos y <br> visitantes en clientes con agentes inteligentes.</p>
-            
-            <div class="cta-group">
-                <button class="btn-ia" onclick="toggleChat()">Probar Demo</button>
-                <a href="#servicios" class="nav-btn-outline">Ver Servicios</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="servicios">
-        <div class="section-header">
-            <span class="pre-title">Nuestra Experiencia</span>
-            <h2>Soluciones de <span>Próxima Generación</span></h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="services-gallery">
-            <div class="agency-card">
-                <div class="service-img" style="background-image: url('img/chatbots.png');"></div>
-                <div class="service-info">
-                    <h3>Chatbots con IA</h3>
-                    <p>Soporte técnico y optimización continua para que tus agentes inteligentes funcionen siempre con la máxima precisión.</p>
-                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
-                </div>
-            </div>
-
-            <div class="agency-card">
-                <div class="service-img" style="background-image: url('img/automation.png');"></div>
-                <div class="service-info">
-                    <h3>Automatización</h3>
-                    <p>Sincronizamos tus apps favoritas para que tu negocio funcione solo.</p>
-                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
-                </div>
-            </div>
-
-            <div class="agency-card">
-                <div class="service-img" style="background-image: url('img/dev.png');"></div>
-                <div class="service-info">
-                    <h3>Webs de Alto Impacto</h3>
-                    <p>Diseño futurista optimizado para la conversión y la velocidad.</p>
-                    <button class="service-btn-mini" onclick="toggleChat()">Ver más</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="nosotros">
-        <div class="section-header">
-            <span class="badge-ia">Diferencial</span>
-            <h2>IA Humana, <span>Resultados Reales</span></h2>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="feature-icon">🚀</span>
-                <h4>Escalabilidad</h4>
-                <p>Sistemas diseñados para crecer con tu empresa sin aumentar costes operativos.</p>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">🛡️</span>
-                <h4>Seguridad</h4>
-                <p>Protección de datos y privacidad en cada flujo de información que creamos.</p>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">💎</span>
-                <h4>Mantenimiento Elite</h4>
-                <p>No te entregamos un bot y nos vamos. Supervisamos su evolución mes a mes.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo">CHILIE<span>IA</span></div>
-                <p>Especialistas en mantenimiento de ecosistemas inteligentes y automatización de alto impacto.</p>
-            </div>
-
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="pages/servicios.html">Servicios</a></li>
-                    <li><a href="pages/nosotros.html">Nosotros</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Hablemos</h4>
-                <p>chilieagencia@gmail.com</p>
-                <p>Madrid, España</p>
-                <div class="footer-social">
-                    <small>Disponibles para nuevos proyectos</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <div class="chat-button" onclick="toggleChat()">
-        <span>🤖</span>
+  <!-- ── Navigation ────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">CHILIE<span>IA</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="pages/servicios.html">Servicios</a>
+      <a href="pages/nosotros.html">Nosotros</a>
+      <div class="nav-cta-wrap">
+        <a href="pages/contacto.html" class="nav-cta">Empezar Proyecto</a>
+      </div>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            Asistente IA de la Agencia
-        </div>
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">¡Hola! Soy vuestro agente IA. ¿En qué puedo ayudarte hoy?</div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
-            <button onclick="sendMessage()">➤</button>
-        </div>
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        Disponibles para nuevos proyectos
+      </div>
+      <h1 class="hero-title fade-up">
+        Tu empresa siempre<br>
+        disponible. <em>Siempre</em><br>
+        respondiendo.
+      </h1>
+      <p class="hero-sub fade-up">Construimos chatbots de IA a medida que atienden consultas, cualifican leads y mueven clientes por tu embudo — las 24 horas, los 7 días.</p>
+      <div class="hero-cta fade-up">
+        <a href="pages/contacto.html" class="btn btn-primary">
+          Cuéntanos tu caso
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="pages/servicios.html" class="btn btn-ghost">Ver qué construimos</a>
+      </div>
     </div>
+    <div class="hero-scroll">
+      <div class="scroll-bar"></div>
+      Scroll
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- ── Ticker ────────────────────────────────────────── -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Atención al cliente 24/7<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Cualificación de leads<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Chatbot para WhatsApp<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Integración con CRM<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Reservas y citas<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Soporte técnico automatizado<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">e-Commerce &amp; post-venta<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Node.js · OpenAI · n8n<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Atención al cliente 24/7<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Cualificación de leads<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Chatbot para WhatsApp<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Integración con CRM<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Reservas y citas<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Soporte técnico automatizado<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">e-Commerce &amp; post-venta<span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Node.js · OpenAI · n8n<span class="ticker-sep">✦</span></span>
+    </div>
+  </div>
 
+  <!-- ── Statement ─────────────────────────────────────── -->
+  <section class="statement">
+    <div class="statement-inner">
+      <p class="statement-text fade-up">
+        Tu equipo responde los mismos 20 emails al día. Atiende las mismas 15 preguntas de soporte. Cualifica los mismos leads de siempre. <strong>Todo eso lo puede hacer una máquina, mejor y más rápido.</strong> <em>Nosotros la construimos.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Pillars ────────────────────────────────────────── -->
+  <section class="section" id="pillars">
+    <div class="container">
+      <span class="chip">Lo que hace tu chatbot</span>
+      <h2 class="section-title fade-up">Un sistema que trabaja<br><em>mientras tú duermes.</em></h2>
+      <p class="section-sub fade-up">No es un FAQ interactivo. Es un agente conversacional que entiende contexto, tiene memoria y sabe exactamente cuándo pasar el lead a un humano.</p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card fade-up">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 8C14.27 8 8 14.27 8 22v8l4 4h20l4-4v-8C36 14.27 29.73 8 22 8z"/>
+            <path d="M16 22h12M16 27h8"/>
+          </svg>
+          <div class="pillar-num">01</div>
+          <h3>Atención al cliente</h3>
+          <p>Responde consultas, resuelve dudas frecuentes y gestiona incidencias sin intervención humana. Tu cliente obtiene respuesta en segundos, no en horas.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="22" cy="15" r="6"/>
+            <path d="M10 37c0-6.63 5.37-12 12-12s12 5.37 12 12"/>
+            <path d="M32 10l4 4-4 4"/>
+          </svg>
+          <div class="pillar-num">02</div>
+          <h3>Cualificación de leads</h3>
+          <p>Hace las preguntas correctas, detecta intención de compra y entrega a tu equipo de ventas sólo los prospectos que valen la pena — ya calentados.</p>
+        </div>
+        <div class="pillar-card fade-up">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="8" width="28" height="28" rx="4"/>
+            <path d="M15 22h14M15 16h14M15 28h8"/>
+          </svg>
+          <div class="pillar-num">03</div>
+          <h3>Flujos de venta</h3>
+          <p>Guía al usuario desde el interés hasta la conversión: recoge datos, propone productos, cierra citas y conecta con tu CRM o pasarela de pago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Process ────────────────────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="chip">Cómo lo construimos</span>
+      <h2 class="section-title fade-up">De la primera llamada al chatbot<br><em>en producción.</em></h2>
+      <p class="section-sub fade-up">Proceso limpio, sin reuniones infinitas. Definimos el alcance, construimos, testeamos contigo y desplegamos.</p>
+
+      <div class="process-grid">
+        <div class="process-card fade-up">
+          <div class="process-num">01</div>
+          <h3>Briefing y arquitectura</h3>
+          <p>En una llamada de 45 minutos entendemos tu negocio, tus procesos actuales y qué resultado quieres medir. A las 24 horas tienes una propuesta de arquitectura y presupuesto personalizado.</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-num">02</div>
+          <h3>Diseño conversacional</h3>
+          <p>Mapeamos los flujos de conversación, los casos de uso principales y los puntos de escalado humano. El chatbot tiene una personalidad definida y alineada con tu marca.</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-num">03</div>
+          <h3>Desarrollo e integración</h3>
+          <p>Construimos el backend en Node.js, lo conectamos con OpenAI y lo integramos en tu web, WhatsApp, o donde necesites. CRM, base de datos, email — todo conectado.</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-num">04</div>
+          <h3>Testing, ajuste y entrega</h3>
+          <p>Probamos contigo con escenarios reales. Ajustamos tono, lógica y flujos. Desplegamos en producción y te dejamos el sistema documentado. Soporte post-lanzamiento incluido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Industries ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <span class="chip">Por sector</span>
+      <h2 class="section-title fade-up">Un chatbot para <em>cada tipo</em><br>de negocio.</h2>
+      <p class="section-sub fade-up">La IA conversacional no es tecnología del futuro — es una ventaja competitiva que las empresas más inteligentes ya están usando hoy.</p>
+
+      <div class="industry-grid">
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4>Clínicas y salud</h4>
+          <p>Gestión de citas, recordatorios automáticos, pre-anamnesis y filtrado de urgencias. Reduce el 60% de llamadas de administración.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <h4>E-commerce</h4>
+          <p>Estado de pedidos, cambios y devoluciones, recomendaciones de producto y recuperación de carritos abandonados.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
+          </div>
+          <h4>Hostelería y turismo</h4>
+          <p>Check-in virtual, reservas, info de servicios y upselling automatizado. Disponible en el idioma del huésped.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Inmobiliarias</h4>
+          <p>Cualificación de compradores, agenda de visitas, comparativa de inmuebles y seguimiento automático de leads fríos.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v4M10 14h4"/></svg>
+          </div>
+          <h4>Despachos y asesorías</h4>
+          <p>Primera consulta automatizada, recogida de documentación e intake de nuevos clientes sin saturar a tu equipo.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h4>Formación y educación</h4>
+          <p>Orientación de oferta formativa, proceso de matrícula guiado y soporte de alumnos en tiempo real.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h4>Servicios técnicos</h4>
+          <p>Diagnóstico de primer nivel, apertura de tickets, asignación de técnicos y seguimiento de incidencias.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <h4>SaaS y tecnología</h4>
+          <p>Onboarding de usuarios, soporte técnico de nivel 1, gestión de renovaciones y detección de churn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Comparison ─────────────────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="chip">Por qué Chilie</span>
+      <h2 class="section-title fade-up">La diferencia entre un chatbot<br><em>genérico y uno que convierte.</em></h2>
+      <p class="section-sub fade-up">Hay cientos de herramientas no-code para hacer un chatbot básico. Lo que nosotros construimos es fundamentalmente diferente.</p>
+
+      <div class="comparison-block">
+        <div class="comparison-col">
+          <span class="comparison-label">Chatbot genérico</span>
+          <h3>Herramientas de plantilla</h3>
+          <ul class="comparison-list">
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Respuestas rígidas por árbol de decisión</li>
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> No entiende contexto ni sinónimos</li>
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Integración limitada con tu stack</li>
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Personalización superficial de marca</li>
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Sin capacidad de aprender de conversaciones</li>
+            <li><span class="ico-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Soporte por ticket, respuesta en días</li>
+          </ul>
+        </div>
+        <div class="comparison-col highlighted">
+          <span class="comparison-label">Chilie IA</span>
+          <h3>Sistema a medida</h3>
+          <ul class="comparison-list">
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Conversación natural con memoria de contexto</li>
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Entiende intención, no solo palabras clave</li>
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Integrado con tu CRM, base de datos y herramientas</li>
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Voz, tono y personalidad de tu marca</li>
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Mejora con cada conversación real</li>
+            <li><span class="ico-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Iñigo o Carlos al teléfono cuando lo necesitas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ──────────────────────────────────────────── -->
+  <div class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num"><span class="count-val" data-count="24">0</span><span class="accent">h</span></div>
+          <div class="stat-label">Propuesta en menos de 24 horas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="count-val" data-count="80">0</span><span class="accent">%</span></div>
+          <div class="stat-label">Reducción media de tickets de soporte</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="count-val" data-count="10">0</span><span class="accent"> días</span></div>
+          <div class="stat-label">De briefing a chatbot en producción</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="count-val" data-count="7">0</span><span class="accent">/7</span></div>
+          <div class="stat-label">Tu negocio disponible sin descanso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Testimonials ──────────────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="chip">Resultados reales</span>
+      <h2 class="section-title fade-up">Lo que dicen<br><em>los que ya lo usan.</em></h2>
+      <p class="section-sub fade-up">Casos reales, nombres anónimos. Así es como trabajamos.</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="testimonial-text">Antes gestionábamos más de 40 llamadas diarias solo para citas y consultas básicas. Ahora el chatbot resuelve el 75% sin que nuestro equipo tenga que intervenir. El tiempo liberado ha sido enorme.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Directora de Operaciones</div>
+            <div class="testimonial-sector">Clínica dental · Sevilla</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="testimonial-text">Recuperamos un 14% más de carritos abandonados en los primeros 60 días. El sistema se pagó solo en la primera semana. No esperábamos resultados tan rápidos ni tan medibles.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">CEO</div>
+            <div class="testimonial-sector">Tienda de cosmética natural · Madrid</div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="testimonial-text">Gestionábamos 300 leads al mes y no podíamos calificarlos todos. Ahora nuestro equipo comercial solo habla con quienes tienen intención real de compra. La tasa de cierre se ha más que duplicado.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Director Comercial</div>
+            <div class="testimonial-sector">Academia de formación online · Barcelona</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ──────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <span class="chip">Capacidades técnicas</span>
+      <h2 class="section-title fade-up">Construido con el stack que<br><em>usan los mejores.</em></h2>
+      <p class="section-sub fade-up">Cada componente elegido por su rendimiento, fiabilidad y capacidad de escalar con tu negocio.</p>
+
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="19" cy="19" r="11"/>
+            <path d="M13 15c0-3.31 2.69-6 6-6s6 2.69 6 6c0 4-6 10-6 10s-6-6-6-10z"/>
+          </svg>
+          <h4>Comprensión del lenguaje natural</h4>
+          <p>GPT-4o interpreta lo que el usuario quiere decir, no solo lo que escribe. Maneja ambigüedad, sinónimos y cambios de tema sin romperse.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 19h22M8 13h22M8 25h14"/>
+            <circle cx="28" cy="25" r="4"/>
+            <path d="M28 22v3h3"/>
+          </svg>
+          <h4>Memoria y contexto de sesión</h4>
+          <p>El chatbot recuerda lo que el usuario dijo hace 10 mensajes. No tienes que repetirte — él mantiene el hilo de la conversación.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="7" width="10" height="10" rx="2"/>
+            <rect x="21" y="7" width="10" height="10" rx="2"/>
+            <rect x="7" y="21" width="10" height="10" rx="2"/>
+            <path d="M26 21v10M21 26h10"/>
+          </svg>
+          <h4>Integración total con tu stack</h4>
+          <p>Conectamos el chatbot con tu CRM, base de datos, Zapier, n8n o cualquier API. Los datos fluyen donde tienen que fluir, sin fricciones.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 7l12 6.5v13L19 33 7 26.5v-13L19 7z"/>
+            <path d="M19 14v12M13 16.5l6 3.5 6-3.5"/>
+          </svg>
+          <h4>Multi-canal desde el día 1</h4>
+          <p>Web, WhatsApp Business, Instagram DMs, Telegram — el mismo sistema, todos los canales. El usuario elige, tú lo atiendes.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 29l8-8 5 5L29 12"/>
+            <circle cx="30" cy="10" r="3.5"/>
+          </svg>
+          <h4>Dashboard de métricas</h4>
+          <p>Conversaciones totales, tasa de resolución, puntos de abandono, leads generados. Sabes exactamente qué hace tu chatbot y qué tan bien lo hace.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 7C11.82 7 6 12.82 6 20s5.82 13 13 13 13-5.82 13-13"/>
+            <path d="M25 7l6 6-6 6"/>
+          </svg>
+          <h4>Evolución continua</h4>
+          <p>Los modelos de IA mejoran cada mes. Nos encargamos de que tu chatbot mejore con ellos — sin coste adicional y sin que tengas que hacer nada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ─────────────────────────────────────────── -->
+  <section class="cta-block">
+    <div class="cta-inner">
+      <span class="chip">Empieza aquí</span>
+      <h2 class="fade-up">¿Listo para que tu negocio<br><em>nunca deje de responder?</em></h2>
+      <p class="fade-up">Cuéntanos qué hace tu equipo manualmente hoy. En menos de 24 horas te decimos qué se puede automatizar y cómo.</p>
+      <div class="cta-btns fade-up">
+        <a href="pages/contacto.html" class="btn btn-primary">
+          Pedir propuesta gratuita
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="pages/servicios.html" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">CHILIE<span>IA</span></span>
+        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/servicios.html">Servicios</a></li>
+          <li><a href="pages/nosotros.html">Nosotros</a></li>
+          <li><a href="pages/contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
+        <p>Madrid, España</p>
+        <span class="available">Disponibles para nuevos proyectos</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+      <p>chilieagencia@gmail.com · Madrid, España</p>
+    </div>
+  </footer>
+
+  <!-- ── Chat widget ─────────────────────────────────── -->
+  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
+    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-info">
+        <div class="chat-name">Asistente Chilie IA</div>
+        <div class="chat-status">En línea · responde al instante</div>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
+    <div class="chat-quick-replies" id="quickReplies"></div>
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button class="chat-send" id="chatSend">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

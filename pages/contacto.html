@@ -1,130 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilie | Inteligencia Artificial & Automatización</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Chilie IA | Pide tu Propuesta Gratuita</title>
+  <meta name="description" content="Cuéntanos qué proceso quieres automatizar. Te preparamos una propuesta de arquitectura y presupuesto personalizado en menos de 24 horas. Sin compromiso.">
+  <link rel="canonical" href="https://chilie.com/pages/contacto.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chilie.com/pages/contacto.html">
+  <meta property="og:title" content="Contacto — Chilie IA | Pide tu Propuesta Gratuita">
+  <meta property="og:description" content="Cuéntanos qué proceso quieres automatizar. Te preparamos una propuesta de arquitectura y presupuesto personalizado en menos de 24 horas.">
+  <meta property="og:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contacto — Chilie IA | Pide tu Propuesta Gratuita">
+  <meta name="twitter:description" content="Cuéntanos qué proceso quieres automatizar. Propuesta de arquitectura y presupuesto personalizado en menos de 24 horas.">
+  <meta name="twitter:image" content="https://chilie.com/img/og-cover.jpg">
+  <meta name="twitter:url" content="https://chilie.com/pages/contacto.html">
+
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">CHILIE<span>IA</span></div>
-        <div class="nav-links">
-            <a href="../index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html" class="nav-btn-link">
-                <button class="nav-btn">Empezar Proyecto</button>
-            </a>
-        </div>
-    </nav>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-    <header class="page-header">
-        <span class="badge-ia">Briefing</span>
-        <h1>Hablemos de tu <span>Proyecto</span></h1>
-        <p>Cuéntanos qué proceso quieres automatizar y nuestro equipo te propondrá la mejor arquitectura.</p>
-    </header>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <form class="contact-form" id="contactForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" id="nombre" placeholder="Ej: Iñigo García">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Corporativo</label>
-                        <input type="email" id="email" placeholder="nombre@empresa.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Empresa / Sector</label>
-                        <input type="text" id="empresa" placeholder="Ej: Ecommerce / Salud">
-                    </div>
-                    <div class="form-group">
-                        <label>Prioridad del Proyecto</label>
-                        <select id="prioridad">
-                            <option value="" disabled selected>Selecciona una opción</option>
-                            <option value="inmediata">Lo necesito para ayer (Urgente)</option>
-                            <option value="proxima">Próximas semanas</option>
-                            <option value="explorando">Solo estoy explorando opciones</option>
-                            <option value="mantenimiento">Tengo algo y quiero mejorarlo</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>¿Qué proceso quieres liberar de carga?</label>
-                    <textarea id="mensaje" rows="5" placeholder="Cuéntanos brevemente qué tareas repetitivas quieres automatizar con IA..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-ia">Enviar Propuesta</button>
-                <div id="formFeedback" style="margin-top: 15px; font-size: 0.9rem;"></div>
-            </form>
-
-            <div class="contact-info-sidebar">
-                <div class="info-item">
-                    <h4>Email</h4>
-                    <p>chilieagencia@gmail.com</p>
-                </div>
-                <div class="info-item">
-                    <h4>Ubicación</h4>
-                    <p>Madrid, España</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo">CHILIE<span>IA</span></div>
-                <p>Especialistas en mantenimiento de ecosistemas inteligentes y automatización de alto impacto.</p>
-            </div>
-
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Hablemos</h4>
-                <p>chilieagencia@gmail.com</p>
-                <p>Madrid, España</p>
-                <div class="footer-social">
-                    <small>Disponibles para nuevos proyectos</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    
-    <div class="chat-button" onclick="toggleChat()">
-        <span>🤖</span>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="logo">CHILIE<span>IA</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <div class="nav-cta-wrap">
+        <a href="contacto.html" class="nav-cta nav-cta--active">Empezar Proyecto</a>
+      </div>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            Asistente IA de la Agencia
+  <header class="page-hero">
+    <span class="chip">Briefing</span>
+    <h1>Hablemos de tu <span>Proyecto</span></h1>
+    <p>No necesitas tenerlo todo claro. Cuéntanos el problema — nosotros te proponemos la arquitectura ideal y te decimos cuánto cuesta.</p>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-wrap">
+
+      <!-- Form -->
+      <form class="contact-form-box fade-up" id="contactForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre Completo<span class="req">*</span></label>
+            <input type="text" id="nombre" placeholder="Ej: María García" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email de Contacto<span class="req">*</span></label>
+            <input type="email" id="email" placeholder="maria@empresa.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa / Sector</label>
+            <input type="text" id="empresa" placeholder="Ej: Clínica dental / E-commerce / Consultoría">
+          </div>
+          <div class="form-group">
+            <label for="presupuesto">Presupuesto Aproximado</label>
+            <select id="presupuesto">
+              <option value="" disabled selected>Selecciona un rango</option>
+              <option value="menos-1k">Menos de 1.000€</option>
+              <option value="1k-3k">Entre 1.000€ y 3.000€</option>
+              <option value="3k-10k">Entre 3.000€ y 10.000€</option>
+              <option value="mas-10k">Más de 10.000€</option>
+              <option value="no-se">No lo sé todavía</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prioridad">Urgencia del Proyecto</label>
+            <select id="prioridad">
+              <option value="" disabled selected>¿Cuándo lo necesitas?</option>
+              <option value="urgente">Lo necesito para ayer</option>
+              <option value="proximas-semanas">En las próximas semanas</option>
+              <option value="explorando">Solo estoy explorando opciones</option>
+              <option value="mejorar">Tengo algo y quiero mejorarlo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="como">¿Cómo nos has conocido?</label>
+            <select id="como">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="google">Búsqueda en Google</option>
+              <option value="recomendacion">Por recomendación</option>
+              <option value="redes">Redes sociales</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
         </div>
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">¡Hola! Soy vuestro agente IA. ¿En qué puedo ayudarte hoy?</div>
+
+        <div class="form-group full form-group--flush">
+          <label for="mensaje">¿Qué proceso quieres automatizar?<span class="req">*</span></label>
+          <textarea id="mensaje" rows="5" placeholder="Cuéntanos qué hace tu equipo manualmente hoy que le consume tiempo: gestión de leads, atención al cliente, reservas, soporte técnico, envío de emails... No hace falta que sea técnico — con el problema es suficiente." required></textarea>
         </div>
-        <div class="chat-input-area">
-            <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
-            <button onclick="sendMessage()">➤</button>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            Quiero mi propuesta gratuita
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
+        <div id="formFeedback"></div>
+      </form>
+
+      <!-- Sidebar -->
+      <div class="contact-sidebar fade-up">
+
+        <div class="sidebar-item">
+          <div class="si-label">Email</div>
+          <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
+        </div>
+        
+        <div class="sidebar-item">
+          <div class="si-label">Ubicación</div>
+          <p>Madrid, España<br>Disponibles para proyectos remotos en toda España y LATAM</p>
+        </div>
+
+        <div class="sidebar-item">
+          <div class="si-label">Estado</div>
+          <span class="available">Disponibles para nuevos proyectos</span>
+        </div>
+
+        <div class="sidebar-item">
+          <div class="si-label">Tiempo de Respuesta</div>
+          <p>Menos de 24 horas.<br>Si es urgente, escríbenos directamente al email.</p>
+        </div>
+
+        <div class="sidebar-note">
+          <div class="si-label">¿No sabes qué necesitas exactamente?</div>
+          <p>No pasa nada. Cuéntanos el problema en palabras tuyas — cuántas personas están implicadas, cuánto tiempo les consume y qué herramientas usáis ya. Nosotros te decimos qué se puede automatizar, con qué chatbot y cuánto costaría.</p>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <script src="../script.js"></script>
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">CHILIE<span>IA</span></span>
+        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
+        <p>Madrid, España</p>
+        <span class="available">Disponibles para nuevos proyectos</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+      <p>chilieagencia@gmail.com · Madrid, España</p>
+    </div>
+  </footer>
+
+  <!-- Chat -->
+  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
+    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-info">
+        <div class="chat-name">Asistente Chilie IA</div>
+        <div class="chat-status">En línea · responde al instante</div>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
+    <div class="chat-quick-replies" id="quickReplies"></div>
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="¿Tienes dudas antes de enviar el formulario?" autocomplete="off">
+      <button class="chat-send" id="chatSend">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
