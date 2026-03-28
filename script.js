@@ -549,6 +549,32 @@ if (chatToggle && chatWindow) {
     });
   }
 
+  // ── Calendly popup ─────────────────────────────────────
+  function openCalendlyPopup(name, email) {
+    const url = 'https://calendly.com/chilieagencia/30min'
+      + '?name=' + encodeURIComponent(name)
+      + '&email=' + encodeURIComponent(email);
+
+    function launch() {
+      Calendly.initPopupWidget({ url });
+    }
+
+    if (typeof Calendly !== 'undefined') {
+      launch();
+    } else {
+      if (!document.querySelector('link[href*="calendly"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(link);
+      }
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.onload = launch;
+      document.head.appendChild(script);
+    }
+  }
+
   // Local actions that don't need API (navigation shortcuts)
   function handleLocalAction(label) {
     if (label === 'Ir al formulario de contacto') {
@@ -595,15 +621,25 @@ if (chatToggle && chatWindow) {
 
       const data  = await res.json();
       const reply = data.reply || 'No he recibido respuesta del servidor.';
-      addMessage(reply);
-      history.push({ role: 'assistant', content: reply });
+
+      // Check for Calendly booking marker
+      const bookMatch = reply.match(/\[BOOK_CALL:name=([^,\]]+),email=([^\]]+)\]/);
+      if (bookMatch) {
+        const cleanReply = reply.replace(/\[BOOK_CALL:[^\]]+\]/, '').trim();
+        addMessage(cleanReply || 'Perfecto, ahora puedes elegir el horario que mejor te venga.');
+        history.push({ role: 'assistant', content: reply });
+        openCalendlyPopup(bookMatch[1].trim(), bookMatch[2].trim());
+      } else {
+        addMessage(reply);
+        history.push({ role: 'assistant', content: reply });
+      }
 
       // After first exchange, suggest follow-up topics
       if (history.length === 2) {
         setTimeout(() => setQuickReplies([
           '¿Cómo se calcula el presupuesto?',
           '¿Cuánto tiempo tarda en estar listo?',
-          'Quiero una propuesta para mi negocio',
+          'Quiero reservar una llamada',
         ]), 500);
       }
 
@@ -630,8 +666,8 @@ if (chatToggle && chatWindow) {
 
     addMessage('¡Hola! Soy el asistente de Chilie IA.\n\nEstoy aquí para ayudarte a entender qué tipo de chatbot o automatización encajaría mejor con tu negocio. ¿Con qué puedo ayudarte?');
     setTimeout(() => setQuickReplies([
+      'Quiero reservar una llamada',
       '¿Qué tipo de chatbot necesito?',
-      'Tengo una clínica o consulta médica',
       'Tengo una tienda online',
       'Quiero automatizar la atención al cliente',
     ]), 350);
