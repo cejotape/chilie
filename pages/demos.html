@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos — Chilie IA | Chatbots de IA en Acción</title>
+  <meta name="description" content="Prueba en vivo chatbots de IA a medida para clínicas, gimnasios, restaurantes, e-commerce y más. Respuestas inteligentes, personalizadas y reales para cada sector.">
+  <link rel="canonical" href="https://chiliecia.com/demos">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chiliecia.com/demos">
+  <meta property="og:title" content="Demos — Chilie IA | Chatbots de IA en Acción">
+  <meta property="og:description" content="Prueba en vivo chatbots de IA para 10 sectores distintos. Respuestas inteligentes y personalizadas, no respuestas pregrabadas.">
+  <meta property="og:image" content="https://chiliecia.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demos — Chilie IA | Chatbots de IA en Acción">
+  <meta name="twitter:description" content="Prueba chatbots de IA reales para tu sector. Sin respuestas pregrabadas — inteligencia real.">
+  <meta name="twitter:image" content="https://chiliecia.com/img/og-cover.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css">
+
+  <style>
+    /* ── Demo page layout ──────────────────────────────── */
+    .demo-grid {
+      display: grid;
+      gap: 80px;
+      padding: 60px 0;
+    }
+
+    .demo-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .demo-block:nth-child(even) .demo-info     { order: 2; }
+    .demo-block:nth-child(even) .demo-chat-wrap { order: 1; }
+
+    /* ── Info panel ─────────────────────────────────────── */
+    .demo-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
+    }
+
+    .demo-sector-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5B5EF5;
+      padding: 5px 14px;
+      border: 1px solid rgba(91,94,245,.3);
+      border-radius: 100px;
+      background: rgba(91,94,245,.08);
+      width: fit-content;
+    }
+
+    .demo-info h2 {
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #EEF0F8;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .demo-info h2 em {
+      font-style: normal;
+      color: #5B5EF5;
+    }
+
+    .demo-info > p {
+      color: #838AA8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .demo-metrics {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-top: 4px;
+    }
+
+    .demo-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .demo-metric strong {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #5B5EF5;
+      font-family: 'DM Mono', monospace;
+      line-height: 1;
+    }
+
+    .demo-metric span {
+      font-size: 0.71rem;
+      color: #3A4060;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      max-width: 130px;
+      line-height: 1.35;
+    }
+
+    /* ── Chat card ──────────────────────────────────────── */
+    .demo-chat-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      background: #0C0F1C;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+      box-shadow:
+        0 0 0 1px rgba(91,94,245,.12),
+        0 20px 60px rgba(0,0,0,.55);
+    }
+
+    .demo-chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: #111425;
+      flex-shrink: 0;
+    }
+
+    .demo-chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5B5EF5 0%, #8B5CF6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #fff;
+      flex-shrink: 0;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .demo-chat-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #EEF0F8;
+      line-height: 1.25;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .demo-chat-subtitle {
+      font-size: 0.71rem;
+      color: #838AA8;
+      margin-top: 1px;
+    }
+
+    .demo-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      margin-left: auto;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.15);
+    }
+
+    .demo-chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+      background: #080B13;
+    }
+
+    .demo-chat-body::-webkit-scrollbar { width: 3px; }
+    .demo-chat-body::-webkit-scrollbar-track { background: transparent; }
+    .demo-chat-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 4px; }
+
+    .dc-msg {
+      display: flex;
+      align-items: flex-end;
+      max-width: 84%;
+    }
+
+    .dc-msg--user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .dc-bubble {
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .dc-msg--bot .dc-bubble {
+      background: #111425;
+      border: 1px solid rgba(255,255,255,.1);
+      color: #EEF0F8;
+      border-bottom-left-radius: 4px;
+    }
+
+    .dc-msg--user .dc-bubble {
+      background: #5B5EF5;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .dc-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 16px;
+      background: #111425;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+    }
+
+    .dc-typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #838AA8;
+      animation: dc-bounce 1.2s ease-in-out infinite;
+    }
+    .dc-typing span:nth-child(2) { animation-delay: .2s; }
+    .dc-typing span:nth-child(3) { animation-delay: .4s; }
+
+    @keyframes dc-bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: .4; }
+      30%            { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* ── Quick replies ──────────────────────────────────── */
+    .demo-chat-qr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px 14px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      background: rgba(17,20,37,.8);
+      flex-shrink: 0;
+    }
+
+    .demo-chat-qr:empty { display: none; }
+
+    .dc-qr-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.04);
+      color: #838AA8;
+      cursor: pointer;
+      transition: border-color .18s, color .18s, background .18s;
+      white-space: nowrap;
+    }
+
+    .dc-qr-btn:hover {
+      border-color: rgba(91,94,245,.55);
+      color: #5B5EF5;
+      background: rgba(91,94,245,.08);
+    }
+
+    /* ── Input footer ───────────────────────────────────── */
+    .demo-chat-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: #111425;
+      flex-shrink: 0;
+    }
+
+    .demo-chat-input {
+      flex: 1;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.86rem;
+      color: #EEF0F8;
+      outline: none;
+      transition: border-color .18s, background .18s;
+    }
+
+    .demo-chat-input::placeholder { color: #3A4060; }
+
+    .demo-chat-input:focus {
+      border-color: rgba(91,94,245,.55);
+      background: rgba(91,94,245,.05);
+    }
+
+    .demo-send-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #5B5EF5;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .18s, transform .1s;
+      flex-shrink: 0;
+    }
+
+    .demo-send-btn:hover  { opacity: .8; }
+    .demo-send-btn:active { transform: scale(.92); }
+    .demo-send-btn:disabled { opacity: .35; cursor: default; }
+
+    .demo-send-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke: #fff;
+    }
+
+    /* ── Dividers ───────────────────────────────────────── */
+    .demo-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.05);
+      margin: 0;
+    }
+
+    /* ── Featured Chilie block ──────────────────────────── */
+    .chilie-demo-block {
+      background: linear-gradient(135deg, rgba(91,94,245,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(91,94,245,.22);
+      border-radius: 20px;
+      padding: 48px;
+      margin: 60px 0;
+    }
+
+    .chilie-demo-block .demo-chat-wrap {
+      box-shadow:
+        0 0 0 1px rgba(91,94,245,.22),
+        0 24px 64px rgba(91,94,245,.12);
+    }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .demo-block { grid-template-columns: 1fr; gap: 32px; }
+      .demo-block:nth-child(even) .demo-info     { order: 0; }
+      .demo-block:nth-child(even) .demo-chat-wrap { order: 0; }
+      .demo-chat-wrap { height: 440px; }
+      .chilie-demo-block { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="/" class="logo">CHILIE<span>IA</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/demos" class="active">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <div class="nav-cta-wrap">
+        <a href="/contacto" class="nav-cta">Empezar Proyecto</a>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="page-hero">
+    <span class="chip">Demos interactivos</span>
+    <h1>Chatbots de IA <span>en acción</span></h1>
+    <p>No son respuestas pregrabadas. Cada chatbot tiene su propio contexto — precios, horarios, personalidad — y responde con inteligencia real. Escríbeles como lo haría un cliente.</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="demo-grid">
+
+        <!-- 1. CLÍNICA VETERINARIA -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Clínica veterinaria</span>
+            <h2>Clínica Veterinaria <em>Vidal</em></h2>
+            <p>Atiende consultas sobre servicios, precios de vacunas y desparasitaciones, gestión de citas y urgencias. Sabe exactamente cuánto cuesta cada servicio y cuándo está disponible el veterinario.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>68%</strong>
+                <span>Consultas resueltas sin llamada</span>
+              </div>
+              <div class="demo-metric">
+                <strong>3,2×</strong>
+                <span>Más citas fuera de horario</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="vet">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">V</div>
+              <div>
+                <div class="demo-chat-title">Clínica Veterinaria Vidal</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Madrid</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre precios, citas, urgencias...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 2. BARBERÍA -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Barbería</span>
+            <h2>Barbería <em>Nómada</em></h2>
+            <p>Informa sobre servicios, precios, barberos disponibles y cómo reservar turno. Recomienda en función del estilo buscado y gestiona expectativas de tiempo de espera.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>45%</strong>
+                <span>Menos llamadas al teléfono</span>
+              </div>
+              <div class="demo-metric">
+                <strong>+28%</strong>
+                <span>Reservas en fin de semana</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="hair">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">N</div>
+              <div>
+                <div class="demo-chat-title">Barbería Nómada</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Malasaña, Madrid</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre servicios, precios, citas...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 3. CLÍNICA DENTAL -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Clínica dental</span>
+            <h2>Clínica Dental <em>Azul</em></h2>
+            <p>Explica tratamientos, precios y opciones de financiación. Especialmente útil para pacientes con ansiedad dental — aborda sus miedos con empatía y les orienta hacia la primera visita gratuita.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>52%</strong>
+                <span>Más primeras visitas agendadas</span>
+              </div>
+              <div class="demo-metric">
+                <strong>−35%</strong>
+                <span>Tiempo de respuesta</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="dental">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">A</div>
+              <div>
+                <div class="demo-chat-title">Clínica Dental Azul</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Barcelona</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre tratamientos, precios, citas...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 4. GIMNASIO -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Gimnasio</span>
+            <h2>Gym <em>Factor</em></h2>
+            <p>Informa sobre tarifas, horario de clases, entrenamiento personal y servicios de nutrición. Orienta a nuevos socios según sus objetivos y les ayuda a elegir la membresía más adecuada.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+34%</strong>
+                <span>Altas nuevas atribuidas al chat</span>
+              </div>
+              <div class="demo-metric">
+                <strong>80%</strong>
+                <span>Consultas resueltas al instante</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="gym">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">G</div>
+              <div>
+                <div class="demo-chat-title">Gym Factor</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Valencia</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre tarifas, clases, entrenamiento...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 5. E-COMMERCE -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">E-commerce</span>
+            <h2>Tienda <em>Nativa</em></h2>
+            <p>Resuelve dudas sobre pedidos, devoluciones, tiempos de envío y características de productos. Maneja incidencias con calma y siempre busca la solución más rápida para el cliente.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>−61%</strong>
+                <span>Tickets de soporte repetitivos</span>
+              </div>
+              <div class="demo-metric">
+                <strong>4,8★</strong>
+                <span>Satisfacción media en chat</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="ecom">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">T</div>
+              <div>
+                <div class="demo-chat-title">Tienda Nativa</div>
+                <div class="demo-chat-subtitle">Atención al cliente · Online</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre pedidos, envíos, devoluciones...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 6. INMOBILIARIA -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Inmobiliaria</span>
+            <h2>Inmobiliaria <em>Cerro</em></h2>
+            <p>Asesora sobre el proceso de compraventa y alquiler, precios de mercado en la zona sur de Madrid, honorarios y documentación necesaria. Sin presión de venta y con conocimiento real del mercado local.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+47%</strong>
+                <span>Leads cualificados capturados</span>
+              </div>
+              <div class="demo-metric">
+                <strong>24/7</strong>
+                <span>Disponibilidad para consultas</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="real">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">C</div>
+              <div>
+                <div class="demo-chat-title">Inmobiliaria Cerro</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Sur de Madrid</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre pisos, precios, proceso de compra...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 7. DESPACHO DE ABOGADOS -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Despacho de abogados</span>
+            <h2>Martínez &amp; <em>Asociados</em></h2>
+            <p>Explica áreas de práctica, honorarios orientativos y el proceso de trabajo. Empático con situaciones difíciles, realista sobre viabilidad de casos y siempre orienta hacia la consulta presencial.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+39%</strong>
+                <span>Primeras consultas agendadas</span>
+              </div>
+              <div class="demo-metric">
+                <strong>−55%</strong>
+                <span>Tiempo en consultas no cualificadas</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="law">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">M</div>
+              <div>
+                <div class="demo-chat-title">Martínez &amp; Asociados</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Sevilla</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre servicios legales, honorarios...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 8. ACADEMIA ONLINE -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Academia online</span>
+            <h2>Academia <em>Impulso Digital</em></h2>
+            <p>Orienta a potenciales alumnos según sus objetivos y nivel, informa sobre cursos, precios, metodología y bolsa de empleo. Sin humo — realista sobre salidas y tiempo de aprendizaje real.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+58%</strong>
+                <span>Conversión visita a matrícula</span>
+              </div>
+              <div class="demo-metric">
+                <strong>−70%</strong>
+                <span>Preguntas al equipo de ventas</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="academy">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">I</div>
+              <div>
+                <div class="demo-chat-title">Academia Impulso Digital</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Online</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre cursos, precios, metodología...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 9. RESTAURANTE -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Restaurante</span>
+            <h2>Restaurante <em>Villarejo</em></h2>
+            <p>Informa sobre la carta y precios actuales, horarios, cómo hacer reservas y opciones para grupos o personas con alergias. Conoce el menú al detalle y sabe orientar en maridajes.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+42%</strong>
+                <span>Reservas online vs. teléfono</span>
+              </div>
+              <div class="demo-metric">
+                <strong>−48%</strong>
+                <span>Llamadas en hora punta</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="restaurant">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">R</div>
+              <div>
+                <div class="demo-chat-title">Restaurante Villarejo</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Bilbao</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre la carta, reservas, horarios...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="demo-divider">
+
+        <!-- 10. REFORMAS DEL HOGAR -->
+        <div class="demo-block fade-up">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Reformas del hogar</span>
+            <h2>Reformas <em>Alcázar</em></h2>
+            <p>Orienta sobre tipos de reforma, precios orientativos, plazos realistas y el proceso desde la visita técnica gratuita hasta la entrega. Honesto sobre lo que cuesta y lo que tarda.</p>
+            <div class="demo-metrics">
+              <div class="demo-metric">
+                <strong>+63%</strong>
+                <span>Solicitudes de visita técnica</span>
+              </div>
+              <div class="demo-metric">
+                <strong>−40%</strong>
+                <span>Tiempo en presupuestos no viables</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="home">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">A</div>
+              <div>
+                <div class="demo-chat-title">Reformas Alcázar</div>
+                <div class="demo-chat-subtitle">Asistente virtual · Zaragoza</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta sobre reformas, precios, plazos...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /demo-grid -->
+
+      <!-- Featured: Chilie IA -->
+      <div class="chilie-demo-block fade-up">
+        <div class="demo-block">
+          <div class="demo-info">
+            <span class="demo-sector-chip">Chilie IA</span>
+            <h2>El asistente de <em>Chilie IA</em></h2>
+            <p>Este es exactamente el tipo de chatbot que construimos para nuestros clientes. Puedes preguntarle cómo funcionan estos sistemas, qué implica un proyecto, qué sectores cubrimos o cómo es el proceso de trabajo con nosotros.</p>
+            <p style="margin-top: var(--space-sm);">Si después de los demos quieres ver cómo quedaría para tu negocio, hablemos.</p>
+            <div class="cta-btns" style="margin-top: var(--space-md);">
+              <a href="/contacto" class="btn btn-primary">
+                Empezar mi proyecto
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="demo-chat-wrap" data-demo-id="chilie">
+            <div class="demo-chat-header">
+              <div class="demo-chat-avatar">C</div>
+              <div>
+                <div class="demo-chat-title">Asistente Chilie IA</div>
+                <div class="demo-chat-subtitle">Pre-ventas · responde al instante</div>
+              </div>
+              <div class="demo-online-dot"></div>
+            </div>
+            <div class="demo-chat-body"></div>
+            <div class="demo-chat-qr"></div>
+            <div class="demo-chat-footer">
+              <input type="text" class="demo-chat-input" placeholder="Pregunta lo que quieras sobre Chilie IA...">
+              <button class="demo-send-btn" type="button" aria-label="Enviar">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-block">
+    <div class="cta-inner">
+      <span class="chip">Tu negocio, el próximo</span>
+      <h2 class="fade-up">Tu negocio merece<br><em>respuestas inteligentes.</em></h2>
+      <p class="fade-up">Cuéntanos qué hace tu equipo manualmente. En menos de 24 horas te preparamos una propuesta de arquitectura y presupuesto personalizado. Sin compromiso.</p>
+      <div class="cta-btns fade-up">
+        <a href="/contacto" class="btn btn-primary">
+          Pedir propuesta gratuita
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/servicios" class="btn btn-ghost">Ver qué construimos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">CHILIE<span>IA</span></span>
+        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/servicios">Servicios</a></li>
+          <li><a href="/demos">Demos</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
+        <p>Madrid, España</p>
+        <span class="available">Disponibles para nuevos proyectos</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
+      <p>chilieagencia@gmail.com · Madrid, España</p>
+    </div>
+  </footer>
+
+  <!-- Floating chat (main site assistant) -->
+  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
+    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-info">
+        <div class="chat-name">Asistente Chilie IA</div>
+        <div class="chat-status">En línea · responde al instante</div>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
+    <div class="chat-quick-replies" id="quickReplies"></div>
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button class="chat-send" id="chatSend">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../script.js"></script>
+
+  <script>
+  (function initDemoChatEngine() {
+    'use strict';
+
+    var API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:3001/api/demo-chat'
+      : '/api/demo-chat';
+
+    var WELCOME = {
+      vet:        '¡Hola! Soy el asistente virtual de Clínica Veterinaria Vidal. Puedo ayudarte con información sobre nuestros servicios, precios, horarios y cómo pedir cita. ¿En qué te puedo ayudar?',
+      hair:       '¡Buenas! Soy el asistente de Barbería Nómada. Te puedo contar sobre nuestros servicios, precios, los barberos del equipo y cómo reservar tu turno. ¿Qué necesitas?',
+      dental:     'Hola, soy el asistente de Clínica Dental Azul. La primera visita es gratuita e incluye diagnóstico completo. Puedo ayudarte con información sobre tratamientos, precios y cómo pedir cita. ¿Tienes alguna consulta?',
+      gym:        '¡Hola! Soy el asistente de Gym Factor. Te puedo informar sobre nuestras tarifas, el horario de clases, el entrenamiento personal y todo lo que necesitas para empezar. ¿Qué te gustaría saber?',
+      ecom:       '¡Hola! Soy el asistente de atención al cliente de Tienda Nativa. Puedo ayudarte con el estado de tu pedido, información sobre envíos y devoluciones, y cualquier duda sobre nuestros productos. ¿En qué te ayudo?',
+      real:       'Hola, soy el asistente de Inmobiliaria Cerro. Trabajo en la zona sur de Madrid — Leganés, Getafe, Fuenlabrada y Móstoles. Puedo orientarte sobre el proceso de compra, alquiler y precios de mercado. ¿Qué necesitas?',
+      law:        'Buenas, soy el asistente del Despacho Martínez & Asociados. Puedo orientarte sobre nuestras áreas de práctica (laboral, civil y familia), cómo funciona el proceso y los honorarios orientativos. ¿En qué puedo ayudarte?',
+      academy:    '¡Hola! Soy el asistente de Academia Impulso Digital. Puedo ayudarte a encontrar el curso más adecuado para tus objetivos y contarte todo sobre precios, metodología y financiación. ¿Qué quieres aprender?',
+      restaurant: '¡Bienvenido a Restaurante Villarejo! Puedo ayudarte con nuestra carta, precios, horarios y reservas. También tengo información sobre alérgenos y opciones especiales. ¿Qué necesitas?',
+      home:       'Hola, soy el asistente de Reformas Alcázar. Puedo orientarte sobre precios estimados, plazos habituales y cómo funciona nuestro proceso desde la visita técnica gratuita. ¿Qué reforma tienes en mente?',
+      chilie:     'Hola, soy el asistente de Chilie IA. Puedo contarte cómo funcionan los sistemas que construimos, qué implica un proyecto y qué impacto puede esperar tu empresa. ¿Qué quieres saber?',
+    };
+
+    var QUICK_REPLIES = {
+      vet:        ['¿Cuánto cuesta vacunar a mi perro?', '¿Tenéis urgencias?', 'Quiero pedir una cita'],
+      hair:       ['¿Cuánto cuesta un corte?', '¿Cómo reservo turno?', '¿Hacéis barba también?'],
+      dental:     ['¿La primera visita es gratis?', '¿Cuánto cuesta un implante?', '¿Tenéis financiación?'],
+      gym:        ['¿Cuánto cuesta la mensualidad?', '¿Qué clases tenéis?', '¿Tenéis entrenador personal?'],
+      ecom:       ['¿Cuánto tarda mi pedido?', '¿Cómo hago una devolución?', '¿Los productos son naturales?'],
+      real:       ['¿Cuánto cuesta un piso en Leganés?', '¿Cuáles son vuestros honorarios?', '¿Ayudáis con la hipoteca?'],
+      law:        ['Tengo un despido, ¿podéis ayudarme?', '¿Cuánto cuesta un divorcio?', '¿Hacéis primera consulta?'],
+      academy:    ['¿Cuál es el mejor curso para empezar?', '¿Hay financiación?', '¿Ayudáis a encontrar trabajo?'],
+      restaurant: ['¿Cuánto cuesta el menú del día?', '¿Cómo hago una reserva?', '¿Tenéis opciones vegetarianas?'],
+      home:       ['¿Cuánto cuesta reformar un baño?', '¿Cuánto tarda una reforma?', '¿Hacéis visita gratuita?'],
+      chilie:     ['¿Cuánto cuesta un chatbot?', '¿En cuánto tiempo lo tendré?', '¿Funciona en WhatsApp?'],
+    };
+
+    function scrollBottom(el) {
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function appendMsg(body, role, text) {
+      var wrap = document.createElement('div');
+      wrap.className = 'dc-msg dc-msg--' + role;
+      var bubble = document.createElement('div');
+      bubble.className = 'dc-bubble';
+      bubble.textContent = text;
+      wrap.appendChild(bubble);
+      body.appendChild(wrap);
+      scrollBottom(body);
+    }
+
+    function showTyping(body) {
+      var wrap = document.createElement('div');
+      wrap.className = 'dc-msg dc-msg--bot';
+      var dots = document.createElement('div');
+      dots.className = 'dc-typing';
+      dots.innerHTML = '<span></span><span></span><span></span>';
+      wrap.appendChild(dots);
+      body.appendChild(wrap);
+      scrollBottom(body);
+      return wrap;
+    }
+
+    function setQuickReplies(qrEl, replies, onSelect) {
+      qrEl.innerHTML = '';
+      replies.forEach(function(text) {
+        var btn = document.createElement('button');
+        btn.className = 'dc-qr-btn';
+        btn.textContent = text;
+        btn.addEventListener('click', function() { onSelect(text); });
+        qrEl.appendChild(btn);
+      });
+    }
+
+    function initDemoChat(widget) {
+      var demoId = widget.getAttribute('data-demo-id');
+      if (!demoId || !WELCOME[demoId]) return;
+
+      var body    = widget.querySelector('.demo-chat-body');
+      var qrEl    = widget.querySelector('.demo-chat-qr');
+      var input   = widget.querySelector('.demo-chat-input');
+      var sendBtn = widget.querySelector('.demo-send-btn');
+
+      if (!body || !qrEl || !input || !sendBtn) return;
+
+      var history = [];
+      var isWaiting = false;
+      var initialized = false;
+
+      function initChat() {
+        if (initialized) return;
+        initialized = true;
+        appendMsg(body, 'bot', WELCOME[demoId]);
+        history.push({ role: 'assistant', content: WELCOME[demoId] });
+        setQuickReplies(qrEl, QUICK_REPLIES[demoId], send);
+      }
+
+      function send(text) {
+        text = (typeof text === 'string' ? text : input.value || '').trim();
+        if (!text || isWaiting) return;
+
+        input.value = '';
+        isWaiting = true;
+        sendBtn.disabled = true;
+        qrEl.innerHTML = '';
+
+        appendMsg(body, 'user', text);
+        history.push({ role: 'user', content: text });
+
+        var typingWrap = showTyping(body);
+
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function() { controller.abort(); }, 15000);
+
+        fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ demoId: demoId, messages: history }),
+          signal: controller.signal,
+        })
+        .then(function(res) {
+          clearTimeout(timeoutId);
+          return res.json();
+        })
+        .then(function(data) {
+          typingWrap.remove();
+          var reply = data.reply || data.error || 'No he podido procesar tu mensaje. Inténtalo de nuevo.';
+          appendMsg(body, 'bot', reply);
+          if (data.reply) {
+            history.push({ role: 'assistant', content: data.reply });
+            while (history.length > 20) { history.splice(0, 2); }
+          }
+        })
+        .catch(function(err) {
+          clearTimeout(timeoutId);
+          typingWrap.remove();
+          var msg = err.name === 'AbortError'
+            ? 'La respuesta tardó demasiado. Inténtalo de nuevo.'
+            : 'No se pudo conectar con el servidor. Asegúrate de usar el servidor Express (puerto 3001).';
+          appendMsg(body, 'bot', msg);
+        })
+        .finally(function() {
+          isWaiting = false;
+          sendBtn.disabled = false;
+          input.focus();
+        });
+      }
+
+      sendBtn.addEventListener('click', function() { send(input.value); });
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(input.value); }
+      });
+
+      // Only init when widget scrolls into view
+      var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          initChat();
+          observer.disconnect();
+        }
+      }, { threshold: 0.2 });
+
+      observer.observe(widget);
+    }
+
+    document.querySelectorAll('.demo-chat-wrap[data-demo-id]').forEach(initDemoChat);
+
+  })();
+  </script>
+
+</body>
+</html>
