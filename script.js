@@ -812,3 +812,21 @@ if (contactForm) {
     }
   });
 }
+
+// ── Cookie consent banner ──────────────────────────────────
+(function() {
+  var banner = document.getElementById('cookieBanner');
+  var acceptBtn = document.getElementById('cookieAccept');
+  var rejectBtn = document.getElementById('cookieReject');
+  if (!banner || !acceptBtn || !rejectBtn) return;
+  if (localStorage.getItem('cookie_consent') !== null) return;
+  banner.classList.add('visible');
+  acceptBtn.addEventListener('click', function() {
+    localStorage.setItem('cookie_consent', 'accepted');
+    banner.classList.remove('visible');
+  });
+  rejectBtn.addEventListener('click', function() {
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.classList.remove('visible');
+  });
+})();

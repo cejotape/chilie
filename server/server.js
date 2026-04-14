@@ -759,6 +759,12 @@ app.get('/contacto', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'contacto.html')));
 app.get('/demos', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'demos.html')));
+app.get('/aviso-legal', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'aviso-legal.html')));
+app.get('/politica-privacidad', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'politica-privacidad.html')));
+app.get('/politica-cookies', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'politica-cookies.html')));
 
 // ── 301 redirects from legacy .html URLs ─────────────────
 app.get('/index.html',           (_req, res) => res.redirect(301, '/'));
@@ -766,6 +772,9 @@ app.get('/pages/servicios.html', (_req, res) => res.redirect(301, '/servicios'))
 app.get('/pages/nosotros.html',  (_req, res) => res.redirect(301, '/nosotros'));
 app.get('/pages/contacto.html',  (_req, res) => res.redirect(301, '/contacto'));
 app.get('/pages/demos.html',     (_req, res) => res.redirect(301, '/demos'));
+app.get('/pages/aviso-legal.html',          (_req, res) => res.redirect(301, '/aviso-legal'));
+app.get('/pages/politica-privacidad.html',  (_req, res) => res.redirect(301, '/politica-privacidad'));
+app.get('/pages/politica-cookies.html',     (_req, res) => res.redirect(301, '/politica-cookies'));
 
 // ── Serve static frontend ─────────────────────────────────
 // The frontend lives one level up from this server/ directory.
