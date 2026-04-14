@@ -765,6 +765,10 @@ app.get('/politica-privacidad', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'politica-privacidad.html')));
 app.get('/politica-cookies', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'politica-cookies.html')));
+app.get('/blog', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'blog.html')));
+app.get('/blog/:slug', (req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'blog', req.params.slug + '.html')));
 
 // ── 301 redirects from legacy .html URLs ─────────────────
 app.get('/index.html',           (_req, res) => res.redirect(301, '/'));
