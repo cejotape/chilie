@@ -25,6 +25,80 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://chilieia.com/#website",
+        "url": "https://chilieia.com",
+        "name": "Chilie IA",
+        "description": "Agencia especializada en chatbots de IA a medida para empresas",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://chilieia.com/#business",
+        "name": "Chilie IA",
+        "url": "https://chilieia.com",
+        "logo": "https://chilieia.com/img/favicon.svg",
+        "image": "https://chilieia.com/img/og-cover.jpg",
+        "description": "Diseñamos e implementamos chatbots de inteligencia artificial que atienden a tus clientes, cualifican leads y automatizan tu operativa.",
+        "email": "chilieagencia@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida de la Oliva 8",
+          "addressLocality": "Majadahonda",
+          "addressRegion": "Madrid",
+          "postalCode": "28222",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.4731,
+          "longitude": -3.8722
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "España"
+        },
+        "priceRange": "$$",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://chilieia.com/#service-chatbots",
+        "name": "Chatbots de IA a medida",
+        "description": "Diseño e implementación de chatbots de inteligencia artificial personalizados para atención al cliente, cualificación de leads y automatización de procesos.",
+        "provider": { "@id": "https://chilieia.com/#business" },
+        "serviceType": "Desarrollo de chatbots con inteligencia artificial",
+        "areaServed": {
+          "@type": "Country",
+          "name": "España"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://chilieia.com/#service-automation",
+        "name": "Automatización de procesos empresariales",
+        "description": "Automatización de operativas empresariales mediante inteligencia artificial: gestión de leads, soporte técnico, reservas y atención multicanal.",
+        "provider": { "@id": "https://chilieia.com/#business" },
+        "serviceType": "Automatización con IA",
+        "areaServed": {
+          "@type": "Country",
+          "name": "España"
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
@@ -291,19 +365,19 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-num"><span class="count-val" data-count="24">0</span><span class="accent">h</span></div>
+          <div class="stat-num"><span class="count-val" data-count="24">24</span><span class="accent">h</span></div>
           <div class="stat-label">Propuesta en menos de 24 horas</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num"><span class="count-val" data-count="80">0</span><span class="accent">%</span></div>
+          <div class="stat-num"><span class="count-val" data-count="80">80</span><span class="accent">%</span></div>
           <div class="stat-label">Reducción media de tickets de soporte</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num"><span class="count-val" data-count="10">0</span><span class="accent"> días</span></div>
+          <div class="stat-num"><span class="count-val" data-count="10">10</span><span class="accent"> días</span></div>
           <div class="stat-label">De briefing a chatbot en producción</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num"><span class="count-val" data-count="7">0</span><span class="accent">/7</span></div>
+          <div class="stat-num"><span class="count-val" data-count="7">7</span><span class="accent">/7</span></div>
           <div class="stat-label">Tu negocio disponible sin descanso</div>
         </div>
       </div>
@@ -504,6 +578,7 @@
         <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
+    <p class="chat-privacy">Al usar este chat aceptas nuestra <a href="/politica-privacidad" target="_blank">Política de Privacidad</a>.</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>

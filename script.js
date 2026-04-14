@@ -111,6 +111,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     // Stats counters
     document.querySelectorAll('.count-val[data-count]').forEach(el => {
       const target = parseInt(el.dataset.count, 10);
+      el.textContent = '0';
       ScrollTrigger.create({
         trigger: el, start: 'top 88%', once: true,
         onEnter() {
@@ -766,6 +767,8 @@ if (contactForm) {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     setFieldError('email',  'Introduce un email válido.'); firstError = firstError || 'email'; }
     if (!mensaje) { setFieldError('mensaje','Cuéntanos qué proceso quieres automatizar.'); firstError = firstError || 'mensaje'; }
+    const privacyBox = document.getElementById('privacyConsent');
+    if (privacyBox && !privacyBox.checked) { setFieldError('privacyConsent','Debes aceptar la política de privacidad.'); firstError = firstError || 'privacyConsent'; }
 
     if (firstError) { document.getElementById(firstError)?.focus(); return; }
 
