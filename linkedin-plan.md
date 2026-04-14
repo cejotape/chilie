@@ -59,7 +59,7 @@ Grado Bilingüe | Computer Science
 - Sector: Servicios y consultoría de TI
 - Tamaño: 2-10 empleados
 - Sede: Majadahonda, Madrid, España
-- Año de fundación: 2026
+- Año de fundación: 2025
 
 ### Eslogan (tagline)
 Chatbots de IA a medida para empresas
