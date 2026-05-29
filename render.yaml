@@ -41,12 +41,12 @@ services:
     healthCheckPath: /
     autoDeploy: true
     envVars:
-      - key: OPENAI_MODEL
-        value: gpt-4o-mini
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-4-7
       - key: ALLOWED_ORIGINS
         value: https://chilieia.com,https://www.chilieia.com
       # ─── Secretos: se rellenan en el dashboard ───
-      - key: OPENAI_API_KEY
+      - key: ANTHROPIC_API_KEY
         sync: false
       - key: SMTP_USER
         sync: false

@@ -1,6 +1,6 @@
 /**
  * Chilie IA — Server
- * Node.js + Express + OpenAI (chat) + Nodemailer (contact form)
+ * Node.js + Express + Anthropic Claude (chat) + Nodemailer (contact form)
  *
  * Setup:
  *   cd server
@@ -16,7 +16,7 @@ const path       = require('path');
 const express    = require('express');
 const cors       = require('cors');
 const nodemailer = require('nodemailer');
-const OpenAI     = require('openai');
+const Anthropic  = require('@anthropic-ai/sdk');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app  = express();
@@ -26,7 +26,6 @@ const PORT = process.env.PORT || 3001;
 // Needed only when frontend is served from a different origin
 // (e.g. local dev with live-reload). In production both frontend
 // and API share the same origin, so CORS is a no-op.
-// ── CORS ───────────────────────────────────────────────────
 const allowedOrigins = [
   'https://chilieia.com',
   'https://www.chilieia.com',
@@ -49,8 +48,9 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '10kb' }));
 
-// ── OpenAI ────────────────────────────────────────────────
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// ── Anthropic ─────────────────────────────────────────────
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-7';
 
 // ── Nodemailer (Gmail SMTP + App Password) ────────────────
 const mailer = (process.env.SMTP_USER && process.env.SMTP_PASS)
@@ -71,7 +71,7 @@ PERSONALIDAD Y TONO
 
 QUIÉNES SOMOS
 Chilie IA fue fundada por Iñigo (arquitecto backend, Node.js) y Carlos (frontend y UX). Somos un equipo pequeño y técnico — cuando un cliente habla con Chilie, habla directamente con quien construye su sistema. Sin intermediarios ni subcontratas.
-Stack: Node.js, OpenAI GPT-4o, n8n, WhatsApp Business API, Supabase, Pinecone, MySQL, Render.
+Stack: Node.js, Anthropic Claude, n8n, WhatsApp Business API, Supabase, Pinecone, MySQL, Render.
 
 SERVICIOS
 1. Chatbots de atención al cliente — Resuelven dudas, gestionan incidencias y escalan al humano cuando tiene sentido. Web y WhatsApp.
@@ -172,6 +172,27 @@ function validateMessages(messages) {
   return true;
 }
 
+// Anthropic returns content as a list of blocks; with thinking disabled
+// the reply is a single text block. Helper to extract the text safely.
+function extractText(message) {
+  for (const block of message.content) {
+    if (block.type === 'text') return block.text.trim();
+  }
+  return '';
+}
+
+// Typed error handler — maps Anthropic SDK exceptions to HTTP responses.
+function handleAnthropicError(err, res, label) {
+  console.error(`[${label}]`, err.message);
+  if (err instanceof Anthropic.RateLimitError) {
+    return res.status(429).json({ error: 'El servicio está saturado. Inténtalo en unos segundos.' });
+  }
+  if (err instanceof Anthropic.AuthenticationError) {
+    return res.status(500).json({ error: 'Error de configuración del servidor.' });
+  }
+  return res.status(500).json({ error: 'No he podido procesar tu mensaje. Inténtalo de nuevo.' });
+}
+
 // ── Health check ──────────────────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Chilie IA', timestamp: new Date().toISOString() });
@@ -185,29 +206,30 @@ app.post('/api/chat', rateLimit, async (req, res) => {
     return res.status(400).json({ error: 'Formato de mensaje inválido.' });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return res.status(500).json({ error: 'Servidor no configurado. Contacta con el equipo.' });
   }
 
   try {
-    const completion = await openai.chat.completions.create({
-      model:      process.env.OPENAI_MODEL || 'gpt-4o-mini',
-      messages:   [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
+    const response = await anthropic.messages.create({
+      model: MODEL,
       max_tokens: 350,
-      temperature: 0.7,
-      stream:     false,
+      // Thinking disabled keeps first-token latency low for chat UX.
+      // Switch to {type: 'adaptive'} if answer quality matters more than speed.
+      thinking: { type: 'disabled' },
+      system: [
+        { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
+      ],
+      messages,
     });
 
-    const reply = completion.choices[0]?.message?.content?.trim();
-    if (!reply) throw new Error('Empty response from OpenAI');
+    const reply = extractText(response);
+    if (!reply) throw new Error('Empty response from Claude');
 
     res.json({ reply });
 
   } catch (err) {
-    console.error('[Chat Error]', err.message);
-    if (err.status === 429) return res.status(429).json({ error: 'El servicio está saturado. Inténtalo en unos segundos.' });
-    if (err.status === 401) return res.status(500).json({ error: 'Error de configuración del servidor.' });
-    res.status(500).json({ error: 'No he podido procesar tu mensaje. Inténtalo de nuevo.' });
+    return handleAnthropicError(err, res, 'Chat Error');
   }
 });
 
@@ -603,11 +625,11 @@ PERSONALIDAD: Honesto sobre precios y plazos. No prometas lo que no puedes cumpl
 
 QUIÉNES SOMOS:
 Chilie IA fue fundada por Iñigo (arquitecto backend) y Carlos (frontend y UX), dos ingenieros de Madrid. Construimos chatbots de IA a medida para empresas. Sin intermediarios — hablas directamente con quien construye tu sistema.
-Stack: Node.js, OpenAI GPT-4o, n8n, WhatsApp Business API, Supabase, Pinecone, MySQL, Render.
+Stack: Node.js, Anthropic Claude, n8n, WhatsApp Business API, Supabase, Pinecone, MySQL, Render.
 
 SOBRE ESTOS DEMOS:
 Los chatbots que ves en esta página están construidos exactamente igual que los sistemas reales que entregamos a nuestros clientes:
-- Conectados a la API de OpenAI (GPT-4o-mini en demos, GPT-4o en producción)
+- Conectados a la API de Anthropic Claude
 - Con system prompts detallados que definen la personalidad, precios, horarios y políticas de cada negocio
 - Diseñados para conversación natural, no respuestas predefinidas
 - En producción, además se integran con calendarios, CRMs, WhatsApp Business y bases de datos propias del cliente
@@ -646,29 +668,28 @@ app.post('/api/demo-chat', rateLimit, async (req, res) => {
   if (!messages || !validateMessages(messages)) {
     return res.status(400).json({ error: 'Formato de mensajes inválido.' });
   }
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return res.status(500).json({ error: 'Servidor no configurado. Contacta con el equipo.' });
   }
 
   try {
-    const completion = await openai.chat.completions.create({
-      model:       process.env.OPENAI_MODEL || 'gpt-4o-mini',
-      messages:    [{ role: 'system', content: DEMO_SYSTEM_PROMPTS[demoId] }, ...messages],
-      max_tokens:  300,
-      temperature: 0.7,
-      stream:      false,
+    const response = await anthropic.messages.create({
+      model: MODEL,
+      max_tokens: 300,
+      thinking: { type: 'disabled' },
+      system: [
+        { type: 'text', text: DEMO_SYSTEM_PROMPTS[demoId], cache_control: { type: 'ephemeral' } },
+      ],
+      messages,
     });
 
-    const reply = completion.choices[0]?.message?.content?.trim();
-    if (!reply) throw new Error('Empty response from OpenAI');
+    const reply = extractText(response);
+    if (!reply) throw new Error('Empty response from Claude');
 
     res.json({ reply });
 
   } catch (err) {
-    console.error('[Demo Chat Error]', err.message);
-    if (err.status === 429) return res.status(429).json({ error: 'El servicio está saturado. Inténtalo en unos segundos.' });
-    if (err.status === 401) return res.status(500).json({ error: 'Error de configuración del servidor.' });
-    res.status(500).json({ error: 'No he podido procesar tu mensaje. Inténtalo de nuevo.' });
+    return handleAnthropicError(err, res, 'Demo Chat Error');
   }
 });
 
@@ -790,8 +811,9 @@ app.listen(PORT, () => {
   console.log(`\n✓ Chilie IA server running on port ${PORT}`);
   console.log(`  Local:  http://localhost:${PORT}`);
   console.log(`  Health: http://localhost:${PORT}/health`);
-  if (!process.env.OPENAI_API_KEY) {
-    console.warn('\n⚠  OPENAI_API_KEY not set — chatbot will not work.');
+  console.log(`  Model:  ${MODEL}`);
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.warn('\n⚠  ANTHROPIC_API_KEY not set — chatbot will not work.');
   }
   if (!mailer) {
     console.warn('⚠  SMTP_USER / SMTP_PASS not set — contact form will not send email.');
