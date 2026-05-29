@@ -42,7 +42,7 @@ services:
     autoDeploy: true
     envVars:
       - key: ANTHROPIC_MODEL
-        value: claude-opus-4-7
+        value: claude-haiku-4-5
       - key: ALLOWED_ORIGINS
         value: https://chilieia.com,https://www.chilieia.com
       # ─── Secretos: se rellenan en el dashboard ───
