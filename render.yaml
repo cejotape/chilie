@@ -1,11 +1,23 @@
+# render.yaml — Blueprint para cejotape/chilie
+#
+# Dos servicios:
+#   1) chilie-landing  → Static Site (sirve chilieia.com)
+#   2) chilie-chatbot  → Web Service Node dentro de server/ (API del bot + form contacto)
+
 services:
+
+  # ────────────────────────── 1. LANDING ESTÁTICA ──────────────────────────
   - type: web
-    name: chilie
-    env: static
+    runtime: static
+    name: chilie-landing
+    branch: main
+    buildCommand: ""
+    staticPublishPath: ./
+    autoDeploy: true
     headers:
       - path: /*
         name: Strict-Transport-Security
-        value: max-age=31536000; includeSubDomains; preload
+        value: "max-age=31536000; includeSubDomains; preload"
       - path: /*
         name: X-Frame-Options
         value: DENY
@@ -15,3 +27,30 @@ services:
       - path: /*
         name: Referrer-Policy
         value: strict-origin-when-cross-origin
+
+  # ────────────────────────── 2. CHATBOT NODE ──────────────────────────────
+  - type: web
+    runtime: node
+    name: chilie-chatbot
+    plan: starter
+    region: frankfurt
+    branch: main
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: ALLOWED_ORIGINS
+        value: https://chilieia.com,https://www.chilieia.com
+      # ─── Secretos: se rellenan en el dashboard ───
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_EMAIL
+        sync: false
