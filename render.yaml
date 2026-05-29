@@ -14,6 +14,64 @@ services:
     buildCommand: ""
     staticPublishPath: ./
     autoDeploy: true
+    # ── URLs limpias (replican lo que hacía Express en server.js) ──
+    # Cada rewrite mantiene la URL bonita en el navegador y sirve el HTML real.
+    routes:
+      - type: rewrite
+        source: /servicios
+        destination: /pages/servicios.html
+      - type: rewrite
+        source: /nosotros
+        destination: /pages/nosotros.html
+      - type: rewrite
+        source: /contacto
+        destination: /pages/contacto.html
+      - type: rewrite
+        source: /demos
+        destination: /pages/demos.html
+      - type: rewrite
+        source: /aviso-legal
+        destination: /pages/aviso-legal.html
+      - type: rewrite
+        source: /politica-privacidad
+        destination: /pages/politica-privacidad.html
+      - type: rewrite
+        source: /politica-cookies
+        destination: /pages/politica-cookies.html
+      - type: rewrite
+        source: /blog
+        destination: /pages/blog.html
+      - type: rewrite
+        source: /blog/chatbot-whatsapp
+        destination: /pages/blog/chatbot-whatsapp.html
+      - type: rewrite
+        source: /blog/precio-chatbot
+        destination: /pages/blog/precio-chatbot.html
+      # ── 301 desde las URLs .html antiguas a las limpias (SEO) ──
+      - type: redirect
+        source: /index.html
+        destination: /
+      - type: redirect
+        source: /pages/servicios.html
+        destination: /servicios
+      - type: redirect
+        source: /pages/nosotros.html
+        destination: /nosotros
+      - type: redirect
+        source: /pages/contacto.html
+        destination: /contacto
+      - type: redirect
+        source: /pages/demos.html
+        destination: /demos
+      - type: redirect
+        source: /pages/aviso-legal.html
+        destination: /aviso-legal
+      - type: redirect
+        source: /pages/politica-privacidad.html
+        destination: /politica-privacidad
+      - type: redirect
+        source: /pages/politica-cookies.html
+        destination: /politica-cookies
     headers:
       - path: /*
         name: Strict-Transport-Security
