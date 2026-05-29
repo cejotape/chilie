@@ -507,7 +507,7 @@ if (chatToggle && chatWindow) {
   const API_URL =
   window.location.hostname === 'localhost'
     ? 'http://localhost:3001/api/chat'
-    : '/api/chat';
+    : 'https://chilie-chatbot.onrender.com/api/chat';
   const history  = [];   // [{ role: 'user'|'assistant', content: string }]
   let isWaiting  = false;
   let chatOpened = false;
@@ -744,7 +744,7 @@ if (contactForm) {
   const CONTACT_URL =
     window.location.hostname === 'localhost'
       ? 'http://localhost:3001/api/contact'
-      : '/api/contact';
+      : 'https://chilie-chatbot.onrender.com/api/contact';
 
   contactForm.addEventListener('submit', async e => {
     e.preventDefault();

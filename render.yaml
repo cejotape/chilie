@@ -44,7 +44,7 @@ services:
       - key: ANTHROPIC_MODEL
         value: claude-haiku-4-5
       - key: ALLOWED_ORIGINS
-        value: https://chilieia.com,https://www.chilieia.com
+        value: https://chilieia.com,https://www.chilieia.com,https://chilie-landing.onrender.com
       # ─── Secretos: se rellenan en el dashboard ───
       - key: ANTHROPIC_API_KEY
         sync: false
