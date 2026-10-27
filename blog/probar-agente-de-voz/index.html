@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo probar un agente de voz antes de que hable con tus clientes — Blog de Chilie IA</title>
+  <meta name="description" content="Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.">
+  <link rel="canonical" href="https://chilieia.com/blog/probar-agente-de-voz">
+  <meta name="theme-color" content="#F7F7F5">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chilieia.com/blog/probar-agente-de-voz">
+  <meta property="og:title" content="Cómo probar un agente de voz antes de que hable con tus clientes — Blog de Chilie IA">
+  <meta property="og:description" content="Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.">
+  <meta property="og:image" content="https://chilieia.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/blog.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cómo probar un agente de voz antes de que hable con tus clientes",
+  "description": "Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.",
+  "datePublished": "2026-08-04",
+  "author": {
+    "@type": "Person",
+    "name": "Iñigo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chilie IA",
+    "url": "https://chilieia.com"
+  },
+  "mainEntityOfPage": "https://chilieia.com/blog/probar-agente-de-voz",
+  "inLanguage": "es-ES"
+}
+  </script>
+</head>
+<body>
+
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="bar" id="bar" data-field="white">
+    <a href="/" class="wordmark" aria-label="Chilie IA, inicio">
+      <img src="/img/logo-mark.svg" alt="" width="24" height="32">
+      <span>Chilie IA</span>
+    </a>
+    <nav class="bar-links" id="barLinks" aria-label="Principal">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog" aria-current="page">Blog</a>
+    </nav>
+    <button class="bar-menu" id="barMenu" aria-expanded="false" aria-controls="barLinks">Menú</button>
+    <a href="/contacto" class="btn btn-bar"><span class="long">Pedir propuesta</span><span class="short">Hablemos</span></a>
+  </header>
+
+  <main id="contenido">
+
+    <article class="post" data-field="white">
+      <header class="post-head">
+        <a class="post-back" href="/blog">← Blog</a>
+        <p class="post-tag">Agentes de voz</p>
+        <h1 class="post-title">Cómo probar un agente de voz antes de que hable con tus clientes</h1>
+        <p class="post-lead">Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.</p>
+        <p class="post-meta"><span>Por Iñigo</span><time datetime="2026-08-04">4 de agosto de 2026</time><span>2 min de lectura</span></p>
+      </header>
+      <div class="post-body">
+<p>Agosto es un buen mes para probar con calma lo que se lanzará en septiembre. Y si hay algo que necesita pruebas serias, es un agente de voz: una llamada tiene muchas más sorpresas que un chat.</p>
+<p>Este es el método que seguimos.</p>
+<h2>1. Las llamadas típicas</h2>
+<p>Empezamos por las diez o quince situaciones más frecuentes, sacadas del registro de llamadas reales: pedir cita, cambiarla, preguntar el horario, preguntar el precio. El agente tiene que resolverlas todas de forma impecable.</p>
+<h2>2. Las llamadas difíciles</h2>
+<p>Después, lo que nadie espera:</p>
+<ul><li>Alguien que <strong>habla muy rápido</strong> o muy bajo.</li><li>Alguien que <strong>cambia de idea</strong> a mitad: &quot;el jueves... no, mejor el viernes&quot;.</li><li>Alguien que <strong>interrumpe</strong> al agente.</li><li>Alguien que <strong>no sabe lo que quiere</strong>.</li><li>Alguien que <strong>llama por otra cosa</strong> (un proveedor, un comercial).</li><li>Alguien <strong>enfadado</strong>.</li></ul>
+<h2>3. Ruido y mala cobertura</h2>
+<p>Probamos llamadas desde la calle, desde el coche y con mala cobertura. El reconocimiento de voz ha mejorado muchísimo, pero hay que comprobar cómo se comporta el agente cuando no entiende: debe pedir que se repita, no adivinar.</p>
+<h2>4. Datos difíciles</h2>
+<p>Nombres poco comunes, apellidos compuestos, correos electrónicos dictados, números de teléfono con pausas. Aquí está la mayoría de errores. A menudo la solución es que el agente <strong>repita el dato para confirmarlo</strong>, o que lo pida por WhatsApp.</p>
+<h2>5. Los límites</h2>
+<p>¿Qué hace el agente si le preguntan algo que no debe responder? ¿Y si alguien insiste en hablar con una persona? Las respuestas a esas situaciones también se prueban.</p>
+<h2>6. Escuchar a tu equipo</h2>
+<p>Por último, tu equipo llama al agente haciéndose pasar por sus clientes más complicados. Nadie conoce mejor que ellos las llamadas raras.</p>
+<p class="post-note">Un fallo encontrado en pruebas es una mejora. El mismo fallo en una llamada real es un cliente molesto.</p>
+<h2>Y después del lanzamiento</h2>
+<p>Las primeras semanas revisamos las llamadas reales a diario. Siempre aparece algo que no habíamos previsto, y se corrige en el momento. ¿Quieres oír cómo respondería un agente con tu negocio? <a href="/contacto">Escríbenos</a> y te lo enseñamos en una llamada.</p>
+      </div>
+    </article>
+
+    <section class="archive archive--related" data-field="white" aria-labelledby="relTitle">
+      <div class="archive-head">
+        <h2 class="archive-title" id="relTitle">Sigue leyendo</h2>
+        <a class="archive-all" href="/blog">Ver todos los artículos</a>
+      </div>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/vuelta-al-cole-academias-gimnasios">
+            <time datetime="2026-08-25">25 ago</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Vuelta al cole: academias y gimnasios ante la avalancha de llamadas de septiembre</b><small>Finales de agosto y principios de septiembre concentran las matrículas e inscripciones del año. Cómo atender todas las llamadas y consultas sin contratar refuerzos.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/llamadas-salientes-ia-ley">
+            <time datetime="2026-09-15">15 sep</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Llamadas salientes con IA: recordatorios, confirmaciones y lo que dice la ley</b><small>Un agente de voz también puede llamar: para confirmar citas, avisar de un pedido o reactivar a un cliente. Qué usos funcionan mejor y qué límites legales hay que respetar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/verano-horario-reducido">
+            <time datetime="2026-06-23">23 jun</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Horario de verano sin perder clientes: cubrir las tardes de julio y agosto</b><small>Jornada intensiva, vacaciones por turnos y el mismo número de clientes llamando. Cómo un agente de voz y un asistente escrito mantienen el negocio atendido todo el verano.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="close" data-field="night" aria-labelledby="closeTitle">
+      <div class="close-copy">
+        <h2 id="closeTitle" class="close-title">¿Lo vemos para tu negocio?</h2>
+        <p class="close-lead">Déjanos tu correo y te escribimos en menos de 24 horas para buscar un hueco de 45 minutos.</p>
+      </div>
+      <form class="close-form" id="closeForm" novalidate>
+        <label for="closeEmail" class="close-label">Tu correo de trabajo</label>
+        <div class="close-row">
+          <input id="closeEmail" name="email" type="email" placeholder="nombre@tuempresa.es" autocomplete="email" required aria-describedby="closeHelp">
+          <button type="submit" class="btn btn-lg close-send">Enviar <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <p class="close-help" id="closeHelp">Sin compromiso. Si prefieres contarnos más, usa el <a href="/contacto">formulario completo</a>.</p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="foot" data-field="white">
+    <div class="foot-tile foot-statement">
+      <p>Software a medida e IA para que tu negocio conteste siempre.</p>
+      <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
+    </div>
+    <nav class="foot-tile foot-nav" aria-label="Pie">
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog">Blog</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <div class="foot-tile foot-time">
+      <p>Madrid</p>
+      <p class="foot-clock"><span id="clock">—</span></p>
+    </div>
+    <div class="foot-tile foot-mail">
+      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+    </div>
+    <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
+    <a class="foot-tile foot-go" href="/contacto">
+      <span>Empezar un proyecto</span>
+      <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M8 40 40 8M16 8h24v24" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+    </a>
+  </footer>
+
+  <div class="cookie" id="cookieBanner" hidden>
+    <p>Usamos cookies propias y de terceros para mejorar tu navegación. Más información en la <a href="/politica-cookies">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ink" id="cookieAccept">Aceptar</button>
+      <button class="btn btn-quiet" id="cookieReject">Rechazar</button>
+    </div>
+  </div>
+
+  <script src="/home.js" defer></script>
+</body>
+</html>

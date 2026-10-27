@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latencia en agentes de voz: por qué cada medio segundo cuenta — Blog de Chilie IA</title>
+  <meta name="description" content="En una conversación telefónica, un silencio de dos segundos ya resulta raro. Qué provoca el retraso en un agente de voz y qué se puede hacer para que la conversación fluya.">
+  <link rel="canonical" href="https://chilieia.com/blog/latencia-agentes-de-voz">
+  <meta name="theme-color" content="#F7F7F5">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chilieia.com/blog/latencia-agentes-de-voz">
+  <meta property="og:title" content="Latencia en agentes de voz: por qué cada medio segundo cuenta — Blog de Chilie IA">
+  <meta property="og:description" content="En una conversación telefónica, un silencio de dos segundos ya resulta raro. Qué provoca el retraso en un agente de voz y qué se puede hacer para que la conversación fluya.">
+  <meta property="og:image" content="https://chilieia.com/img/og-cover.jpg">
+  <meta property="og:site_name" content="Chilie IA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/blog.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Latencia en agentes de voz: por qué cada medio segundo cuenta",
+  "description": "En una conversación telefónica, un silencio de dos segundos ya resulta raro. Qué provoca el retraso en un agente de voz y qué se puede hacer para que la conversación fluya.",
+  "datePublished": "2026-10-06",
+  "author": {
+    "@type": "Person",
+    "name": "Iñigo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chilie IA",
+    "url": "https://chilieia.com"
+  },
+  "mainEntityOfPage": "https://chilieia.com/blog/latencia-agentes-de-voz",
+  "inLanguage": "es-ES"
+}
+  </script>
+</head>
+<body>
+
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="bar" id="bar" data-field="white">
+    <a href="/" class="wordmark" aria-label="Chilie IA, inicio">
+      <img src="/img/logo-mark.svg" alt="" width="24" height="32">
+      <span>Chilie IA</span>
+    </a>
+    <nav class="bar-links" id="barLinks" aria-label="Principal">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog" aria-current="page">Blog</a>
+    </nav>
+    <button class="bar-menu" id="barMenu" aria-expanded="false" aria-controls="barLinks">Menú</button>
+    <a href="/contacto" class="btn btn-bar"><span class="long">Pedir propuesta</span><span class="short">Hablemos</span></a>
+  </header>
+
+  <main id="contenido">
+
+    <article class="post" data-field="white">
+      <header class="post-head">
+        <a class="post-back" href="/blog">← Blog</a>
+        <p class="post-tag">Agentes de voz</p>
+        <h1 class="post-title">Latencia en agentes de voz: por qué cada medio segundo cuenta</h1>
+        <p class="post-lead">En una conversación telefónica, un silencio de dos segundos ya resulta raro. Qué provoca el retraso en un agente de voz y qué se puede hacer para que la conversación fluya.</p>
+        <p class="post-meta"><span>Por Iñigo</span><time datetime="2026-10-06">6 de octubre de 2026</time><span>2 min de lectura</span></p>
+      </header>
+      <div class="post-body">
+<p>En una conversación entre personas, el silencio entre que uno termina de hablar y el otro responde es muy corto, a menudo menos de medio segundo. Estamos tan acostumbrados que cualquier pausa más larga nos parece extraña: pensamos que no nos han oído, repetimos o hablamos encima.</p>
+<p>Por eso, en un agente de voz, la <strong>latencia</strong> (el tiempo que tarda en responder) es una de las cosas más importantes.</p>
+<h2>De dónde sale el retraso</h2>
+<p>Cada respuesta de un agente pasa por varios pasos:</p>
+<ol><li><strong>Detectar que la persona ha terminado de hablar.</strong> Si el agente espera demasiado, pierde tiempo; si se precipita, interrumpe.</li><li><strong>Convertir la voz en texto.</strong></li><li><strong>Pensar la respuesta</strong> con el modelo de IA y, si hace falta, consultar un sistema (la agenda, por ejemplo).</li><li><strong>Convertir el texto en voz.</strong></li><li><strong>Enviar el audio</strong> por la línea telefónica.</li></ol>
+<p>Cada paso suma unos cientos de milisegundos.</p>
+<h2>Qué se puede hacer</h2>
+<ul><li><strong>Elegir modelos rápidos</strong> para la conversación. Un modelo más potente pero más lento empeora la experiencia más de lo que mejora las respuestas.</li><li><strong>Empezar a hablar antes de terminar de pensar</strong>: generar la voz de la primera frase mientras se escribe el resto.</li><li><strong>Servidores cerca</strong> de tus clientes. Los datos que cruzan medio mundo añaden retraso.</li><li><strong>Frases puente</strong> cuando hay que consultar algo: &quot;Déjeme que mire la agenda...&quot; suena natural y cubre la espera.</li><li><strong>Ajustar la detección de fin de turno</strong> según el tipo de cliente: con personas mayores, por ejemplo, conviene dar algo más de margen.</li></ul>
+<h2>Interrupciones</h2>
+<p>Un buen agente también tiene que <strong>dejarse interrumpir</strong>. Si el cliente dice &quot;no, no, el jueves no&quot; mientras el agente habla, este debe callar y escuchar, como haría una persona.</p>
+<p class="post-note">En voz no basta con responder bien. Hay que responder bien y a tiempo.</p>
+<p>Si quieres comprobar la diferencia, <a href="/contacto">escríbenos</a> y te lo enseñamos en directo con un agente de voz.</p>
+      </div>
+    </article>
+
+    <section class="archive archive--related" data-field="white" aria-labelledby="relTitle">
+      <div class="archive-head">
+        <h2 class="archive-title" id="relTitle">Sigue leyendo</h2>
+        <a class="archive-all" href="/blog">Ver todos los artículos</a>
+      </div>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/llamadas-salientes-ia-ley">
+            <time datetime="2026-09-15">15 sep</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Llamadas salientes con IA: recordatorios, confirmaciones y lo que dice la ley</b><small>Un agente de voz también puede llamar: para confirmar citas, avisar de un pedido o reactivar a un cliente. Qué usos funcionan mejor y qué límites legales hay que respetar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/vuelta-al-cole-academias-gimnasios">
+            <time datetime="2026-08-25">25 ago</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Vuelta al cole: academias y gimnasios ante la avalancha de llamadas de septiembre</b><small>Finales de agosto y principios de septiembre concentran las matrículas e inscripciones del año. Cómo atender todas las llamadas y consultas sin contratar refuerzos.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/probar-agente-de-voz">
+            <time datetime="2026-08-04">4 ago</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Cómo probar un agente de voz antes de que hable con tus clientes</b><small>Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="close" data-field="night" aria-labelledby="closeTitle">
+      <div class="close-copy">
+        <h2 id="closeTitle" class="close-title">¿Lo vemos para tu negocio?</h2>
+        <p class="close-lead">Déjanos tu correo y te escribimos en menos de 24 horas para buscar un hueco de 45 minutos.</p>
+      </div>
+      <form class="close-form" id="closeForm" novalidate>
+        <label for="closeEmail" class="close-label">Tu correo de trabajo</label>
+        <div class="close-row">
+          <input id="closeEmail" name="email" type="email" placeholder="nombre@tuempresa.es" autocomplete="email" required aria-describedby="closeHelp">
+          <button type="submit" class="btn btn-lg close-send">Enviar <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <p class="close-help" id="closeHelp">Sin compromiso. Si prefieres contarnos más, usa el <a href="/contacto">formulario completo</a>.</p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="foot" data-field="white">
+    <div class="foot-tile foot-statement">
+      <p>Software a medida e IA para que tu negocio conteste siempre.</p>
+      <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
+    </div>
+    <nav class="foot-tile foot-nav" aria-label="Pie">
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog">Blog</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <div class="foot-tile foot-time">
+      <p>Madrid</p>
+      <p class="foot-clock"><span id="clock">—</span></p>
+    </div>
+    <div class="foot-tile foot-mail">
+      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+    </div>
+    <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
+    <a class="foot-tile foot-go" href="/contacto">
+      <span>Empezar un proyecto</span>
+      <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M8 40 40 8M16 8h24v24" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+    </a>
+  </footer>
+
+  <div class="cookie" id="cookieBanner" hidden>
+    <p>Usamos cookies propias y de terceros para mejorar tu navegación. Más información en la <a href="/politica-cookies">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ink" id="cookieAccept">Aceptar</button>
+      <button class="btn btn-quiet" id="cookieReject">Rechazar</button>
+    </div>
+  </div>
+
+  <script src="/home.js" defer></script>
+</body>
+</html>
