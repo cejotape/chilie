@@ -43,6 +43,9 @@ services:
         destination: /pages/blog.html
       # ── blog:start (lo genera tools/build_blog.py)
       - type: rewrite
+        source: /blog/ley-atencion-clientela-diciembre
+        destination: /pages/blog/ley-atencion-clientela-diciembre.html
+      - type: rewrite
         source: /blog/voz-chat-automatizacion-juntos
         destination: /pages/blog/voz-chat-automatizacion-juntos.html
       - type: rewrite

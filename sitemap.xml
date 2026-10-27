@@ -56,6 +56,12 @@
   </url>
   <!-- blog:start -->
   <url>
+    <loc>https://www.chilieia.com/blog/ley-atencion-clientela-diciembre</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.chilieia.com/blog/voz-chat-automatizacion-juntos</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
