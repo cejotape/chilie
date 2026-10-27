@@ -336,17 +336,16 @@ def main():
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob('*.html'):
         old.unlink()
-    # Cada artículo se escribe también como blog/<slug>/index.html: así /blog/<slug> funciona
-    # aunque Render no aplique las rutas de render.yaml (el servidor estático sirve el índice de la carpeta)
+    # Cada artículo se escribe también como blog/<slug>.html: Render sirve los .html sin extensión,
+    # así /blog/<slug> funciona aunque no aplique las rutas de render.yaml
     PUBLIC = ROOT / 'blog'
-    if PUBLIC.exists():
-        for old in PUBLIC.glob('*/index.html'):
-            old.unlink()
+    PUBLIC.mkdir(exist_ok=True)
+    for old in PUBLIC.glob('*.html'):
+        old.unlink()
     for p in posts:
         html_ = build_post(p, posts)
         (OUT / f'{p["slug"]}.html').write_text(html_, encoding='utf-8')
-        (PUBLIC / p['slug']).mkdir(parents=True, exist_ok=True)
-        (PUBLIC / p['slug'] / 'index.html').write_text(html_, encoding='utf-8')
+        (PUBLIC / f'{p["slug"]}.html').write_text(html_, encoding='utf-8')
     (ROOT / 'pages' / 'blog.html').write_text(build_index(posts), encoding='utf-8')
 
     routes = ''.join(f'      - type: rewrite\n        source: /blog/{p["slug"]}\n        destination: /pages/blog/{p["slug"]}.html\n'
