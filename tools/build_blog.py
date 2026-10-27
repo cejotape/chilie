@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'blog-src' / 'posts'
 OUT = ROOT / 'pages' / 'blog'
-SITE = 'https://chilieia.com'
+SITE = 'https://www.chilieia.com'
 FIRST = date(2025, 10, 28)
 
 CATS = {
