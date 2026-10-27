@@ -1,0 +1,72 @@
+/* ============================================================
+   CHILIE — Demos
+   Se apoya en home.css: mismos tokens, campos y componentes.
+   ============================================================ */
+
+/* ── Centralita: lista de negocios + un chat ─────────────── */
+.lab {
+  padding: clamp(48px, 6vw, 96px) var(--m) var(--gap-section);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px 24px; align-items: start;
+}
+.lab-pick { grid-column: 1 / 5; position: sticky; top: 96px; }
+.lab-label { font-size: 0.9375rem; color: var(--fink-soft); margin-bottom: 12px; }
+.lab-list { display: grid; gap: 4px; }
+.lab-item {
+  display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; align-items: center;
+  width: 100%; text-align: left; padding: 12px 14px; border-radius: 10px;
+  transition: background-color 200ms ease, transform 160ms var(--ease-out);
+}
+.lab-item:active { transform: scale(0.98); }
+.lab-item .lab-av { grid-row: span 2; }
+.lab-item b { font-weight: 500; font-size: 1.0625rem; line-height: 1.2; }
+.lab-item small { font-size: 0.875rem; color: var(--fink-soft); }
+.lab-item[aria-selected="true"] { background: var(--white); }
+@media (hover: hover) and (pointer: fine) {
+  .lab-item:not([aria-selected="true"]):hover { background: var(--sky-2); }
+}
+.lab-note { margin-top: 20px; font-size: 0.875rem; color: var(--fink-soft); max-width: 34ch; }
+
+.lab-av {
+  width: 40px; height: 40px; border-radius: 50%; flex: none;
+  display: grid; place-items: center; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.02em;
+  background: var(--blue); color: var(--paper);
+}
+
+.lab-chat { grid-column: 5 / 13; height: min(680px, 82svh); grid-template-rows: auto 1fr auto auto; }
+.lab-chat .chat-status b { font-weight: 400; }
+.lab-chat .chat-log { transition: opacity 200ms ease; }
+.lab-chat.is-switching .chat-log { opacity: 0; }
+.lab-qr { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 12px 10px; background: var(--white); }
+.lab-qr:empty { display: none; }
+.lab-qr button {
+  padding: 8px 12px; border-radius: 99px; font-size: 0.875rem; line-height: 1.2;
+  background: var(--sky); color: var(--navy);
+  transition: background-color 200ms ease, transform 160ms var(--ease-out);
+}
+.lab-qr button:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .lab-qr button:hover { background: var(--sky-2); } }
+
+/* ── Voz ──────────────────────────────────────────────────── */
+.voice {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: end;
+}
+.voice-title { grid-column: 1 / 6; font-size: clamp(2.5rem, 4.6vw, 4.75rem); line-height: 1; }
+.voice-lead { grid-column: 6 / 11; font-size: var(--step-lead); line-height: 1.4; max-width: 34ch; }
+.voice-btn { grid-column: 11 / 13; justify-self: end; gap: 10px; background: var(--blue); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .voice-btn:hover { background: var(--blue-2); } }
+
+/* ── Teléfono ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .lab, .voice { grid-template-columns: minmax(0, 1fr); }
+  .lab-pick, .lab-chat, .voice-title, .voice-lead, .voice-btn { grid-column: 1; }
+  .lab-pick { position: static; }
+  .lab-list { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+  .lab-item { flex: none; width: auto; grid-template-columns: auto auto; background: var(--sky-2); scroll-snap-align: start; }
+  .lab-item small { display: none; }
+  .lab-item .lab-av { grid-row: auto; width: 32px; height: 32px; font-size: 0.875rem; }
+  .lab-chat { height: 600px; }
+  .voice-title { font-size: 10vw; }
+  .voice-lead { font-size: 1.125rem; }
+  .voice-btn { justify-self: start; }
+}

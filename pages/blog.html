@@ -3,176 +3,613 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Chilie IA | Chatbots, IA y Automatización</title>
-  <meta name="description" content="Artículos sobre chatbots de IA, automatización empresarial y atención al cliente. Guías prácticas para empresas que quieren escalar con inteligencia artificial.">
+  <title>Blog — Chilie IA | Voz, chatbots, automatización y software</title>
+  <meta name="description" content="Un artículo cada semana sobre agentes de voz, chatbots, automatización y software a medida para empresas. Escrito por el equipo de Chilie IA en Madrid.">
   <link rel="canonical" href="https://chilieia.com/blog">
+  <meta name="theme-color" content="#F7F7F5">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chilieia.com/blog">
-  <meta property="og:title" content="Blog — Chilie IA | Chatbots, IA y Automatización">
-  <meta property="og:description" content="Artículos sobre chatbots de IA, automatización empresarial y atención al cliente.">
+  <meta property="og:title" content="Blog — Chilie IA | Voz, chatbots, automatización y software">
+  <meta property="og:description" content="Un artículo cada semana sobre agentes de voz, chatbots, automatización y software a medida para empresas. Escrito por el equipo de Chilie IA en Madrid.">
   <meta property="og:image" content="https://chilieia.com/img/og-cover.jpg">
   <meta property="og:site_name" content="Chilie IA">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/blog.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "url": "https://chilieia.com/blog",
+    "name": "Blog de Chilie IA",
+    "publisher": { "@type": "Organization", "name": "Chilie IA", "url": "https://chilieia.com" }
+  }
+  </script>
 </head>
 <body>
 
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <nav class="navbar" id="navbar">
-    <a href="/" class="logo"><img src="/img/logo-icon.svg" alt="Chilie IA" class="logo-icon">CHILIE<span>IA</span></a>
-    <div class="nav-links" id="navLinks">
+  <header class="bar" id="bar" data-field="white">
+    <a href="/" class="wordmark" aria-label="Chilie IA, inicio">
+      <img src="/img/logo-mark.svg" alt="" width="24" height="32">
+      <span>Chilie IA</span>
+    </a>
+    <nav class="bar-links" id="barLinks" aria-label="Principal">
       <a href="/">Inicio</a>
       <a href="/servicios">Servicios</a>
       <a href="/demos">Demos</a>
-      <a href="/blog" class="active">Blog</a>
       <a href="/nosotros">Nosotros</a>
-      <div class="nav-cta-wrap">
-        <a href="/contacto" class="nav-cta">Empezar Proyecto</a>
+      <a href="/blog" aria-current="page">Blog</a>
+    </nav>
+    <button class="bar-menu" id="barMenu" aria-expanded="false" aria-controls="barLinks">Menú</button>
+    <a href="/contacto" class="btn btn-bar"><span class="long">Pedir propuesta</span><span class="short">Hablemos</span></a>
+  </header>
+
+  <main id="contenido">
+
+    <section class="page-hero" data-field="white" aria-labelledby="pageTitle">
+      <h1 class="page-title" id="pageTitle">Lo que aprendemos construyendo.</h1>
+      <p class="page-sub">Un artículo cada semana sobre agentes de voz, chatbots, automatización y software a medida. Escrito por Iñigo y Carlos, sin relleno.</p>
+    </section>
+
+    <section class="feat" data-field="white" aria-label="Último artículo">
+      <a class="feat-link" href="/blog/voz-chat-automatizacion-juntos">
+        <p class="feat-meta"><span>Último artículo</span><span>Software a medida</span><time datetime="2026-10-20">20 de octubre de 2026</time></p>
+        <h2 class="feat-title">Voz, chat, automatización y software: cómo encajan en un mismo sistema</h2>
+        <p class="feat-excerpt">Un año escribiendo sobre cada pieza por separado. Hoy las juntamos en un ejemplo completo: una llamada a las nueve de la noche que acaba en cita, confirmación y ficha actualizada sin que nadie toque nada.</p>
+        <span class="feat-go">Leer artículo · 2 min <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </section>
+
+    <section class="archive" data-field="white" aria-labelledby="archiveTitle">
+      <div class="archive-head">
+        <h2 class="archive-title" id="archiveTitle">Todos los artículos</h2>
+        <div class="chips" role="group" aria-label="Filtrar por tema">
+        <button type="button" data-cat="all" aria-pressed="true">Todos</button>
+        <button type="button" data-cat="voz" aria-pressed="false">Agentes de voz</button>
+        <button type="button" data-cat="chat" aria-pressed="false">Chatbots</button>
+        <button type="button" data-cat="auto" aria-pressed="false">Automatización</button>
+        <button type="button" data-cat="soft" aria-pressed="false">Software a medida</button>
+        <button type="button" data-cat="ia" aria-pressed="false">IA para empresas</button>
+        </div>
       </div>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+      <section class="month">
+      <h2 class="month-title">Octubre 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/black-friday-2026-checklist">
+            <time datetime="2026-10-13">13 oct</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Black Friday 2026 a seis semanas: la lista de automatizaciones que aún te da tiempo a montar</b><small>El Black Friday de este año cae el 27 de noviembre. Con seis semanas de margen se pueden dejar listas varias automatizaciones que se notan en plena campaña. Esta es la lista, por orden de prioridad.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/latencia-agentes-de-voz">
+            <time datetime="2026-10-06">6 oct</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Latencia en agentes de voz: por qué cada medio segundo cuenta</b><small>En una conversación telefónica, un silencio de dos segundos ya resulta raro. Qué provoca el retraso en un agente de voz y qué se puede hacer para que la conversación fluya.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Septiembre 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/streaming-respuestas-chat">
+            <time datetime="2026-09-29">29 sep</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Por qué un buen chat escribe mientras piensa (y por qué importa tanto)</b><small>Dos asistentes que tardan lo mismo en terminar su respuesta pueden parecer uno rápido y otro lento. La diferencia está en mostrar la respuesta mientras se genera.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/portal-de-clientes-a-medida">
+            <time datetime="2026-09-22">22 sep</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Un portal de clientes a medida: menos correos de &quot;¿cómo va lo mío?&quot;</b><small>Cuando los clientes no saben en qué estado está su pedido, su obra o su expediente, preguntan. Un portal propio les da esa información en tiempo real y libera a tu equipo.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/llamadas-salientes-ia-ley">
+            <time datetime="2026-09-15">15 sep</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Llamadas salientes con IA: recordatorios, confirmaciones y lo que dice la ley</b><small>Un agente de voz también puede llamar: para confirmar citas, avisar de un pedido o reactivar a un cliente. Qué usos funcionan mejor y qué límites legales hay que respetar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/presentar-ia-al-equipo">
+            <time datetime="2026-09-08">8 sep</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>Cómo presentar un proyecto de IA a tu equipo sin que nadie sienta que sobra</b><small>El mayor obstáculo de un proyecto de IA no suele ser técnico, sino humano. Cómo contarlo, a quién implicar y qué errores de comunicación conviene evitar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/onboarding-clientes-automatizado">
+            <time datetime="2026-09-01">1 sep</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Septiembre, mes de clientes nuevos: automatiza su bienvenida</b><small>Después del verano llegan las altas. Un proceso de bienvenida automatizado hace que cada cliente nuevo arranque bien sin que tu equipo repita los mismos pasos cada vez.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Agosto 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/vuelta-al-cole-academias-gimnasios">
+            <time datetime="2026-08-25">25 ago</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Vuelta al cole: academias y gimnasios ante la avalancha de llamadas de septiembre</b><small>Finales de agosto y principios de septiembre concentran las matrículas e inscripciones del año. Cómo atender todas las llamadas y consultas sin contratar refuerzos.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/resenas-google-ia">
+            <time datetime="2026-08-18">18 ago</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Reseñas de Google con IA: responder a todas sin sonar a robot</b><small>Responder reseñas mejora tu imagen, pero lleva tiempo y muchas se quedan sin contestar. Cómo usar la IA para preparar respuestas personalizadas y avisarte de las negativas al momento.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/seguridad-software-a-medida">
+            <time datetime="2026-08-11">11 ago</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Seguridad básica en software a medida: lo que deberías exigir a quien te lo construye</b><small>No hace falta ser experto para hacer las preguntas correctas. Los mínimos de seguridad que debe cumplir cualquier sistema hecho a medida para tu empresa.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/probar-agente-de-voz">
+            <time datetime="2026-08-04">4 ago</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Cómo probar un agente de voz antes de que hable con tus clientes</b><small>Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Julio 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/chatbot-multilingue-turismo">
+            <time datetime="2026-07-28">28 jul</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Pleno verano: un asistente multilingüe para hoteles, apartamentos y actividades turísticas</b><small>En julio llegan visitantes de todas partes y preguntan lo mismo en muchos idiomas. Cómo un asistente con IA atiende a cada turista en su idioma sin multiplicar el trabajo del equipo.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/ai-act-agosto-2026">
+            <time datetime="2026-07-21">21 jul</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>El Reglamento Europeo de IA en agosto de 2026: qué cambia para una pyme que usa chatbots</b><small>El 2 de agosto de 2026 es una de las fechas clave del AI Act. Qué obligaciones afectan a una empresa que usa asistentes de IA con sus clientes, explicado sin jerga legal.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/correos-clasificar-responder-ia">
+            <time datetime="2026-07-14">14 jul</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>La bandeja de entrada compartida, bajo control: clasificar y responder correos con IA</b><small>El correo de &quot;info@&quot; es un cajón de sastre: presupuestos, quejas, proveedores, spam. Cómo un asistente lo ordena, prepara respuestas y avisa a quien toca.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/medir-un-chatbot">
+            <time datetime="2026-07-07">7 jul</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Cómo saber si tu chatbot funciona: las métricas que de verdad importan</b><small>Número de conversaciones, satisfacción, traspasos... Hay muchas cifras posibles y casi todas engañan si se miran solas. Qué medir para saber si el asistente aporta.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Junio 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/paneles-internos-adios-excel">
+            <time datetime="2026-06-30">30 jun</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Por qué tu equipo sigue trabajando en Excel (y cuándo merece la pena un panel propio)</b><small>La hoja de cálculo compartida es el software más usado en las pymes, por algo. Señales de que se ha quedado pequeña y cómo es la transición a un panel hecho a medida.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/verano-horario-reducido">
+            <time datetime="2026-06-23">23 jun</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Horario de verano sin perder clientes: cubrir las tardes de julio y agosto</b><small>Jornada intensiva, vacaciones por turnos y el mismo número de clientes llamando. Cómo un agente de voz y un asistente escrito mantienen el negocio atendido todo el verano.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/informes-semanales-automaticos">
+            <time datetime="2026-06-16">16 jun</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>El informe del lunes que se hace solo: cómo automatizar los números de tu negocio</b><small>Si alguien de tu equipo pasa la mañana del lunes sacando cifras de tres programas, esto te interesa. Cómo montar un informe automático útil y que la gente lea.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/errores-lanzar-chatbot">
+            <time datetime="2026-06-09">9 jun</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>8 errores al lanzar un chatbot que hacen que tus clientes lo odien</b><small>Un chatbot mal lanzado hace más daño que no tener ninguno. Los errores que más vemos y cómo evitarlos antes de que lleguen a tus clientes.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/modelo-ia-rapido-o-potente">
+            <time datetime="2026-06-02">2 jun</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>¿Modelo de IA rápido o el más potente? Por qué casi siempre gana el rápido</b><small>Cada mes sale un modelo &quot;más inteligente&quot;. Pero para atender clientes, la velocidad suele importar más que la potencia. Cómo elegir el modelo adecuado para cada tarea.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Mayo 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/agente-voz-inmobiliarias">
+            <time datetime="2026-05-26">26 may</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Agente de voz para inmobiliarias: atender las llamadas de los portales sin perder ninguna</b><small>Un piso recién publicado puede generar muchas llamadas en pocas horas. Cómo un agente de voz atiende, cualifica y agenda visitas mientras los agentes están en la calle.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/avantio-avaibook-integracion">
+            <time datetime="2026-05-19">19 may</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Antes del verano: conecta Avantio o Avaibook con tu atención al huésped</b><small>Quedan pocas semanas para la temporada alta del alquiler vacacional. Qué se gana conectando el sistema de reservas con un asistente y con tus automatizaciones, y cómo planificarlo a tiempo.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/formulario-web-crm">
+            <time datetime="2026-05-12">12 may</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Del formulario de tu web al CRM en segundos: el contacto que no se enfría</b><small>Cada hora que tarda en atenderse un contacto de la web, baja la probabilidad de cerrarlo. Cómo automatizar el recorrido completo, desde que alguien rellena el formulario hasta la primera llamada.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/alucinaciones-ia">
+            <time datetime="2026-05-05">5 may</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>Por qué la IA a veces se inventa cosas y cómo evitarlo en tu negocio</b><small>Las &quot;alucinaciones&quot; son el mayor miedo de quien pone una IA a hablar con clientes. Por qué ocurren y qué medidas concretas las reducen al mínimo.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Abril 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/elegir-voz-para-tu-marca">
+            <time datetime="2026-04-28">28 abr</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Cómo elegir la voz de tu agente telefónico: acento, tono y personalidad</b><small>La voz es lo primero que percibe quien llama. Cómo elegir una voz sintética que encaje con tu marca y con tus clientes, y qué errores conviene evitar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/mvp-en-dos-semanas">
+            <time datetime="2026-04-21">21 abr</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Un primer sistema funcionando en dos semanas: qué entra y qué se queda fuera</b><small>Dos semanas dan para mucho si se elige bien qué construir primero. Cómo recortamos un proyecto para tener algo útil en producción cuanto antes.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/chatbot-whatsapp">
+            <time datetime="2026-04-14">14 abr</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Chatbot en WhatsApp Business: cómo automatizar tu atención al cliente</b><small>Tus clientes ya tienen WhatsApp abierto. Qué puede hacer un asistente de IA en WhatsApp, cómo funciona por dentro, cuánto cuesta y los errores que conviene evitar.</small></span>
+            <span class="post-min">3 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/precio-chatbot">
+            <time datetime="2026-04-07">7 abr</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Cuánto cuesta un chatbot a medida para empresa en 2026</b><small>Rangos orientativos, qué incluye cada nivel, los costes mensuales que se suelen olvidar y cómo calcular si te compensa antes de contratar.</small></span>
+            <span class="post-min">3 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Marzo 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/campana-renta-asesorias">
+            <time datetime="2026-03-31">31 mar</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Campaña de la renta: cómo una asesoría puede automatizar la recogida de documentos</b><small>Abril arranca la campaña de la renta y las asesorías se llenan de correos, WhatsApps y llamadas pidiendo lo mismo. Ideas concretas para ganar tiempo sin perder el trato cercano.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/traspaso-a-humano">
+            <time datetime="2026-03-24">24 mar</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Cuándo debe un asistente pasarte con una persona (y cómo hacerlo bien)</b><small>El traspaso a humano es la parte más olvidada de un asistente de IA y la que más afecta a la experiencia del cliente. Señales, reglas y errores a evitar.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/semana-santa-alquiler-vacacional">
+            <time datetime="2026-03-17">17 mar</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Semana Santa en el alquiler vacacional: responder a huéspedes en cinco idiomas a cualquier hora</b><small>Llega el primer pico turístico del año. Cómo un asistente multilingüe resuelve las preguntas de los huéspedes antes, durante y después de la estancia.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/facturas-pdf-extraer-datos-ia">
+            <time datetime="2026-03-10">10 mar</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Facturas en PDF: cómo extraer los datos con IA y dejar de teclearlos</b><small>Pasar a mano los datos de facturas y albaranes es lento y propenso a errores. Cómo funciona la extracción con IA, qué precisión esperar y qué conviene revisar siempre.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/briefing-proyecto-software">
+            <time datetime="2026-03-03">3 mar</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>Cómo escribir un buen briefing para un proyecto de software (aunque no seas técnico)</b><small>Un buen encargo ahorra semanas y dinero. La plantilla que nos gustaría recibir de cada cliente, con ejemplos de qué escribir en cada apartado.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Febrero 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/rgpd-asistentes-ia">
+            <time datetime="2026-02-24">24 feb</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>RGPD y asistentes de IA: lo que tienes que saber antes de poner un bot a hablar con tus clientes</b><small>Un asistente de IA trata datos personales igual que cualquier otro sistema. Los puntos básicos de protección de datos que conviene revisar, explicados en lenguaje claro.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/base-de-conocimiento-chatbot">
+            <time datetime="2026-02-17">17 feb</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Qué darle a tu chatbot para que no se invente nada: guía de la base de conocimiento</b><small>La calidad de un asistente de IA depende sobre todo de la información que le das. Qué incluir, cómo escribirlo y cómo mantenerlo al día sin volverte loco.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/san-valentin-reservas-restaurantes">
+            <time datetime="2026-02-10">10 feb</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>San Valentín en un restaurante: cómo no perder reservas cuando el teléfono no para</b><small>Las fechas señaladas saturan el teléfono justo en pleno servicio. Cómo un agente de voz y WhatsApp pueden coger reservas mientras la sala está a tope.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/n8n-zapier-make">
+            <time datetime="2026-02-03">3 feb</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>n8n, Zapier o Make: cuál elegir para automatizar tu empresa</b><small>Las tres sirven para conectar aplicaciones sin programar desde cero, pero no son iguales. Diferencias reales de precio, control y privacidad, explicadas sin tecnicismos.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Enero 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/cuantas-llamadas-pierdes">
+            <time datetime="2026-01-27">27 ene</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>¿Cuántas llamadas pierde tu negocio? Cómo medirlo en una semana</b><small>Casi ningún negocio sabe cuántas llamadas se le escapan. Un método sencillo para medirlo con lo que ya tienes, y qué hacer con el resultado.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/chatbot-reglas-vs-ia">
+            <time datetime="2026-01-20">20 ene</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Chatbot de botones o chatbot con IA: en qué se diferencian y cuál necesitas</b><small>Los dos se llaman &quot;chatbot&quot;, pero funcionan de forma muy distinta. Te explicamos cuándo basta con un menú de opciones y cuándo merece la pena un asistente que entiende lenguaje natural.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/preparar-datos-empresa-para-ia">
+            <time datetime="2026-01-13">13 ene</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>Antes de meter IA en tu empresa, ordena esto: datos, procesos y responsables</b><small>El éxito de un proyecto de IA se decide antes de escribir una línea de código. La lista de cosas que conviene tener claras para que el asistente no se invente nada.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/rebajas-cambios-devoluciones">
+            <time datetime="2026-01-06">6 ene</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Rebajas y cuesta de enero: automatiza los cambios y devoluciones de los regalos</b><small>Enero es el mes de los regalos que no quedan bien. Un proceso de cambios automatizado ahorra horas al equipo y deja una mejor impresión al cliente.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Diciembre 2025</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/tendencias-ia-2026-pymes">
+            <time datetime="2025-12-30">30 dic</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>2026: cinco tendencias de IA que sí van a notar las pymes</b><small>Nada de robots humanoides ni predicciones de ciencia ficción. Cinco cambios concretos que creemos que van a llegar a los negocios pequeños y medianos este año.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/lo-que-aprendimos-en-2025">
+            <time datetime="2025-12-23">23 dic</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>Lo que hemos aprendido este año montando IA para pequeñas empresas</b><small>Cerramos el año con una lista honesta: lo que funciona, lo que no y los errores que ya no volvemos a cometer al llevar la IA a negocios reales.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/navidad-atender-llamadas-vacaciones">
+            <time datetime="2025-12-16">16 dic</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Navidad con el equipo de vacaciones: cómo seguir cogiendo llamadas y reservas</b><small>Las fiestas son el momento en que más gente llama y menos gente hay para contestar. Cómo un agente de voz cubre esos días sin que tu negocio parezca cerrado.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="soft">
+          <a href="/blog/software-a-medida-o-saas">
+            <time datetime="2025-12-09">9 dic</time>
+            <span class="post-cat">Software a medida</span>
+            <span class="post-main"><b>¿Software a medida o una herramienta SaaS? La decisión que conviene tomar antes de enero</b><small>Muchas empresas arrancan el año contratando otra suscripción que no encaja del todo. Cómo decidir cuándo te vale una herramienta estándar y cuándo compensa construir algo propio.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="ia">
+          <a href="/blog/presupuesto-2026-ia">
+            <time datetime="2025-12-02">2 dic</time>
+            <span class="post-cat">IA para empresas</span>
+            <span class="post-main"><b>Presupuesto 2026: cómo reservar una partida para IA sin tirar el dinero</b><small>Es diciembre y toca cerrar números. Si la IA va a estar en tu plan del año que viene, estas son las preguntas que conviene hacerse antes de poner una cifra.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Noviembre 2025</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/black-friday-pedidos-devoluciones">
+            <time datetime="2025-11-25">25 nov</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Semana de Black Friday: cómo un asistente gestiona pedidos y devoluciones sin colapsar al equipo</b><small>Esta es la semana con más consultas del año para cualquier tienda online. Lo que debe saber hacer un asistente para que tu equipo llegue entero al lunes.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/tareas-automatizar-antes-fin-de-ano">
+            <time datetime="2025-11-18">18 nov</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>7 tareas repetitivas que una pyme puede automatizar antes de que acabe el año</b><small>Final de año es mal momento para proyectos grandes, pero perfecto para quitarse pequeñas tareas de encima. Siete automatizaciones sencillas que se notan desde la primera semana.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/whatsapp-normas-bots-ia-2026">
+            <time datetime="2025-11-11">11 nov</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>WhatsApp cambia sus normas para los bots de IA en 2026: qué significa para tu empresa</b><small>Meta ha anunciado que la API de WhatsApp Business dejará de admitir asistentes de IA de propósito general. Si tu bot atiende a tus clientes, tranquilo. Te explicamos la diferencia.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/que-es-un-agente-de-voz">
+            <time datetime="2025-11-04">4 nov</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Qué es un agente de voz con IA y por qué ya no suena a robot</b><small>Ni centralita de &quot;pulse 1&quot; ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Te contamos cómo funciona por dentro.</small></span>
+            <span class="post-min">2 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <section class="month">
+      <h2 class="month-title">Octubre 2025</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="chat">
+          <a href="/blog/black-friday-atencion-cliente-ia">
+            <time datetime="2025-10-28">28 oct</time>
+            <span class="post-cat">Chatbots</span>
+            <span class="post-main"><b>Black Friday está a un mes: prepara tu atención al cliente antes de que llegue la avalancha</b><small>Noviembre multiplica las preguntas repetidas: dónde está mi pedido, hay talla, cuánto tarda el envío. Así se prepara un asistente de IA con cuatro semanas de margen.</small></span>
+            <span class="post-min">3 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
+      <p class="archive-empty" hidden>No hay artículos de este tema todavía.</p>
+    </section>
 
-  <main class="blog-page">
-    <div class="container">
-      <div class="blog-header fade-up">
-        <span class="chip">Blog</span>
-        <h1 class="section-title">Chatbots, IA y<br><em>automatización.</em></h1>
-        <p class="blog-subtitle">Guías prácticas para empresas que quieren escalar con inteligencia artificial.</p>
+    <section class="close" data-field="night" aria-labelledby="closeTitle">
+      <div class="close-copy">
+        <h2 id="closeTitle" class="close-title">¿Lo vemos para tu negocio?</h2>
+        <p class="close-lead">Déjanos tu correo y te escribimos en menos de 24 horas para buscar un hueco de 45 minutos.</p>
       </div>
+      <form class="close-form" id="closeForm" novalidate>
+        <label for="closeEmail" class="close-label">Tu correo de trabajo</label>
+        <div class="close-row">
+          <input id="closeEmail" name="email" type="email" placeholder="nombre@tuempresa.es" autocomplete="email" required aria-describedby="closeHelp">
+          <button type="submit" class="btn btn-lg close-send">Enviar <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <p class="close-help" id="closeHelp">Sin compromiso. Si prefieres contarnos más, usa el <a href="/contacto">formulario completo</a>.</p>
+      </form>
+    </section>
 
-      <div class="blog-grid">
-
-        <a href="/blog/precio-chatbot" class="blog-card fade-up">
-          <div class="blog-card-body">
-            <span class="blog-card-tag">Guía de precios</span>
-            <h2 class="blog-card-title">Cuánto cuesta un chatbot a medida para empresa en 2026</h2>
-            <p class="blog-card-excerpt">Rangos de precios reales, qué incluye cada nivel de inversión y cómo calcular el ROI antes de contratar.</p>
-            <div class="blog-card-meta">
-              <span>Iñigo Iza</span>
-              <span>14 abr 2026</span>
-              <span>8 min lectura</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/blog/chatbot-whatsapp" class="blog-card fade-up">
-          <div class="blog-card-body">
-            <span class="blog-card-tag">WhatsApp Business</span>
-            <h2 class="blog-card-title">Chatbot en WhatsApp Business: cómo automatizar tu atención al cliente</h2>
-            <p class="blog-card-excerpt">Guía práctica con ejemplos reales (clínica dental, inmobiliaria), costes y errores comunes al implementar un chatbot de IA en WhatsApp.</p>
-            <div class="blog-card-meta">
-              <span>Iñigo Iza</span>
-              <span>14 abr 2026</span>
-              <span>10 min lectura</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Placeholder for future articles
-        <a href="/blog/slug" class="blog-card fade-up">
-          <div class="blog-card-body">
-            <span class="blog-card-tag">Categoría</span>
-            <h2 class="blog-card-title">Título del artículo</h2>
-            <p class="blog-card-excerpt">Extracto del artículo.</p>
-            <div class="blog-card-meta">
-              <span>Iñigo Iza</span>
-              <span>Fecha</span>
-              <span>X min lectura</span>
-            </div>
-          </div>
-        </a>
-        -->
-
-      </div>
-    </div>
   </main>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="logo">CHILIE<span>IA</span></span>
-        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Navegación</h5>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/servicios">Servicios</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contacto</h5>
-        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
-        <p>Madrid, España</p>
-        <span class="available">Disponibles para nuevos proyectos</span>
-      </div>
+  <footer class="foot" data-field="white">
+    <div class="foot-tile foot-statement">
+      <p>Software a medida e IA para que tu negocio conteste siempre.</p>
+      <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
-      <div class="footer-legal">
-        <a href="/aviso-legal">Aviso Legal</a>
-        <a href="/politica-privacidad">Privacidad</a>
-        <a href="/politica-cookies">Cookies</a>
-      </div>
+    <nav class="foot-tile foot-nav" aria-label="Pie">
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog">Blog</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <div class="foot-tile foot-time">
+      <p>Madrid</p>
+      <p class="foot-clock"><span id="clock">—</span></p>
     </div>
+    <div class="foot-tile foot-mail">
+      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+    </div>
+    <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
+    <a class="foot-tile foot-go" href="/contacto">
+      <span>Empezar un proyecto</span>
+      <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M8 40 40 8M16 8h24v24" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+    </a>
   </footer>
 
-  <!-- Cookie consent banner -->
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-banner-content">
-      <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación. Puedes aceptar todas las cookies o configurar tus preferencias. Más información en nuestra <a href="/politica-cookies">Política de Cookies</a>.</p>
-      <div class="cookie-banner-actions">
-        <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button>
-        <button class="cookie-btn cookie-btn-reject" id="cookieReject">Rechazar</button>
-      </div>
+  <div class="cookie" id="cookieBanner" hidden>
+    <p>Usamos cookies propias y de terceros para mejorar tu navegación. Más información en la <a href="/politica-cookies">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ink" id="cookieAccept">Aceptar</button>
+      <button class="btn btn-quiet" id="cookieReject">Rechazar</button>
     </div>
   </div>
 
-  <!-- Chat -->
-  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
-    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-avatar">C</div>
-      <div class="chat-info">
-        <div class="chat-name">Asistente Chilie IA</div>
-        <div class="chat-status">En línea · responde al instante</div>
-      </div>
-      <button class="chat-close" id="chatClose">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
-    <div class="chat-quick-replies" id="quickReplies"></div>
-    <div class="chat-input-area">
-      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
-      <button class="chat-send" id="chatSend">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-    <p class="chat-privacy">Al usar este chat aceptas nuestra <a href="/politica-privacidad" target="_blank">Política de Privacidad</a>.</p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="../script.js"></script>
+  <script src="/home.js" defer></script>
+  <script src="/blog.js" defer></script>
 </body>
 </html>

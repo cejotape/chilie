@@ -3,485 +3,292 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios — Chilie IA | Chatbots de IA a Medida</title>
-  <meta name="description" content="Chatbots para atención al cliente, cualificación de leads, reservas, e-commerce, soporte técnico y WhatsApp Business. Soluciones de IA a medida para tu negocio.">
+  <title>Servicios — Chilie IA | Agentes de voz, chatbots, automatización y software a medida</title>
+  <meta name="description" content="Agentes de voz que cogen el teléfono, chatbots para web y WhatsApp, automatización de procesos y software a medida para empresas. Propuesta gratuita en 24 horas.">
   <link rel="canonical" href="https://chilieia.com/servicios">
+  <meta name="theme-color" content="#F7F7F5">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chilieia.com/servicios">
-  <meta property="og:title" content="Servicios — Chilie IA | Chatbots de IA a Medida">
-  <meta property="og:description" content="Chatbots para atención al cliente, cualificación de leads, reservas, e-commerce, soporte técnico y WhatsApp Business. Soluciones a medida.">
+  <meta property="og:title" content="Servicios — Chilie IA">
+  <meta property="og:description" content="Agentes de voz, chatbots, automatización y software a medida para empresas.">
   <meta property="og:image" content="https://chilieia.com/img/og-cover.jpg">
   <meta property="og:site_name" content="Chilie IA">
-
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Servicios — Chilie IA | Chatbots de IA a Medida">
-  <meta name="twitter:description" content="Chatbots de IA para atención al cliente, leads, reservas, e-commerce y WhatsApp Business. Soluciones a medida.">
+  <meta name="twitter:title" content="Servicios — Chilie IA">
+  <meta name="twitter:description" content="Agentes de voz, chatbots, automatización y software a medida para empresas.">
   <meta name="twitter:image" content="https://chilieia.com/img/og-cover.jpg">
-  <meta name="twitter:url" content="https://chilieia.com/servicios">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/servicios.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Servicios de Chilie IA",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Agentes de voz con IA", "url": "https://chilieia.com/servicios#voz", "provider": { "@id": "https://chilieia.com/#business" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Chatbots para web, WhatsApp e Instagram", "url": "https://chilieia.com/servicios#chatbots", "provider": { "@id": "https://chilieia.com/#business" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Automatización de procesos", "url": "https://chilieia.com/servicios#automatizacion", "provider": { "@id": "https://chilieia.com/#business" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "Software a medida", "url": "https://chilieia.com/servicios#software", "provider": { "@id": "https://chilieia.com/#business" } } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <nav class="navbar scrolled" id="navbar">
-    <a href="/" class="logo"><img src="/img/logo-icon.svg" alt="Chilie IA" class="logo-icon">CHILIE<span>IA</span></a>
-    <div class="nav-links" id="navLinks">
+  <!-- ── Barra ─────────────────────────────────────────── -->
+  <header class="bar" id="bar" data-field="white">
+    <a href="/" class="wordmark" aria-label="Chilie IA, inicio">
+      <img src="/img/logo-mark.svg" alt="" width="24" height="32">
+      <span>Chilie IA</span>
+    </a>
+    <nav class="bar-links" id="barLinks" aria-label="Principal">
       <a href="/">Inicio</a>
-      <a href="/servicios" class="active">Servicios</a>
+      <a href="/servicios" aria-current="page">Servicios</a>
       <a href="/demos">Demos</a>
-      <a href="/blog">Blog</a>
       <a href="/nosotros">Nosotros</a>
-      <div class="nav-cta-wrap">
-        <a href="/contacto" class="nav-cta">Empezar Proyecto</a>
-      </div>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <header class="page-hero">
-    <span class="chip">Lo que construimos</span>
-    <h1>Chatbots que hacen<br><span>el trabajo real.</span></h1>
-    <p>No demos. No plantillas. Sistemas a medida que encajan en tu operativa desde el día uno.</p>
+      <a href="/blog">Blog</a>
+    </nav>
+    <button class="bar-menu" id="barMenu" aria-expanded="false" aria-controls="barLinks">Menú</button>
+    <a href="/contacto" class="btn btn-bar"><span class="long">Pedir propuesta</span><span class="short">Hablemos</span></a>
   </header>
 
-  <!-- Service 1 -->
-  <section class="service-detail-section">
-    <div class="detail-container">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 01</div>
-        <h2>Chatbot de atención al cliente</h2>
-        <p>Tu primera línea de soporte, disponible las 24 horas. Resuelve dudas frecuentes, gestiona incidencias, recoge información y escala al equipo humano solo cuando tiene sentido hacerlo.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Base de conocimiento propia</strong><span>Entrenado con tus FAQs, políticas y documentación interna. Responde como lo haría tu mejor agente.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Escalado inteligente</strong><span>Detecta cuándo la consulta requiere intervención humana y transfiere con el contexto completo de la conversación.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Multi-canal</strong><span>El mismo sistema en tu web, WhatsApp y cualquier canal. Sin configuración duplicada.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Métricas en tiempo real</strong><span>Tasa de resolución, tiempo medio, temas más consultados y puntos de fricción en un dashboard.</span></div>
-          </li>
-        </ul>
+  <main id="contenido">
+
+    <!-- ── Cabecera de la página ──────────────────────── -->
+    <section class="page-hero" data-field="white" aria-labelledby="pageTitle">
+      <h1 class="page-title" id="pageTitle">Cuatro formas de quitarte trabajo de encima.</h1>
+      <p class="page-sub">Agentes de voz, chatbots, automatizaciones y software a medida. Por separado o combinados, y siempre hechos para la forma de trabajar de tu negocio.</p>
+      <nav class="svc-index" aria-label="Servicios">
+        <a href="#voz"><span class="lamp" aria-hidden="true"></span><b>Agentes de voz</b><small>Cogen el teléfono por ti</small></a>
+        <a href="#chatbots"><span class="lamp" aria-hidden="true"></span><b>Chatbots</b><small>Web, WhatsApp e Instagram</small></a>
+        <a href="#automatizacion"><span class="lamp" aria-hidden="true"></span><b>Automatización</b><small>Lo repetitivo, solo</small></a>
+        <a href="#software"><span class="lamp" aria-hidden="true"></span><b>Software a medida</b><small>Tus herramientas, a tu manera</small></a>
+      </nav>
+    </section>
+
+    <!-- ── Agentes de voz ─────────────────────────────── -->
+    <section class="svc" id="voz" data-field="white" aria-labelledby="vozTitle">
+      <div class="svc-copy">
+        <h2 id="vozTitle" class="svc-title">Agentes de voz</h2>
+        <p class="svc-lead">Cogen el teléfono a cualquier hora, resuelven dudas, reservan y cambian citas, y te pasan la llamada cuando hace falta una persona.</p>
+        <dl class="svc-features">
+          <div><dt>Llamadas entrantes</dt><dd>Atienden al primer tono, también a mediodía, por la noche y en festivos.</dd></div>
+          <div><dt>Llamadas salientes</dt><dd>Confirman citas, hacen seguimiento y reactivan clientes con una voz natural.</dd></div>
+          <div><dt>Agenda conectada</dt><dd>Reservan, cambian y cancelan sobre tu calendario real, sin huecos que no existen.</dd></div>
+          <div><dt>Paso a una persona</dt><dd>Si la llamada lo necesita, te la transfieren con todo el contexto.</dd></div>
+        </dl>
+        <p class="svc-for">Ideal para clínicas, inmobiliarias, alquileres, talleres y agencias.</p>
       </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="1">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">C</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">Asistente Chilie IA</div>
-              <div class="svc-chat-status">En línea</div>
+      <div class="svc-visual svc-visual--blue" data-ui aria-hidden="true">
+        <div class="sv-card sv-call">
+          <div class="sv-call-head"><span class="sv-av">LM</span><div><p class="sv-strong">Laura Martín</p><p class="sv-soft">Atendida por tu agente de voz</p></div><span class="sv-time">00:38</span></div>
+          <div class="sv-lines">
+            <p class="sv-line sv-line--them sv-anim" style="--d:1">Hola, quería cambiar mi cita del jueves.</p>
+            <p class="sv-line sv-line--us sv-anim" style="--d:2">Claro, Laura. ¿Te viene bien el viernes a las 10:00?</p>
+            <p class="sv-line sv-line--them sv-anim" style="--d:3">Perfecto.</p>
+          </div>
+        </div>
+        <div class="sv-card sv-mini sv-anim" style="--d:4"><span class="sv-tag sv-tag--ok">Cita movida</span><p>Jueves 11:30 → <b>viernes 10:00</b></p></div>
+      </div>
+    </section>
+
+    <!-- ── Chatbots ───────────────────────────────────── -->
+    <section class="svc svc--flip" id="chatbots" data-field="navy" aria-labelledby="chatTitle">
+      <div class="svc-copy">
+        <h2 id="chatTitle" class="svc-title">Chatbots</h2>
+        <p class="svc-lead">En tu web, WhatsApp e Instagram. Responden al momento, cualifican a quien escribe y cierran la reserva o la venta.</p>
+        <dl class="svc-features">
+          <div><dt>Atención al cliente</dt><dd>Responden con tus políticas, tu catálogo y tus preguntas frecuentes, y escalan con contexto.</dd></div>
+          <div><dt>Cualificación de leads</dt><dd>Preguntan lo justo, detectan intención de compra y pasan el lead a tu CRM.</dd></div>
+          <div><dt>Reservas y pedidos</dt><dd>Citas, estado de pedidos, cesta y recuperación de carritos abandonados.</dd></div>
+          <div><dt>WhatsApp Business oficial</dt><dd>API oficial, mensajes proactivos y respuesta en el idioma de quien escribe.</dd></div>
+        </dl>
+        <p class="svc-for">Ideal para e-commerce, clínicas, academias, hostelería y servicios.</p>
+      </div>
+      <div class="svc-visual" data-ui aria-hidden="true">
+        <div class="phone phone--svc">
+          <div class="phone-head"><span class="call-av call-av--sm">TU</span><div><p>Tu tienda</p><small>responde al momento</small></div></div>
+          <div class="phone-body">
+            <p class="pmsg pmsg--me sv-anim" style="--d:1">¿Tenéis la chaqueta azul en talla M?</p>
+            <p class="pmsg sv-anim" style="--d:2">Sí, quedan 3 en M. ¿Te la añado a la cesta?</p>
+            <p class="pmsg pmsg--me sv-anim" style="--d:3">Sí, porfa.</p>
+            <p class="pmsg sv-anim" style="--d:4">Hecho. Aquí tienes el enlace para pagar. Te llega mañana.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Automatización ─────────────────────────────── -->
+    <section class="svc" id="automatizacion" data-field="white" aria-labelledby="autoTitle">
+      <div class="svc-copy">
+        <h2 id="autoTitle" class="svc-title">Automatización</h2>
+        <p class="svc-lead">Lo que hoy se copia a mano pasa solo de una herramienta a otra, y los correos de siempre se contestan solos.</p>
+        <dl class="svc-features">
+          <div><dt>Correo automático</dt><dd>Lee, clasifica y responde con tu información. Si lo prefieres, deja un borrador para que lo revises.</dd></div>
+          <div><dt>Recordatorios y confirmaciones</dt><dd>Por WhatsApp o correo, el día antes y una hora antes. Menos citas olvidadas.</dd></div>
+          <div><dt>Datos sin copiar a mano</dt><dd>Del formulario al CRM, a la hoja de cálculo y a facturación, sin que nadie lo teclee.</dd></div>
+          <div><dt>Avisos al equipo</dt><dd>Cuando entra algo importante, tu equipo se entera por WhatsApp, correo o Slack.</dd></div>
+        </dl>
+        <p class="svc-for">Ideal para alquileres, despachos, agencias y servicios técnicos.</p>
+      </div>
+      <div class="svc-visual svc-visual--sky" data-ui aria-hidden="true">
+        <div class="win win--mail">
+          <div class="win-bar"><i></i><i></i><i></i><span>Bandeja de entrada</span></div>
+          <div class="mail-list">
+            <p class="sv-anim" style="--d:1"><b>María G.</b><span>¿Tenéis furgoneta de 9 plazas este finde?</span><em>Respondido</em></p>
+            <p class="sv-anim" style="--d:2"><b>Talleres Ruiz</b><span>Factura de octubre</span><em>Archivado</em></p>
+            <p class="sv-anim" style="--d:3"><b>Pedro L.</b><span>Cambio de fecha de recogida</span><em>Respondido</em></p>
+            <p class="sv-anim" style="--d:4"><b>Ana T.</b><span>Presupuesto para empresa</span><em class="hot">Aviso al equipo</em></p>
+          </div>
+          <div class="mail-open sv-anim" style="--d:5">
+            <p class="sv-soft">Respuesta automática · hace 1 min</p>
+            <p>Hola María, sí: tenemos una furgoneta de 9 plazas libre del viernes al domingo. Te dejo aquí el enlace para reservarla.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Software a medida ──────────────────────────── -->
+    <section class="svc svc--flip" id="software" data-field="blue" aria-labelledby="swTitle">
+      <div class="svc-copy">
+        <h2 id="swTitle" class="svc-title">Software a medida</h2>
+        <p class="svc-lead">Paneles, CRMs y herramientas internas hechas a tu forma de trabajar, en vez de adaptarte tú a un programa genérico.</p>
+        <dl class="svc-features">
+          <div><dt>Paneles internos</dt><dd>Llamadas, mensajes, pedidos y citas en un solo sitio, con lo que tú necesitas ver.</dd></div>
+          <div><dt>CRM y gestión</dt><dd>Clientes, presupuestos y seguimiento como lo hace tu equipo, no como lo impone una plantilla.</dd></div>
+          <div><dt>Apps web y móviles</dt><dd>Para tu equipo o para tus clientes, que se instalan en el móvil sin pasar por la tienda.</dd></div>
+          <div><dt>Integraciones</dt><dd>Conectamos las herramientas que ya usas para que hablen entre ellas.</dd></div>
+        </dl>
+        <p class="svc-for">Ideal para pymes con procesos propios que ya no caben en una hoja de cálculo.</p>
+      </div>
+      <div class="svc-visual" data-ui aria-hidden="true">
+        <div class="win win--app">
+          <div class="win-bar"><i></i><i></i><i></i><span class="win-url">panel.tuempresa.es</span></div>
+          <div class="app">
+            <aside class="app-side"><b></b><span class="on">Resumen</span><span>Clientes</span><span>Pedidos</span><span>Equipo</span></aside>
+            <div class="app-main">
+              <p class="app-h">Pedidos de la semana <small>ejemplo</small></p>
+              <div class="app-chart">
+                <i style="--h:38%;--d:1"></i><i style="--h:56%;--d:2"></i><i style="--h:48%;--d:3"></i><i style="--h:74%;--d:4"></i><i style="--h:66%;--d:5"></i><i style="--h:30%;--d:6"></i><i style="--h:22%;--d:7"></i>
+              </div>
+              <div class="app-list">
+                <p class="sv-anim" style="--d:3"><span>#2381</span>Preparado · cliente avisado<em>Hecho</em></p>
+                <p class="sv-anim" style="--d:4"><span>#2382</span>En reparto<em>Hecho</em></p>
+                <p class="sv-anim" style="--d:5"><span>#2383</span>Falta confirmar dirección<em class="wait">Revisar</em></p>
+              </div>
             </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Service 2 -->
-  <section class="service-detail-section">
-    <div class="detail-container reverse">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 02</div>
-        <h2>Cualificación y captura de leads</h2>
-        <p>Un chatbot que actúa como tu mejor comercial junior — siempre disponible, nunca cansado, sin perder ninguna oportunidad. Cualifica, segmenta y entrega los leads listos para cerrar.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Preguntas de cualificación adaptativas</strong><span>El flujo se adapta según las respuestas. No es un formulario — es una conversación que detecta intención de compra.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Integración con tu CRM</strong><span>HubSpot, Salesforce, Pipedrive — el lead entra directamente donde necesitas, con todos sus datos.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Notificaciones instantáneas</strong><span>Cuando llega un lead caliente, tu equipo recibe aviso por email, Slack o WhatsApp.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Seguimiento automático</strong><span>Leads fríos reciben nurturing automático a los 3, 7 y 14 días.</span></div>
-          </li>
-        </ul>
+    <!-- ── Combinados: una cita de principio a fin ──────── -->
+    <section class="combo" data-field="night" aria-labelledby="comboTitle">
+      <div class="combo-head">
+        <h2 id="comboTitle" class="combo-title">Juntos, cubren el recorrido entero.</h2>
+        <p class="combo-lead">Una cita de principio a fin, sin que nadie de tu equipo tenga que coger el teléfono.</p>
       </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="2">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">C</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">Asistente Chilie IA</div>
-              <div class="svc-chat-status">En línea</div>
-            </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <ol class="combo-rail" id="comboRail">
+        <li class="combo-step">
+          <span class="combo-dot" aria-hidden="true"></span>
+          <p class="combo-time">21:40</p>
+          <p class="combo-tag">Agente de voz</p>
+          <p class="combo-text">Un cliente llama con la clínica cerrada. El agente le atiende y le reserva cita.</p>
+          <div class="combo-ui" data-ui aria-hidden="true"><p class="cu-row"><i class="cu-ok"></i>Llamada atendida<span>1:12</span></p></div>
+        </li>
+        <li class="combo-step">
+          <span class="combo-dot" aria-hidden="true"></span>
+          <p class="combo-time">21:41</p>
+          <p class="combo-tag">Automatización</p>
+          <p class="combo-text">Le llega la confirmación por WhatsApp. El día antes, un recordatorio.</p>
+          <div class="combo-ui" data-ui aria-hidden="true"><p class="cu-bubble">Cita confirmada: <b>jueves 11:30</b></p></div>
+        </li>
+        <li class="combo-step">
+          <span class="combo-dot" aria-hidden="true"></span>
+          <p class="combo-time">Mié · 18:05</p>
+          <p class="combo-tag">Chatbot</p>
+          <p class="combo-text">Quiere cambiar la hora. Escribe por WhatsApp y se resuelve al momento.</p>
+          <div class="combo-ui" data-ui aria-hidden="true"><p class="cu-bubble cu-bubble--me">¿Puede ser a las 12?</p><p class="cu-bubble">Hecho: jueves 12:00.</p></div>
+        </li>
+        <li class="combo-step">
+          <span class="combo-dot" aria-hidden="true"></span>
+          <p class="combo-time">Jue · 08:00</p>
+          <p class="combo-tag">Software a medida</p>
+          <p class="combo-text">Tú abres tu panel y ya está todo apuntado.</p>
+          <div class="combo-ui" data-ui aria-hidden="true"><p class="cu-row"><span class="cu-hour">12:00</span>Laura M.<em>Confirmada</em></p></div>
+        </li>
+      </ol>
+    </section>
 
-  <!-- Service 3 -->
-  <section class="service-detail-section">
-    <div class="detail-container">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 03</div>
-        <h2>Reservas y gestión de citas</h2>
-        <p>Automatiza el proceso de reservas de principio a fin. Sin llamadas de teléfono, sin emails de ida y vuelta. El cliente reserva, tú apareces.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Disponibilidad en tiempo real</strong><span>Sincronizado con Google Calendar, Calendly o sistema propio. El chatbot nunca ofrece un hueco que no existe.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Confirmaciones y recordatorios</strong><span>Email y WhatsApp automáticos al confirmar, 24h y 1h antes. Las no-shows se reducen drásticamente.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Cancelaciones y reprogramaciones</strong><span>El cliente gestiona su cita sin llamarte. El sistema actualiza el calendario y libera el hueco.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Pre-anamnesis digital</strong><span>Recoge información previa a la cita para que llegues ya preparado.</span></div>
-          </li>
-        </ul>
-      </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="3">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">C</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">Asistente Chilie IA</div>
-              <div class="svc-chat-status">En línea</div>
-            </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ── Integraciones ──────────────────────────────── -->
+    <section class="tools" data-field="white" aria-labelledby="toolsTitle">
+      <h2 id="toolsTitle" class="tools-title">Se conecta con lo que ya usas</h2>
+      <p class="tools-list">Google&nbsp;Calendar&nbsp;· Calendly&nbsp;· Avantio&nbsp;· Avaibook&nbsp;· Gmail&nbsp;· WhatsApp&nbsp;Business&nbsp;· Instagram&nbsp;· HubSpot&nbsp;· Salesforce&nbsp;· Pipedrive&nbsp;· Shopify&nbsp;· Stripe&nbsp;· Zendesk&nbsp;· Jira&nbsp;· Slack&nbsp;· n8n&nbsp;· Zapier&nbsp;· <span>y tu propio sistema, por API.</span></p>
+    </section>
 
-  <!-- Service 4 -->
-  <section class="service-detail-section">
-    <div class="detail-container reverse">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 04</div>
-        <h2>Asistente de e-commerce</h2>
-        <p>Un asistente que acompaña al cliente desde la duda hasta el pago — y después. Aumenta la conversión, reduce las devoluciones y convierte el soporte post-venta en ventaja competitiva.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Recomendación de producto</strong><span>El chatbot entiende lo que el cliente busca y sugiere el producto correcto según catálogo e inventario.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Estado de pedidos en tiempo real</strong><span>El cliente pregunta "¿dónde está mi pedido?" y recibe respuesta inmediata, sin abrir un ticket.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Recuperación de carritos</strong><span>Detecta abandono y lanza una conversación personalizada. Tasa de recuperación media del 12-18%.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Cambios y devoluciones</strong><span>El proceso completo gestionado por el chatbot — sin emails, sin esperas, sin agentes saturados.</span></div>
-          </li>
-        </ul>
+    <!-- ── Cierre ───────────────────────────────────────── -->
+    <section class="close" data-field="night" aria-labelledby="closeTitle">
+      <div class="close-copy">
+        <h2 id="closeTitle" class="close-title">¿No sabes por cuál empezar?</h2>
+        <p class="close-lead">Déjanos tu correo. En una llamada de 45 minutos vemos qué te quita más tiempo y te enviamos una propuesta en 24 horas.</p>
       </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="4">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">C</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">Asistente Chilie IA</div>
-              <div class="svc-chat-status">En línea</div>
-            </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
+      <form class="close-form" id="closeForm" novalidate>
+        <label for="closeEmail" class="close-label">Tu correo de trabajo</label>
+        <div class="close-row">
+          <input id="closeEmail" name="email" type="email" placeholder="nombre@tuempresa.es" autocomplete="email" required aria-describedby="closeHelp">
+          <button type="submit" class="btn btn-lg close-send">Enviar <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
-      </div>
-    </div>
-  </section>
+        <p class="close-help" id="closeHelp">Sin compromiso. Si prefieres contarnos más, usa el <a href="/contacto">formulario completo</a>.</p>
+      </form>
+    </section>
 
-  <!-- Service 5 -->
-  <section class="service-detail-section">
-    <div class="detail-container">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 05</div>
-        <h2>Soporte técnico de nivel 1</h2>
-        <p>El 70% de los tickets de soporte técnico son siempre los mismos. El chatbot los resuelve. Tu equipo se concentra en los problemas que realmente requieren atención.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Diagnóstico guiado</strong><span>Guía al usuario por un árbol de diagnóstico inteligente. Resuelve el 70% de incidencias sin escalado.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Apertura automática de tickets</strong><span>Cuando hay escalado, crea el ticket en Jira, Zendesk o Freshdesk con toda la información ya recogida.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Base de conocimiento técnico</strong><span>Entrenado con tu documentación y changelogs. Se actualiza cuando añades nuevo contenido.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Seguimiento de incidencia</strong><span>El usuario recibe updates automáticos del estado de su ticket. Menos emails de seguimiento.</span></div>
-          </li>
-        </ul>
-      </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="5">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">C</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">Asistente Chilie IA</div>
-              <div class="svc-chat-status">En línea</div>
-            </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- Service 6 -->
-  <section class="service-detail-section">
-    <div class="detail-container reverse">
-      <div class="detail-info fade-up">
-        <div class="svc-n">Servicio 06</div>
-        <h2>Chatbot para WhatsApp Business</h2>
-        <p>El canal de comunicación más usado en España. Tu negocio disponible en WhatsApp, con un chatbot que responde como si fuera alguien de tu equipo — pero a las 3 de la madrugada.</p>
-        <ul class="check-list">
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>API oficial de WhatsApp Business</strong><span>Integración a través de la API oficial. Cuenta verificada, sin riesgo de bloqueo, con sello de empresa.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Mensajes proactivos</strong><span>Recordatorios, confirmaciones, notificaciones y campañas de nurturing directamente en el WhatsApp del cliente.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Conversación bidireccional</strong><span>No solo notificaciones — el cliente responde y el chatbot continúa la conversación con contexto completo.</span></div>
-          </li>
-          <li>
-            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <div><strong>Multiidioma automático</strong><span>Detecta el idioma del usuario y responde en consecuencia. Sin configuración manual.</span></div>
-          </li>
-        </ul>
-      </div>
-      <div class="visual-box is-demo fade-up">
-        <div class="svc-chat" data-demo="6">
-          <div class="svc-chat-head">
-            <div class="svc-chat-avatar">W</div>
-            <div class="svc-chat-meta">
-              <div class="svc-chat-name">WhatsApp Business</div>
-              <div class="svc-chat-status">En línea</div>
-            </div>
-            <span class="svc-chat-badge">Demo</span>
-          </div>
-          <div class="svc-chat-body">
-            <div class="svc-typing"><span></span><span></span><span></span></div>
-          </div>
-          <div class="svc-chat-foot">
-            <div class="svc-chat-fake-input">Escribe tu mensaje...</div>
-            <div class="svc-chat-send-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-      </div>
+  <!-- ── Pie ────────────────────────────────────────────── -->
+  <footer class="foot" data-field="white">
+    <div class="foot-tile foot-statement">
+      <p>Software a medida e IA para que tu negocio conteste siempre.</p>
+      <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
     </div>
-  </section>
-
-  <!-- Process -->
-  <section class="section section-alt">
-    <div class="container">
-      <span class="chip">El proceso</span>
-      <h2 class="section-title fade-up">De cero a producción en<br><em>10 días hábiles.</em></h2>
-      <p class="section-sub fade-up">Proceso probado, sin sorpresas. Sabemos exactamente qué necesitamos de ti y en qué momento.</p>
-
-      <div class="process-list">
-        <div class="process-step">
-          <div class="ps-num">01</div>
-          <div>
-            <h4>Llamada de diagnóstico (45 min)</h4>
-            <p>Entendemos tu negocio, tus procesos actuales, las herramientas que ya usas y el resultado que quieres medir. Sin formularios previos — solo una conversación.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">02</div>
-          <div>
-            <h4>Propuesta de arquitectura (24h)</h4>
-            <p>Recibes un documento con el diseño del sistema, los flujos conversacionales, las integraciones necesarias y el presupuesto. Todo detallado, sin letra pequeña.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">03</div>
-          <div>
-            <h4>Desarrollo y entrenamiento (5-7 días)</h4>
-            <p>Construimos el chatbot, lo entrenamos con tu información y lo conectamos con tus herramientas. Tienes acceso a staging para ver el progreso en tiempo real.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">04</div>
-          <div>
-            <h4>Testing conjunto (2 días)</h4>
-            <p>Probamos contigo con escenarios reales. Ajustamos tono, lógica y edge cases. No desplegamos hasta que estás satisfecho.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">05</div>
-          <div>
-            <h4>Despliegue y soporte</h4>
-            <p>Ponemos el sistema en producción. Te entregamos documentación completa y acceso al dashboard. Soporte post-lanzamiento durante 30 días incluido en todos los proyectos.</p>
-          </div>
-        </div>
-      </div>
+    <nav class="foot-tile foot-nav" aria-label="Pie">
+      <a href="/servicios">Servicios</a>
+      <a href="/demos">Demos</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/blog">Blog</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <div class="foot-tile foot-time">
+      <p>Madrid</p>
+      <p class="foot-clock"><span id="clock">—</span></p>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-block">
-    <div class="cta-inner">
-      <span class="chip">Sin compromiso</span>
-      <h2 class="fade-up">¿Qué chatbot necesita<br><em>tu negocio?</em></h2>
-      <p class="fade-up">Cuéntanos el problema. En menos de 24 horas te enviamos una propuesta de arquitectura personalizada — sin coste y sin compromiso.</p>
-      <div class="cta-btns fade-up">
-        <a href="/contacto" class="btn btn-primary">
-          Pedir propuesta gratuita
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="/nosotros" class="btn btn-ghost">Conocer el equipo</a>
-      </div>
+    <div class="foot-tile foot-mail">
+      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="logo">CHILIE<span>IA</span></span>
-        <p>Agencia especializada en chatbots de IA a medida. Construimos los sistemas que atienden a tus clientes, califican tus leads y liberan a tu equipo.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Navegación</h5>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/servicios">Servicios</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contacto</h5>
-        <p><a href="mailto:chilieagencia@gmail.com" class="link-email">chilieagencia@gmail.com</a></p>
-        <p>Madrid, España</p>
-        <span class="available">Disponibles para nuevos proyectos</span>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Chilie IA. Todos los derechos reservados.</p>
-      <div class="footer-legal">
-        <a href="/aviso-legal">Aviso Legal</a>
-        <a href="/politica-privacidad">Privacidad</a>
-        <a href="/politica-cookies">Cookies</a>
-      </div>
-    </div>
+    <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
+    <a class="foot-tile foot-go" href="/contacto">
+      <span>Empezar un proyecto</span>
+      <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M8 40 40 8M16 8h24v24" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+    </a>
   </footer>
 
-  <!-- Cookie consent banner -->
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-banner-content">
-      <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación. Puedes aceptar todas las cookies o configurar tus preferencias. Más información en nuestra <a href="/politica-cookies">Política de Cookies</a>.</p>
-      <div class="cookie-banner-actions">
-        <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button>
-        <button class="cookie-btn cookie-btn-reject" id="cookieReject">Rechazar</button>
-      </div>
+  <div class="cookie" id="cookieBanner" hidden>
+    <p>Usamos cookies propias y de terceros para mejorar tu navegación. Más información en la <a href="/politica-cookies">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ink" id="cookieAccept">Aceptar</button>
+      <button class="btn btn-quiet" id="cookieReject">Rechazar</button>
     </div>
   </div>
 
-  <!-- Chat -->
-  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat">
-    <svg class="open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-avatar">C</div>
-      <div class="chat-info">
-        <div class="chat-name">Asistente Chilie IA</div>
-        <div class="chat-status">En línea · responde al instante</div>
-      </div>
-      <button class="chat-close" id="chatClose">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="chat-messages" id="chatMessages" data-lenis-prevent></div>
-    <div class="chat-quick-replies" id="quickReplies"></div>
-    <div class="chat-input-area">
-      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
-      <button class="chat-send" id="chatSend">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M14 2L7 9M14 2l-4 12-3-5-5-3 12-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-    <p class="chat-privacy">Al usar este chat aceptas nuestra <a href="/politica-privacidad" target="_blank">Política de Privacidad</a>.</p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="../script.js"></script>
+  <script src="/home.js" defer></script>
 </body>
 </html>

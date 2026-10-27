@@ -50,7 +50,7 @@ app.use(express.json({ limit: '10kb' }));
 
 // ── Anthropic ─────────────────────────────────────────────
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-7';
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-5-5';
 
 // ── Nodemailer (Gmail SMTP + App Password) ────────────────
 const mailer = (process.env.SMTP_USER && process.env.SMTP_PASS)
@@ -61,11 +61,11 @@ const mailer = (process.env.SMTP_USER && process.env.SMTP_PASS)
   : null;
 
 // ── System prompt ─────────────────────────────────────────
-const SYSTEM_PROMPT = `Eres el asistente pre-ventas de Chilie IA, una agencia especializada en chatbots de inteligencia artificial a medida, basada en Madrid, España.
+const SYSTEM_PROMPT = `Eres el asistente pre-ventas de Chilie IA, una empresa de Madrid (España) que construye software a medida e inteligencia artificial para empresas: agentes de voz, chatbots, automatización de procesos y software a medida.
 
 PERSONALIDAD Y TONO
 - Profesional, directo y cercano. Como un buen asesor de negocios, no un vendedor agresivo.
-- Conciso: 2-4 frases normalmente. Más detalle solo cuando la pregunta lo requiere.
+- Muy conciso: 2-3 frases cortas (unas 60 palabras como máximo). Sin listas largas: si hay varias ideas, menciona las dos más útiles y ofrece ampliar.
 - Sin emojis. Responde siempre en español.
 - Habla en segunda persona (tú / tu negocio).
 
@@ -73,22 +73,21 @@ QUIÉNES SOMOS
 Chilie IA fue fundada por Iñigo (arquitecto backend, Node.js) y Carlos (frontend y UX). Somos un equipo pequeño y técnico — cuando un cliente habla con Chilie, habla directamente con quien construye su sistema. Sin intermediarios ni subcontratas.
 Stack: Node.js, Anthropic Claude, n8n, WhatsApp Business API, Supabase, Pinecone, MySQL, Render.
 
-SERVICIOS
-1. Chatbots de atención al cliente — Resuelven dudas, gestionan incidencias y escalan al humano cuando tiene sentido. Web y WhatsApp.
-2. Cualificación y captura de leads — Preguntas adaptativas, detección de intención de compra, entrega al CRM.
-3. Sistemas de reservas y citas — Gestión de agenda, confirmaciones y recordatorios automáticos.
-4. Asistentes de e-commerce — Estado de pedidos, recuperación de carritos, recomendaciones de producto.
-5. Soporte técnico nivel 1 — Diagnóstico guiado, apertura de tickets, base de conocimiento técnico.
-6. Chatbot para WhatsApp Business — API oficial, mensajes proactivos, conversación bidireccional.
+SERVICIOS (cuatro líneas)
+1. Agentes de voz — Atienden llamadas entrantes y hacen llamadas salientes con una voz natural: resuelven dudas, cualifican, reservan y cambian citas en el calendario y pasan la llamada a una persona cuando hace falta. Ideal para clínicas, inmobiliarias, alquileres, agencias y cualquier negocio que pierde llamadas.
+2. Chatbots — En la web, WhatsApp Business (API oficial), Instagram y Telegram: atención al cliente, cualificación de leads hacia el CRM, reservas y citas, asistentes de e-commerce (catálogo, cesta, estado de pedidos, carritos abandonados) y soporte técnico de nivel 1.
+3. Automatización de procesos — Correo que se responde solo, recordatorios y confirmaciones automáticas, y datos que pasan entre CRM, calendario, hojas de cálculo, tienda online y otras herramientas sin copiar a mano (n8n, APIs).
+4. Software a medida — Paneles internos, CRMs y herramientas de gestión, apps web y PWAs, e integraciones entre las herramientas que ya usa el cliente. Hecho a la forma de trabajar de cada negocio.
+Las cuatro líneas se combinan: por ejemplo, un agente de voz que reserva citas, confirma por WhatsApp y lo apunta todo en un panel propio.
 
 PRECIOS — REGLA ABSOLUTA
 NUNCA des precios, ni fijos, ni orientativos, ni rangos.
-Cada chatbot se diseña y construye completamente a medida. El coste depende de:
-- La complejidad de los flujos conversacionales
-- El número y tipo de integraciones necesarias (CRM, base de datos, WhatsApp, etc.)
-- El volumen esperado de conversaciones
-- Los canales requeridos (web, WhatsApp, otros)
-- El nivel de personalización del diseño conversacional y la lógica de negocio
+Cada proyecto se diseña y construye completamente a medida. El coste depende de:
+- Qué hay que construir (agente de voz, chatbot, automatización, software a medida o una combinación)
+- El número y tipo de integraciones necesarias (CRM, calendario, base de datos, WhatsApp, tienda online, etc.)
+- El volumen esperado de llamadas, conversaciones o datos
+- Los canales requeridos (teléfono, web, WhatsApp, correo, otros)
+- La complejidad de la lógica de negocio
 Cuando alguien pregunte por precio, explica esto con naturalidad y dirige hacia una propuesta gratuita sin compromiso.
 
 PROCESO
@@ -100,7 +99,7 @@ PROCESO
 
 TU OBJETIVO
 Actuar como asesor consultivo. Ayuda al visitante a entender:
-- Si un chatbot tiene sentido para su negocio concreto
+- Qué parte de su negocio conviene automatizar primero (voz, chat, automatización o software a medida)
 - Qué tipo de solución aportaría más valor en su caso
 - Qué impacto operativo puede esperar (tickets reducidos, leads cualificados, horas ahorradas)
 - Por qué la solución debe ser a medida y no una herramienta genérica
@@ -230,6 +229,59 @@ app.post('/api/chat', rateLimit, async (req, res) => {
 
   } catch (err) {
     return handleAnthropicError(err, res, 'Chat Error');
+  }
+});
+
+// ── Chat endpoint en streaming ────────────────────────────
+// Envía el texto a medida que el modelo lo genera, como eventos SSE:
+//   data: {"t":"trozo"}   ...   data: {"done":true}   (o data: {"error":"..."})
+app.post('/api/chat/stream', rateLimit, async (req, res) => {
+  const { messages } = req.body;
+
+  if (!messages || !validateMessages(messages)) {
+    return res.status(400).json({ error: 'Formato de mensaje inválido.' });
+  }
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return res.status(500).json({ error: 'Servidor no configurado. Contacta con el equipo.' });
+  }
+
+  const stream = anthropic.messages.stream({
+    model: MODEL,
+    max_tokens: 350,
+    thinking: { type: 'disabled' },
+    system: [
+      { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
+    ],
+    messages,
+  });
+
+  // Si el visitante cierra la página, dejamos de generar
+  res.on('close', () => { if (!res.writableEnded) stream.abort(); });
+
+  const send = obj => res.write(`data: ${JSON.stringify(obj)}\n\n`);
+
+  try {
+    for await (const event of stream) {
+      if (!res.headersSent) {
+        res.set({
+          'Content-Type': 'text/event-stream; charset=utf-8',
+          'Cache-Control': 'no-cache, no-transform',
+          'X-Accel-Buffering': 'no',
+        });
+        res.flushHeaders();
+      }
+      if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+        send({ t: event.delta.text });
+      }
+    }
+    send({ done: true });
+    res.end();
+  } catch (err) {
+    if (!res.headersSent) return handleAnthropicError(err, res, 'Chat Stream Error');
+    console.error('[Chat Stream Error]', err.message);
+    send({ error: 'No he podido terminar la respuesta. Inténtalo de nuevo.' });
+    res.end();
   }
 });
 
@@ -690,6 +742,57 @@ app.post('/api/demo-chat', rateLimit, async (req, res) => {
 
   } catch (err) {
     return handleAnthropicError(err, res, 'Demo Chat Error');
+  }
+});
+
+// ── Demos en streaming (mismo formato SSE que /api/chat/stream) ──
+app.post('/api/demo-chat/stream', rateLimit, async (req, res) => {
+  const { demoId, messages } = req.body;
+
+  if (!demoId || !VALID_DEMO_IDS.has(demoId)) {
+    return res.status(400).json({ error: 'Demo no válido.' });
+  }
+  if (!messages || !validateMessages(messages)) {
+    return res.status(400).json({ error: 'Formato de mensajes inválido.' });
+  }
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return res.status(500).json({ error: 'Servidor no configurado. Contacta con el equipo.' });
+  }
+
+  const stream = anthropic.messages.stream({
+    model: MODEL,
+    max_tokens: 300,
+    thinking: { type: 'disabled' },
+    system: [
+      { type: 'text', text: DEMO_SYSTEM_PROMPTS[demoId], cache_control: { type: 'ephemeral' } },
+    ],
+    messages,
+  });
+
+  res.on('close', () => { if (!res.writableEnded) stream.abort(); });
+  const send = obj => res.write(`data: ${JSON.stringify(obj)}\n\n`);
+
+  try {
+    for await (const event of stream) {
+      if (!res.headersSent) {
+        res.set({
+          'Content-Type': 'text/event-stream; charset=utf-8',
+          'Cache-Control': 'no-cache, no-transform',
+          'X-Accel-Buffering': 'no',
+        });
+        res.flushHeaders();
+      }
+      if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+        send({ t: event.delta.text });
+      }
+    }
+    send({ done: true });
+    res.end();
+  } catch (err) {
+    if (!res.headersSent) return handleAnthropicError(err, res, 'Demo Stream Error');
+    console.error('[Demo Stream Error]', err.message);
+    send({ error: 'No he podido terminar la respuesta. Inténtalo de nuevo.' });
+    res.end();
   }
 });
 

@@ -1,0 +1,89 @@
+/* ============================================================
+   CHILIE — Nosotros
+   Se apoya en home.css: mismos tokens, campos y componentes.
+   ============================================================ */
+
+/* ── Los fundadores ───────────────────────────────────────── */
+.team {
+  padding: clamp(48px, 6vw, 96px) var(--m) var(--gap-section);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;
+}
+.founder {
+  display: grid; grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.2fr); gap: 28px; align-items: center;
+  padding: 24px; border-radius: 16px; background: var(--white);
+}
+.founder-media { aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden; background: var(--sky-2); }
+.founder-media img { width: 100%; height: 100%; object-fit: cover; }
+.founder-copy { display: grid; gap: 10px; }
+.founder-name { font-size: clamp(2.25rem, 3.4vw, 3.5rem); line-height: 1; letter-spacing: -0.04em; }
+.founder-role { justify-self: start; font-size: 0.875rem; font-weight: 500; padding: 4px 12px; border-radius: 99px; background: var(--blue); color: var(--paper); }
+.founder-bio { margin-top: 6px; font-size: 1.0625rem; line-height: 1.5; }
+.founder-does { margin-top: 4px; font-size: 0.9375rem; color: var(--ink-soft); }
+.founder-does span { display: block; font-size: 0.8125rem; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
+
+/* ── Cómo empezamos ───────────────────────────────────────── */
+.origin {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 64px 24px;
+}
+.origin-title { grid-column: 1 / 10; font-size: clamp(2.5rem, 5vw, 5.25rem); line-height: 1; letter-spacing: -0.04em; }
+.origin-steps { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.origin-step { display: grid; gap: 14px; align-content: start; padding-top: 22px; position: relative; }
+.origin-step::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 4px; border-radius: 2px; background: var(--spark); }
+.origin-when { font-size: 1.375rem; font-weight: 500; color: #A3A5EC; }
+.origin-text { font-size: var(--step-lead); line-height: 1.45; }
+
+/* ── Cómo trabajamos ──────────────────────────────────────── */
+.ways {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 48px 24px; align-items: start;
+}
+.ways-title { grid-column: 1 / 5; position: sticky; top: 104px; font-size: clamp(2.25rem, 4vw, 3.75rem); line-height: 1; }
+.ways-list { grid-column: 5 / 13; display: grid; gap: 8px; }
+.way {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: start;
+  padding: 28px 28px 32px; border-radius: 14px; background: var(--white-2);
+  transition: background-color 250ms ease, transform 300ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .way:hover { background: var(--sky); transform: translateX(6px); }
+}
+.way-head { font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
+.way-text { font-size: 1.0625rem; line-height: 1.5; color: var(--ink-soft); padding-top: 4px; }
+
+/* ── Con qué lo construimos ───────────────────────────────── */
+.stack {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px 24px;
+}
+.stack-title { grid-column: 1 / 5; font-size: clamp(2.25rem, 3.6vw, 3.75rem); line-height: 1.02; }
+.stack-list { grid-column: 5 / 13; font-size: clamp(1.5rem, 2.4vw, 2.375rem); line-height: 1.35; font-weight: 500; letter-spacing: -0.02em; }
+.stack-note { grid-column: 5 / 12; font-size: 1.0625rem; color: var(--fink-soft); }
+
+/* ── Teléfono ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .team { grid-template-columns: minmax(0, 1fr); }
+  .way { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .origin-steps { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
+@media (max-width: 760px) {
+  .origin, .ways, .stack { grid-template-columns: minmax(0, 1fr); }
+  .founder { grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 16px; align-items: start; }
+  .origin-title, .origin-steps, .ways-title, .ways-list, .stack-title, .stack-list, .stack-note { grid-column: 1; }
+  .founder-bio, .origin-text { font-size: 1.125rem; }
+  .origin-title { font-size: 10vw; }
+  .ways-title { position: static; font-size: 10vw; }
+  .way { padding: 22px; }
+  .stack-title { font-size: 10vw; }
+  .stack-list { font-size: 1.375rem; }
+}
+
+/* ── Datos rápidos junto a la cabecera ────────────────────── */
+.page-facts { grid-column: 8 / 13; grid-row: 2; align-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.page-facts div { padding: 18px 20px; border-radius: 12px; background: var(--white-2); }
+.page-facts dt { font-size: 0.875rem; color: var(--ink-soft); }
+.page-facts dd { margin-top: 2px; font-size: 1.375rem; font-weight: 500; letter-spacing: -0.01em; }
+@media (max-width: 760px) {
+  .page-facts { grid-column: 1; grid-row: auto; }
+  .page-facts dd { font-size: 1.125rem; }
+}

@@ -18,3 +18,22 @@ Thumbs.db
 # Build artifacts / logs
 *.log
 npm-debug.log*
+
+# Herramientas de diseño (skills)
+.taste-skill/
+.impeccable/
+
+# Fotos de referencia para generar retratos (no se publican)
+img/equipo/ref/
+
+# Originales de Higgsfield (no se publican)
+img/video/src/
+
+# Notas internas de diseño (no deben servirse en la web pública)
+PRODUCT.md
+
+# Vídeos que la web ya no usa (hero y videollamada antiguos)
+img/video/
+img/equipo/*.mp4
+img/equipo/inigo.jpg
+img/equipo/carlos.jpg

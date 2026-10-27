@@ -41,12 +41,164 @@ services:
       - type: rewrite
         source: /blog
         destination: /pages/blog.html
+      # ── blog:start (lo genera tools/build_blog.py)
+      - type: rewrite
+        source: /blog/voz-chat-automatizacion-juntos
+        destination: /pages/blog/voz-chat-automatizacion-juntos.html
+      - type: rewrite
+        source: /blog/black-friday-2026-checklist
+        destination: /pages/blog/black-friday-2026-checklist.html
+      - type: rewrite
+        source: /blog/latencia-agentes-de-voz
+        destination: /pages/blog/latencia-agentes-de-voz.html
+      - type: rewrite
+        source: /blog/streaming-respuestas-chat
+        destination: /pages/blog/streaming-respuestas-chat.html
+      - type: rewrite
+        source: /blog/portal-de-clientes-a-medida
+        destination: /pages/blog/portal-de-clientes-a-medida.html
+      - type: rewrite
+        source: /blog/llamadas-salientes-ia-ley
+        destination: /pages/blog/llamadas-salientes-ia-ley.html
+      - type: rewrite
+        source: /blog/presentar-ia-al-equipo
+        destination: /pages/blog/presentar-ia-al-equipo.html
+      - type: rewrite
+        source: /blog/onboarding-clientes-automatizado
+        destination: /pages/blog/onboarding-clientes-automatizado.html
+      - type: rewrite
+        source: /blog/vuelta-al-cole-academias-gimnasios
+        destination: /pages/blog/vuelta-al-cole-academias-gimnasios.html
+      - type: rewrite
+        source: /blog/resenas-google-ia
+        destination: /pages/blog/resenas-google-ia.html
+      - type: rewrite
+        source: /blog/seguridad-software-a-medida
+        destination: /pages/blog/seguridad-software-a-medida.html
+      - type: rewrite
+        source: /blog/probar-agente-de-voz
+        destination: /pages/blog/probar-agente-de-voz.html
+      - type: rewrite
+        source: /blog/chatbot-multilingue-turismo
+        destination: /pages/blog/chatbot-multilingue-turismo.html
+      - type: rewrite
+        source: /blog/ai-act-agosto-2026
+        destination: /pages/blog/ai-act-agosto-2026.html
+      - type: rewrite
+        source: /blog/correos-clasificar-responder-ia
+        destination: /pages/blog/correos-clasificar-responder-ia.html
+      - type: rewrite
+        source: /blog/medir-un-chatbot
+        destination: /pages/blog/medir-un-chatbot.html
+      - type: rewrite
+        source: /blog/paneles-internos-adios-excel
+        destination: /pages/blog/paneles-internos-adios-excel.html
+      - type: rewrite
+        source: /blog/verano-horario-reducido
+        destination: /pages/blog/verano-horario-reducido.html
+      - type: rewrite
+        source: /blog/informes-semanales-automaticos
+        destination: /pages/blog/informes-semanales-automaticos.html
+      - type: rewrite
+        source: /blog/errores-lanzar-chatbot
+        destination: /pages/blog/errores-lanzar-chatbot.html
+      - type: rewrite
+        source: /blog/modelo-ia-rapido-o-potente
+        destination: /pages/blog/modelo-ia-rapido-o-potente.html
+      - type: rewrite
+        source: /blog/agente-voz-inmobiliarias
+        destination: /pages/blog/agente-voz-inmobiliarias.html
+      - type: rewrite
+        source: /blog/avantio-avaibook-integracion
+        destination: /pages/blog/avantio-avaibook-integracion.html
+      - type: rewrite
+        source: /blog/formulario-web-crm
+        destination: /pages/blog/formulario-web-crm.html
+      - type: rewrite
+        source: /blog/alucinaciones-ia
+        destination: /pages/blog/alucinaciones-ia.html
+      - type: rewrite
+        source: /blog/elegir-voz-para-tu-marca
+        destination: /pages/blog/elegir-voz-para-tu-marca.html
+      - type: rewrite
+        source: /blog/mvp-en-dos-semanas
+        destination: /pages/blog/mvp-en-dos-semanas.html
       - type: rewrite
         source: /blog/chatbot-whatsapp
         destination: /pages/blog/chatbot-whatsapp.html
       - type: rewrite
         source: /blog/precio-chatbot
         destination: /pages/blog/precio-chatbot.html
+      - type: rewrite
+        source: /blog/campana-renta-asesorias
+        destination: /pages/blog/campana-renta-asesorias.html
+      - type: rewrite
+        source: /blog/traspaso-a-humano
+        destination: /pages/blog/traspaso-a-humano.html
+      - type: rewrite
+        source: /blog/semana-santa-alquiler-vacacional
+        destination: /pages/blog/semana-santa-alquiler-vacacional.html
+      - type: rewrite
+        source: /blog/facturas-pdf-extraer-datos-ia
+        destination: /pages/blog/facturas-pdf-extraer-datos-ia.html
+      - type: rewrite
+        source: /blog/briefing-proyecto-software
+        destination: /pages/blog/briefing-proyecto-software.html
+      - type: rewrite
+        source: /blog/rgpd-asistentes-ia
+        destination: /pages/blog/rgpd-asistentes-ia.html
+      - type: rewrite
+        source: /blog/base-de-conocimiento-chatbot
+        destination: /pages/blog/base-de-conocimiento-chatbot.html
+      - type: rewrite
+        source: /blog/san-valentin-reservas-restaurantes
+        destination: /pages/blog/san-valentin-reservas-restaurantes.html
+      - type: rewrite
+        source: /blog/n8n-zapier-make
+        destination: /pages/blog/n8n-zapier-make.html
+      - type: rewrite
+        source: /blog/cuantas-llamadas-pierdes
+        destination: /pages/blog/cuantas-llamadas-pierdes.html
+      - type: rewrite
+        source: /blog/chatbot-reglas-vs-ia
+        destination: /pages/blog/chatbot-reglas-vs-ia.html
+      - type: rewrite
+        source: /blog/preparar-datos-empresa-para-ia
+        destination: /pages/blog/preparar-datos-empresa-para-ia.html
+      - type: rewrite
+        source: /blog/rebajas-cambios-devoluciones
+        destination: /pages/blog/rebajas-cambios-devoluciones.html
+      - type: rewrite
+        source: /blog/tendencias-ia-2026-pymes
+        destination: /pages/blog/tendencias-ia-2026-pymes.html
+      - type: rewrite
+        source: /blog/lo-que-aprendimos-en-2025
+        destination: /pages/blog/lo-que-aprendimos-en-2025.html
+      - type: rewrite
+        source: /blog/navidad-atender-llamadas-vacaciones
+        destination: /pages/blog/navidad-atender-llamadas-vacaciones.html
+      - type: rewrite
+        source: /blog/software-a-medida-o-saas
+        destination: /pages/blog/software-a-medida-o-saas.html
+      - type: rewrite
+        source: /blog/presupuesto-2026-ia
+        destination: /pages/blog/presupuesto-2026-ia.html
+      - type: rewrite
+        source: /blog/black-friday-pedidos-devoluciones
+        destination: /pages/blog/black-friday-pedidos-devoluciones.html
+      - type: rewrite
+        source: /blog/tareas-automatizar-antes-fin-de-ano
+        destination: /pages/blog/tareas-automatizar-antes-fin-de-ano.html
+      - type: rewrite
+        source: /blog/whatsapp-normas-bots-ia-2026
+        destination: /pages/blog/whatsapp-normas-bots-ia-2026.html
+      - type: rewrite
+        source: /blog/que-es-un-agente-de-voz
+        destination: /pages/blog/que-es-un-agente-de-voz.html
+      - type: rewrite
+        source: /blog/black-friday-atencion-cliente-ia
+        destination: /pages/blog/black-friday-atencion-cliente-ia.html
+      # ── blog:end
       # ── 301 desde las URLs .html antiguas a las limpias (SEO) ──
       - type: redirect
         source: /index.html
@@ -100,7 +252,7 @@ services:
     autoDeploy: true
     envVars:
       - key: ANTHROPIC_MODEL
-        value: claude-haiku-4-5
+        value: claude-haiku-5-5
       - key: ALLOWED_ORIGINS
         value: https://chilieia.com,https://www.chilieia.com,https://chilie-landing.onrender.com
       # ─── Secretos: se rellenan en el dashboard ───
