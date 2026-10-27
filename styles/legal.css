@@ -1,0 +1,55 @@
+/* ============================================================
+   CHILIE — Páginas legales (aviso legal, privacidad, cookies)
+   Se apoya en home.css: mismos tokens, campos y componentes.
+   ============================================================ */
+
+.legal-kicker { grid-column: 1 / -1; font-size: 0.9375rem; font-weight: 500; color: var(--blue); }
+.legal-updated { grid-column: 1 / 7; font-size: 1rem; color: var(--ink-soft); }
+
+.legal {
+  padding: clamp(24px, 3vw, 48px) var(--m) var(--gap-section);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px 24px; align-items: start;
+}
+
+/* Índice lateral: los tres documentos y las secciones del actual */
+.legal-nav { grid-column: 1 / 4; position: sticky; top: 104px; display: grid; gap: 28px; }
+.legal-docs, .legal-toc { display: grid; gap: 2px; }
+.legal-nav p { font-size: 0.8125rem; font-weight: 500; color: var(--ink-soft); margin-bottom: 6px; }
+.legal-docs a, .legal-toc a { display: block; padding: 8px 12px; margin: 0 -12px; border-radius: 8px; text-decoration: none; font-size: 0.9375rem; color: var(--ink-soft); transition: background-color 200ms ease, color 200ms ease; }
+.legal-docs a[aria-current="page"] { background: var(--white-2); color: var(--ink); font-weight: 500; }
+@media (hover: hover) and (pointer: fine) {
+  .legal-docs a:hover, .legal-toc a:hover { background: var(--white-2); color: var(--ink); }
+}
+
+/* Texto legal */
+.legal-body { grid-column: 4 / 11; font-size: 1.0625rem; line-height: 1.65; max-width: 72ch; }
+.legal-body > * + * { margin-top: 1em; }
+.legal-body h2 { margin-top: 2.2em; font-size: clamp(1.5rem, 2.2vw, 1.875rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; scroll-margin-top: 100px; }
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body h3 { margin-top: 1.6em; font-size: 1.1875rem; font-weight: 500; }
+.legal-body h2 + *, .legal-body h3 + * { margin-top: 0.6em; }
+.legal-body ul { padding-left: 1.3em; }
+.legal-body li + li { margin-top: 0.4em; }
+.legal-body li::marker { color: var(--blue); }
+.legal-body strong { font-weight: 600; }
+.legal-body a { color: var(--blue); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal-card { padding: 22px 26px; border-radius: 14px; background: var(--white-2); }
+.legal-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; }
+.legal-card dt { color: var(--ink-soft); }
+.legal-card dd { font-weight: 500; overflow-wrap: anywhere; }
+
+.legal-table-wrap { overflow-x: auto; margin-left: -4px; margin-right: -4px; }
+.legal-body table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.45; min-width: 560px; }
+.legal-body th, .legal-body td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--white-2); }
+.legal-body th { font-weight: 500; color: var(--ink-soft); font-size: 0.875rem; }
+
+@media (max-width: 900px) {
+  .legal { grid-template-columns: minmax(0, 1fr); }
+  .legal-nav, .legal-body, .legal-updated { grid-column: 1; }
+  .legal-nav { position: static; }
+  .legal-toc { display: none; }
+  .legal-docs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .legal-docs a { margin: 0; background: var(--white-2); }
+  .legal-card dl { grid-template-columns: 1fr; gap: 2px; }
+  .legal-card dd { margin-bottom: 8px; }
+}
