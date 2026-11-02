@@ -68,7 +68,10 @@
 .post-head { grid-column: 3 / 11; display: grid; gap: 18px; padding-bottom: clamp(40px, 5vw, 64px); border-bottom: 1px solid var(--white-2); }
 .post-back { justify-self: start; font-weight: 500; text-decoration: none; color: var(--ink-soft); }
 .post-back:hover { color: var(--ink); }
-.post-tag { justify-self: start; font-size: 0.875rem; font-weight: 500; padding: 4px 12px; border-radius: 99px; background: var(--sky); color: var(--navy); }
+.post-tag { justify-self: start; font-size: 0.875rem; font-weight: 500; padding: 4px 12px; border-radius: 99px; background: var(--sky); color: var(--navy); text-decoration: none; transition: background-color 200ms ease; }
+.post-tag:hover { background: var(--sky-2); }
+/* Último párrafo del artículo: enlace a su página de servicio o de sector */
+.post-next { margin-top: 2.2em !important; padding: 22px 26px; border-radius: 12px; background: var(--white-2); font-size: 1.125rem; line-height: 1.55; }
 .post-title { font-size: clamp(2.25rem, 4.6vw, 4.25rem); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; }
 .post-lead { font-size: var(--step-lead); line-height: 1.45; color: var(--ink-soft); max-width: 46ch; }
 .post-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.9375rem; color: var(--ink-soft); }

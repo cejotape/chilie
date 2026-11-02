@@ -2,6 +2,7 @@ title: Vuelta al cole: academias y gimnasios ante la avalancha de llamadas de se
 cat: voz
 author: Iñigo
 excerpt: Finales de agosto y principios de septiembre concentran las matrículas e inscripciones del año. Cómo atender todas las llamadas y consultas sin contratar refuerzos.
+seo: Vuelta al cole en academias y gimnasios
 ---
 Para una academia, un gimnasio o una escuela de idiomas, las dos semanas alrededor del 1 de septiembre valen por muchos meses. Todo el mundo quiere apuntarse a la vez: *¿qué horarios hay?*, *¿cuánto cuesta?*, *¿quedan plazas en el grupo de los martes?*, *¿hay matrícula?*
 

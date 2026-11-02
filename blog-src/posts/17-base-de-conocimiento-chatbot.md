@@ -2,6 +2,7 @@ title: Qué darle a tu chatbot para que no se invente nada: guía de la base de 
 cat: chat
 author: Carlos
 excerpt: La calidad de un asistente de IA depende sobre todo de la información que le das. Qué incluir, cómo escribirlo y cómo mantenerlo al día sin volverte loco.
+seo: Base de conocimiento de un chatbot: guía
 ---
 Cuando un chatbot da una respuesta equivocada, casi siempre la culpa no es del modelo de IA. Es que **no tenía la información** y rellenó el hueco como pudo. La solución es una buena base de conocimiento: el conjunto de documentos de los que el asistente saca sus respuestas.
 

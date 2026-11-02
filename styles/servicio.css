@@ -1,0 +1,120 @@
+/* ============================================================
+   CHILIE — Páginas de servicio y de sector
+   Se apoya en home.css (tokens, campos, cabecera, preguntas, cierre),
+   servicios.css (vía de la cita, integraciones, tarjetas) y blog.css (listas).
+   ============================================================ */
+
+/* ── Cabecera: título a la izquierda, el sistema funcionando a la derecha ── */
+.svc-hero { grid-template-rows: auto auto auto auto; align-items: start; row-gap: 0; }
+.crumbs { grid-column: 1 / 8; margin-bottom: clamp(24px, 3vw, 40px); }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 0.9375rem; color: var(--ink-soft); }
+.crumbs li + li::before { content: '/'; margin-right: 10px; color: var(--ink-soft); }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs [aria-current="page"] { color: var(--ink); }
+.svc-hero .page-title { grid-column: 1 / 8; max-width: 10em; }
+.svc-hero .page-sub { grid-column: 1 / 7; margin-top: 32px; }
+.svc-hero .hero-actions { grid-column: 1 / 7; margin-top: 36px; }
+.svc-hero .hero-note { grid-column: 1 / 7; margin-top: 18px; }
+.svc-hero .svc-visual { grid-column: 8 / 13; grid-row: 1 / 6; align-self: stretch; min-height: 520px; }
+.svc-hero .hero-actions, .svc-hero .hero-note, .svc-hero .page-sub { animation: fade-up 800ms var(--ease-out) both; }
+.svc-hero .page-sub { animation-delay: 120ms; }
+.svc-hero .hero-actions { animation-delay: 220ms; }
+.svc-hero .hero-note { animation-delay: 300ms; }
+.svc-hero .svc-visual { animation: stage-in 1100ms var(--ease-in-out) 100ms both; }
+/* En la cabecera la conversación entra sola al cargar, sin esperar al scroll */
+.svc-hero .sv-anim { opacity: 1; transform: none; animation: fade-up 600ms var(--ease-out) both; animation-delay: calc(700ms + var(--d, 0) * 260ms); }
+.svc-hero .app-chart i { transform: none; }
+.svc-visual--navy { background: var(--navy-2); }
+
+/* ── Qué hace: texto y lista de capacidades ───────────────── */
+.what {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 48px 24px; align-items: start;
+}
+.what-copy { grid-column: 1 / 6; }
+@media (min-width: 1025px) { .what-copy { position: sticky; top: 96px; } }
+.what-title { font-size: clamp(2.25rem, 4vw, 3.75rem); line-height: 1.02; max-width: 9em; }
+.what-lead { margin-top: 24px; font-size: var(--step-lead); line-height: 1.4; max-width: 30ch; }
+.what-list { grid-column: 7 / 13; display: grid; gap: 36px; }
+.what-list dt { font-size: clamp(1.375rem, 1.8vw, 1.75rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; }
+.what-list dd { margin-top: 10px; font-size: var(--step-body); line-height: 1.5; max-width: 52ch; }
+.what-note { grid-column: 7 / 13; font-size: var(--step-body); line-height: 1.5; max-width: 52ch; padding: 22px 26px; border-radius: 12px; background: var(--sky); color: var(--navy); }
+
+/* ── Para quién: sectores como lista grande de enlaces ────── */
+.who {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px 24px; align-items: start;
+}
+.who-copy { grid-column: 1 / 5; }
+.who-title { font-size: clamp(2.25rem, 4vw, 3.75rem); line-height: 1.02; max-width: 8em; }
+.who-lead { margin-top: 24px; font-size: var(--step-lead); line-height: 1.4; max-width: 26ch; color: var(--fink-soft); }
+.who-list { grid-column: 6 / 13; list-style: none; display: grid; }
+.who-list a {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: center;
+  padding: 24px 20px; border-radius: var(--r); text-decoration: none;
+  transition: background-color 200ms ease;
+}
+.who-list b { font-size: clamp(1.5rem, 2.2vw, 2.125rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; }
+.who-list small { grid-column: 1; font-size: 1.0625rem; line-height: 1.45; color: var(--fink-soft); max-width: 46ch; }
+.who-list svg { grid-column: 2; grid-row: 1 / 3; width: 28px; height: 28px; transition: transform 250ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .who-list a:hover { background: var(--field-2); }
+  .who-list a:hover svg { transform: translateX(4px); }
+}
+.who-list a:active { transform: scale(0.99); }
+
+/* ── Cuánto cuesta: texto y lo que determina el precio ────── */
+.price {
+  padding: var(--gap-section) var(--m);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px 24px; align-items: start;
+}
+.price-copy { grid-column: 1 / 6; }
+.price-title { font-size: clamp(2.25rem, 4vw, 3.75rem); line-height: 1.02; max-width: 8em; }
+.price-lead { margin-top: 24px; font-size: var(--step-lead); line-height: 1.4; max-width: 30ch; }
+.price-body { grid-column: 7 / 13; display: grid; gap: 28px; font-size: var(--step-body); line-height: 1.55; max-width: 56ch; }
+.price-body a { color: var(--navy); font-weight: 500; }
+.price-facts { display: grid; gap: 20px; }
+.price-facts dt { font-weight: 500; font-size: 1.125rem; line-height: 1.3; }
+.price-facts dd { margin-top: 4px; line-height: 1.5; }
+
+/* ── Más sobre este servicio: artículos relacionados ──────── */
+.related { padding: var(--gap-section) var(--m); }
+.related .archive-head { margin-bottom: 24px; }
+.related .post-row a { border-bottom: 0; }
+.related .post-main small { color: var(--ink); }
+
+/* ── Teléfono y tableta ───────────────────────────────────── */
+/* En portátil (hasta 1280 px) la columna de la maqueta es estrecha: el panel pierde la barra lateral
+   y la bandeja de correo pone el asunto debajo del remitente */
+.svc-hero .svc-visual { padding: clamp(20px, 3vw, 48px); }
+@media (max-width: 1280px) {
+  .svc-hero .app { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .svc-hero .app-side { display: none; }
+  .svc-hero .mail-list p { grid-template-columns: minmax(0, 1fr) auto; }
+  .svc-hero .mail-list span { grid-column: 1 / -1; grid-row: 2; white-space: normal; }
+}
+/* Por debajo de 1024 px la maqueta de la cabecera baja debajo del texto: necesita el ancho entero */
+@media (max-width: 1024px) {
+  .svc-hero { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .crumbs, .svc-hero .page-title, .svc-hero .page-sub, .svc-hero .hero-actions, .svc-hero .hero-note, .svc-hero .svc-visual { grid-column: 1; grid-row: auto; }
+  .svc-hero .svc-visual { margin-top: 48px; min-height: 0; padding: clamp(20px, 4vw, 48px); }
+}
+@media (max-width: 760px) {
+  .what, .who, .price { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .what-copy, .what-list, .what-note, .who-copy, .who-list, .price-copy, .price-body { grid-column: 1; }
+  .what-copy { position: static; }
+  .what-title, .who-title, .price-title { font-size: 9vw; max-width: none; }
+  .what-lead, .who-lead, .price-lead { font-size: 1.125rem; max-width: none; }
+  .what-list { gap: 28px; }
+  .what-list dt { font-size: 1.375rem; }
+  .who-list a { padding: 20px 14px; }
+  .who-list b { font-size: 1.5rem; }
+  .who-list small { font-size: 1rem; }
+  .who-list svg { width: 22px; height: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-hero .page-sub, .svc-hero .hero-actions, .svc-hero .hero-note, .svc-hero .svc-visual, .svc-hero .sv-anim { animation: none; }
+  .who-list svg { transition: none; }
+}

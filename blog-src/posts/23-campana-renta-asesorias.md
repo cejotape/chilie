@@ -2,6 +2,7 @@ title: Campaña de la renta: cómo una asesoría puede automatizar la recogida d
 cat: auto
 author: Iñigo
 excerpt: Abril arranca la campaña de la renta y las asesorías se llenan de correos, WhatsApps y llamadas pidiendo lo mismo. Ideas concretas para ganar tiempo sin perder el trato cercano.
+seo: Campaña de la renta: automatizar documentos
 ---
 Para una asesoría o gestoría, la campaña de la renta es el momento más intenso del año. Cientos de clientes, cada uno con sus papeles, y la mayor parte del tiempo se va en perseguir documentos, contestar las mismas dudas y recordar plazos.
 

@@ -2,6 +2,7 @@ title: Cómo probar un agente de voz antes de que hable con tus clientes
 cat: voz
 author: Iñigo
 excerpt: Un agente de voz no se lanza tras dos llamadas de prueba. El método que usamos para encontrar los fallos antes que tus clientes: casos difíciles, ruido, interrupciones y datos raros.
+seo: Cómo probar un agente de voz antes de lanzarlo
 ---
 Agosto es un buen mes para probar con calma lo que se lanzará en septiembre. Y si hay algo que necesita pruebas serias, es un agente de voz: una llamada tiene muchas más sorpresas que un chat.
 

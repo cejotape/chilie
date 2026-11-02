@@ -2,6 +2,7 @@ title: ¿Cuántas llamadas pierde tu negocio? Cómo medirlo en una semana
 cat: voz
 author: Iñigo
 excerpt: Casi ningún negocio sabe cuántas llamadas se le escapan. Un método sencillo para medirlo con lo que ya tienes, y qué hacer con el resultado.
+seo: Cuántas llamadas pierde tu negocio: cómo medirlo
 ---
 Pregunta a cualquier dueño de negocio cuántas llamadas pierde al día y te dirá "alguna". Casi nadie lo sabe de verdad. Y es una pena, porque cada llamada perdida puede ser una cita, una venta o un cliente que se va a la competencia.
 

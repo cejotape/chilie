@@ -2,6 +2,7 @@ title: ¿Modelo de IA rápido o el más potente? Por qué casi siempre gana el r
 cat: ia
 author: Iñigo
 excerpt: Cada mes sale un modelo "más inteligente". Pero para atender clientes, la velocidad suele importar más que la potencia. Cómo elegir el modelo adecuado para cada tarea.
+seo: ¿Modelo de IA rápido o potente? Cuál elegir
 ---
 Cada pocas semanas se anuncia un modelo de IA que bate récords. Es lógico pensar que conviene usar siempre el más potente. En la práctica, para la mayoría de tareas de una empresa, **no es la mejor elección**.
 

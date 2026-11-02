@@ -2,6 +2,7 @@ title: 7 tareas repetitivas que una pyme puede automatizar antes de que acabe el
 cat: auto
 author: Iñigo
 excerpt: Final de año es mal momento para proyectos grandes, pero perfecto para quitarse pequeñas tareas de encima. Siete automatizaciones sencillas que se notan desde la primera semana.
+seo: 7 tareas que una pyme puede automatizar
 ---
 Llega el final de año y todo el mundo piensa en el gran proyecto de enero. Pero hay un montón de pequeñas tareas que se pueden automatizar en días, no en meses, y que te dejan empezar 2026 con menos ruido. Estas son las siete que más vemos en pymes.
 

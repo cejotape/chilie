@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demos — Chilie IA | Prueba asistentes de IA en directo</title>
+  <title>Demos: prueba asistentes de IA en directo | Chilie IA</title>
   <meta name="description" content="Habla con diez asistentes de IA de ejemplo: clínica, inmobiliaria, tienda online, restaurante, despacho y más. Responden en directo, como lo harían con tus clientes.">
   <link rel="canonical" href="https://www.chilieia.com/demos">
   <meta name="theme-color" content="#F7F7F5">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.chilieia.com/demos">
-  <meta property="og:title" content="Demos — Chilie IA">
+  <meta property="og:title" content="Demos: prueba asistentes de IA en directo | Chilie IA">
   <meta property="og:description" content="Prueba en directo asistentes de IA para diez tipos de negocio.">
   <meta property="og:image" content="https://www.chilieia.com/img/og-cover.jpg">
   <meta property="og:site_name" content="Chilie IA">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Demos — Chilie IA">
+  <meta name="twitter:title" content="Demos: prueba asistentes de IA en directo | Chilie IA">
   <meta name="twitter:description" content="Prueba en directo asistentes de IA para diez tipos de negocio.">
   <meta name="twitter:image" content="https://www.chilieia.com/img/og-cover.jpg">
 
@@ -25,7 +25,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/servicio.css">
   <link rel="stylesheet" href="/styles/demos.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.chilieia.com/demos",
+        "url": "https://www.chilieia.com/demos",
+        "name": "Demos: prueba asistentes de IA en directo",
+        "description": "Diez asistentes de IA de ejemplo, uno por tipo de negocio, que responden en directo con precios, horarios y datos inventados. La IA es la misma que construye Chilie IA para clientes reales.",
+        "isPartOf": { "@id": "https://www.chilieia.com/#website" },
+        "about": { "@id": "https://www.chilieia.com/#business" },
+        "inLanguage": "es"
+      },
+      {
+        "@type": "ItemList",
+        "name": "Asistentes de IA de ejemplo",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Clínica veterinaria", "url": "https://www.chilieia.com/demos#vet" },
+          { "@type": "ListItem", "position": 2, "name": "Clínica dental", "url": "https://www.chilieia.com/demos#dental" },
+          { "@type": "ListItem", "position": 3, "name": "Inmobiliaria", "url": "https://www.chilieia.com/demos#real" },
+          { "@type": "ListItem", "position": 4, "name": "Tienda online", "url": "https://www.chilieia.com/demos#ecom" },
+          { "@type": "ListItem", "position": 5, "name": "Restaurante", "url": "https://www.chilieia.com/demos#restaurant" },
+          { "@type": "ListItem", "position": 6, "name": "Despacho de abogados", "url": "https://www.chilieia.com/demos#law" },
+          { "@type": "ListItem", "position": 7, "name": "Barbería", "url": "https://www.chilieia.com/demos#hair" },
+          { "@type": "ListItem", "position": 8, "name": "Gimnasio", "url": "https://www.chilieia.com/demos#gym" },
+          { "@type": "ListItem", "position": 9, "name": "Academia", "url": "https://www.chilieia.com/demos#academy" },
+          { "@type": "ListItem", "position": 10, "name": "Reformas", "url": "https://www.chilieia.com/demos#home" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.chilieia.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://www.chilieia.com/demos" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -39,7 +81,24 @@
     </a>
     <nav class="bar-links" id="barLinks" aria-label="Principal">
       <a href="/">Inicio</a>
-      <a href="/servicios">Servicios</a>
+      <div class="bar-group">
+        <a href="/servicios">Servicios</a>
+        <div class="bar-panel">
+          <a href="/agentes-de-voz-ia">Agentes de voz con IA</a>
+          <a href="/chatbots-ia">Chatbots con IA</a>
+          <a href="/automatizacion-ia">Automatización de procesos</a>
+          <a href="/software-a-medida">Software a medida</a>
+        </div>
+      </div>
+      <div class="bar-group">
+        <a href="/sectores">Sectores</a>
+        <div class="bar-panel">
+          <a href="/sectores/clinicas">Clínicas</a>
+          <a href="/sectores/inmobiliarias">Inmobiliarias</a>
+          <a href="/sectores/restaurantes">Restaurantes</a>
+          <a href="/sectores/alquiler-vacacional">Alquiler vacacional</a>
+        </div>
+      </div>
       <a href="/demos" aria-current="page">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog">Blog</a>
@@ -52,8 +111,8 @@
 
     <!-- ── Cabecera de la página ──────────────────────── -->
     <section class="page-hero" data-field="white" aria-labelledby="pageTitle">
-      <h1 class="page-title" id="pageTitle">Habla con ellos. Responden de verdad.</h1>
-      <p class="page-sub">Diez asistentes para diez negocios de ejemplo, cada uno con sus precios, horarios y forma de hablar. Escríbeles como lo haría un cliente.</p>
+      <h1 class="page-title" id="pageTitle">Demos de asistentes de IA, en directo.</h1>
+      <p class="page-sub">Diez asistentes para diez negocios de ejemplo, cada uno con sus precios, horarios y forma de hablar. Escríbeles como lo haría un cliente: responden de verdad.</p>
     </section>
 
     <!-- ── Centralita de demos ────────────────────────── -->
@@ -83,6 +142,37 @@
           </button>
         </form>
       </div>
+    </section>
+
+    <!-- ── Qué estás probando ───────────────────────────── -->
+    <section class="what" data-field="white" aria-labelledby="whatTitle">
+      <div class="what-copy">
+        <h2 id="whatTitle" class="what-title">Qué estás probando</h2>
+        <p class="what-lead">Negocios inventados, con precios y datos de ejemplo. La IA es la misma que construimos para clientes reales.</p>
+      </div>
+      <dl class="what-list">
+        <div>
+          <dt>Un chatbot con IA de verdad, no un menú de botones</dt>
+          <dd>Cada asistente lee lo que escribes con tus palabras y responde con la información de su negocio: horarios, precios, servicios, cómo llegar. Pregúntale algo que no esté en su guion y verás que no se lo inventa: lo dice y te ofrece hablar con una persona. Es lo que montamos como <a href="/chatbots-ia">chatbots con IA para web y WhatsApp</a>.</dd>
+        </div>
+        <div>
+          <dt>Cada negocio tiene sus propios datos</dt>
+          <dd>La clínica dental tiene sus tratamientos y su doctora; el restaurante, su carta y sus horas de reserva; la inmobiliaria, su cartera. Cambia de negocio en la lista y verás que cambian la información, el tono y las respuestas. Para un cliente real, esos datos salen de su web, de sus documentos y de su agenda.</dd>
+        </div>
+        <div>
+          <dt>Prueba lo que te preguntan a ti cada día</dt>
+          <dd>Pide una cita, pregunta un precio, cambia una hora, pide que te llamen, escribe en inglés. Lo que aquí se queda en una conversación, en un proyecto real acaba en tu calendario, en tu CRM o en un WhatsApp de confirmación, conectado a lo que ya usas.</dd>
+        </div>
+        <div>
+          <dt>Si es tu sector, hay una página para ti</dt>
+          <dd>La clínica dental y la veterinaria están contadas en <a href="/sectores/clinicas">recepción con IA para clínicas</a>; la inmobiliaria, en <a href="/sectores/inmobiliarias">IA para inmobiliarias</a>; el restaurante, en <a href="/sectores/restaurantes">reservas con IA para restaurantes</a>; y para apartamentos turísticos, <a href="/sectores/alquiler-vacacional">IA para alquiler vacacional</a>. El resto, en <a href="/sectores">sectores</a>.</dd>
+        </div>
+        <div>
+          <dt>Lo que no es una demo de texto: la voz</dt>
+          <dd>Los <a href="/agentes-de-voz-ia">agentes de voz con IA</a> se entienden mejor hablando con ellos. En la llamada de diagnóstico te ponemos uno en directo, con tu tipo de negocio, para que oigas cómo coge el teléfono y reserva la cita.</dd>
+        </div>
+      </dl>
+      <p class="what-note">Lo que escribas aquí no se guarda con tu nombre ni se usa para contactarte: solo sirve para que veas cómo responde el asistente. Si quieres que te escribamos, usa <a href="/contacto">el formulario</a>.</p>
     </section>
 
     <!-- ── Voz ────────────────────────────────────────── -->
@@ -117,7 +207,11 @@
       <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
     </div>
     <nav class="foot-tile foot-nav" aria-label="Pie">
-      <a href="/servicios">Servicios</a>
+      <a href="/agentes-de-voz-ia">Agentes de voz</a>
+      <a href="/chatbots-ia">Chatbots</a>
+      <a href="/automatizacion-ia">Automatización</a>
+      <a href="/software-a-medida">Software a medida</a>
+      <a href="/sectores">Sectores</a>
       <a href="/demos">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog">Blog</a>

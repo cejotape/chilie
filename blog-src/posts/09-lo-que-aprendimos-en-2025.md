@@ -2,6 +2,7 @@ title: Lo que hemos aprendido este año montando IA para pequeñas empresas
 cat: ia
 author: Carlos
 excerpt: Cerramos el año con una lista honesta: lo que funciona, lo que no y los errores que ya no volvemos a cometer al llevar la IA a negocios reales.
+seo: Lo que aprendimos montando IA en pymes en 2025
 ---
 Es la última semana del año y nos apetecía escribir algo distinto: no una guía, sino lo que hemos aprendido construyendo asistentes, agentes de voz y automatizaciones para negocios reales. Sin adornos.
 

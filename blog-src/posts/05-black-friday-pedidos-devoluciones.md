@@ -2,6 +2,7 @@ title: Semana de Black Friday: cómo un asistente gestiona pedidos y devolucione
 cat: chat
 author: Carlos
 excerpt: Esta es la semana con más consultas del año para cualquier tienda online. Lo que debe saber hacer un asistente para que tu equipo llegue entero al lunes.
+seo: Pedidos y devoluciones con IA en Black Friday
 ---
 Si tienes tienda online, esta semana lo sabes: las consultas no paran. Y lo que más agota no es el volumen, sino la repetición. *¿Dónde está mi pedido?* cientos de veces, con pequeñas variaciones.
 

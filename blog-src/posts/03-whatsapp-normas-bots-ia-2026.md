@@ -2,6 +2,7 @@ title: WhatsApp cambia sus normas para los bots de IA en 2026: qué significa pa
 cat: chat
 author: Carlos
 excerpt: Meta ha anunciado que la API de WhatsApp Business dejará de admitir asistentes de IA de propósito general. Si tu bot atiende a tus clientes, tranquilo. Te explicamos la diferencia.
+seo: Normas de WhatsApp para bots de IA en 2026
 ---
 Meta ha actualizado las condiciones de la API de WhatsApp Business y el cambio ha generado bastante ruido. A partir de mediados de enero de 2026, los **asistentes de IA de propósito general** (los chatbots tipo "pregúntame lo que quieras") dejan de estar permitidos como producto principal dentro de la API.
 

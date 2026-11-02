@@ -2,6 +2,7 @@ title: ¿Software a medida o una herramienta SaaS? La decisión que conviene tom
 cat: soft
 author: Iñigo
 excerpt: Muchas empresas arrancan el año contratando otra suscripción que no encaja del todo. Cómo decidir cuándo te vale una herramienta estándar y cuándo compensa construir algo propio.
+seo: ¿Software a medida o SaaS? Cómo decidir
 ---
 Cada enero se repite la escena: la empresa decide "ordenar" sus procesos y contrata una herramienta nueva. Tres meses después, el equipo sigue usando la hoja de Excel de siempre porque la herramienta no hace exactamente lo que necesitan.
 

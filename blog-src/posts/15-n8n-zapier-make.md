@@ -2,6 +2,7 @@ title: n8n, Zapier o Make: cuál elegir para automatizar tu empresa
 cat: auto
 author: Iñigo
 excerpt: Las tres sirven para conectar aplicaciones sin programar desde cero, pero no son iguales. Diferencias reales de precio, control y privacidad, explicadas sin tecnicismos.
+seo: n8n, Zapier o Make: cuál elegir para tu empresa
 ---
 Si has buscado cómo automatizar tareas en tu empresa, te habrás encontrado con estos tres nombres. Las tres herramientas hacen lo mismo en esencia: cuando pasa algo en una aplicación, hacen algo en otra. Pero cada una tiene su carácter.
 

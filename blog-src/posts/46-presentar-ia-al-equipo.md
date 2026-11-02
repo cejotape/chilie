@@ -2,6 +2,7 @@ title: Cómo presentar un proyecto de IA a tu equipo sin que nadie sienta que so
 cat: ia
 author: Carlos
 excerpt: El mayor obstáculo de un proyecto de IA no suele ser técnico, sino humano. Cómo contarlo, a quién implicar y qué errores de comunicación conviene evitar.
+seo: Cómo presentar un proyecto de IA a tu equipo
 ---
 Anuncias en la reunión de vuelta de vacaciones que vais a poner un asistente de IA para atender llamadas. Silencio. La persona que coge el teléfono cada día piensa una sola cosa: *¿me van a sustituir?*
 

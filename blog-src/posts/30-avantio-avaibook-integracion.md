@@ -2,6 +2,7 @@ title: Antes del verano: conecta Avantio o Avaibook con tu atención al huésped
 cat: soft
 author: Iñigo
 excerpt: Quedan pocas semanas para la temporada alta del alquiler vacacional. Qué se gana conectando el sistema de reservas con un asistente y con tus automatizaciones, y cómo planificarlo a tiempo.
+seo: Conectar Avantio o Avaibook con tu atención
 ---
 Para los gestores de alquiler vacacional, mayo es el último mes tranquilo antes del verano. Es el momento de preparar todo lo que en julio no habrá tiempo de tocar. Y una de las mejoras que más se notan es **conectar el sistema de reservas con la comunicación con el huésped**.
 

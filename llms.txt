@@ -1,0 +1,42 @@
+# Chilie IA
+
+> Estudio de software e inteligencia artificial en Madrid que construye agentes de voz, chatbots, automatizaciones y software a medida para pymes de toda España. Fundado por Iñigo Iza (ingeniería) y Carlos Jiménez (producto y diseño). Lo diseñan y lo programan ellos; propuesta por escrito en 24 horas tras una llamada de 45 minutos, con plazo y presupuesto cerrados, y 30 días de soporte en todos los proyectos.
+
+Sitio: https://www.chilieia.com · Idioma: español de España · Ubicación: Madrid (atienden a toda España a distancia) · Contacto: https://www.chilieia.com/contacto
+
+## Servicios
+
+- [Agentes de voz con IA](https://www.chilieia.com/agentes-de-voz-ia): cogen el teléfono las 24 horas, resuelven dudas, reservan citas sobre la agenda real, hacen llamadas de recordatorio y pasan la llamada a una persona cuando hace falta. Se presentan siempre como asistente virtual.
+- [Chatbots con IA](https://www.chilieia.com/chatbots-ia): para web, WhatsApp (API oficial de Meta) e Instagram. Responden con la información real del negocio, cualifican contactos, reservan citas y gestionan pedidos. Rangos orientativos publicados: de 1.500 a 15.000 € de desarrollo según nivel, más coste mensual de uso.
+- [Automatización de procesos con IA](https://www.chilieia.com/automatizacion-ia): correo que se clasifica y responde (primero como borrador), contactos del formulario al CRM, facturas en PDF leídas sin teclear, recordatorios, informes y avisos al equipo. Herramientas: n8n o código propio; conectan con Zapier o Make si ya se usan.
+- [Software a medida](https://www.chilieia.com/software-a-medida): paneles internos, CRMs, portales de clientes y aplicaciones web instalables en el móvil. Primera versión útil en torno a dos semanas. Tecnología: Node.js, Python, Next.js, Supabase, MySQL, Claude (Anthropic).
+- [Resumen de servicios](https://www.chilieia.com/servicios)
+
+## Sectores
+
+- [Clínicas dentales, veterinarias y de estética](https://www.chilieia.com/sectores/clinicas): recepción con IA, citas sobre la agenda real, confirmaciones y recordatorios por WhatsApp.
+- [Inmobiliarias](https://www.chilieia.com/sectores/inmobiliarias): agente de voz que atiende las llamadas de los portales, cualifica y agenda visitas; resumen en el CRM.
+- [Restaurantes](https://www.chilieia.com/sectores/restaurantes): reservas por teléfono y WhatsApp en pleno servicio, disponibilidad real, alergias anotadas, lista de espera.
+- [Alquiler vacacional y turismo](https://www.chilieia.com/sectores/alquiler-vacacional): asistente multilingüe conectado a Avantio o Avaibook; avisa al responsable de guardia de lo urgente.
+- [Todos los sectores](https://www.chilieia.com/sectores): también tiendas online, asesorías y despachos, academias y gimnasios, reformas y servicios técnicos, barberías.
+
+## Demos y contacto
+
+- [Demos en directo](https://www.chilieia.com/demos): diez asistentes de ejemplo (clínica veterinaria, clínica dental, inmobiliaria, tienda online, restaurante, despacho, barbería, gimnasio, academia, reformas) con datos inventados; la IA es la real.
+- [Nosotros](https://www.chilieia.com/nosotros): quiénes son Iñigo y Carlos y cómo trabajan.
+- [Contacto](https://www.chilieia.com/contacto): formulario; responden en menos de 24 horas.
+
+## Blog
+
+- [Blog](https://www.chilieia.com/blog): un artículo cada martes sobre agentes de voz, chatbots, automatización y software a medida para pymes, con fuentes. Artículos de referencia:
+  - [Cuánto cuesta un chatbot a medida para empresa en 2026](https://www.chilieia.com/blog/precio-chatbot)
+  - [Qué es un agente de voz con IA y por qué ya no suena a robot](https://www.chilieia.com/blog/que-es-un-agente-de-voz)
+  - [Ley de atención a la clientela: qué cambia en diciembre para el teléfono y los bots](https://www.chilieia.com/blog/ley-atencion-clientela-diciembre)
+  - [El Reglamento Europeo de IA en agosto de 2026: qué cambia para una pyme que usa chatbots](https://www.chilieia.com/blog/ai-act-agosto-2026)
+  - [Un primer sistema funcionando en dos semanas](https://www.chilieia.com/blog/mvp-en-dos-semanas)
+
+## Reglas de la casa
+
+- No publican testimonios, cifras de resultados ni nombres de clientes que no estén verificados.
+- Los asistentes dicen siempre que son una IA y pasan a una persona cuando el cliente lo pide o la conversación se sale de lo previsto.
+- Mapa del sitio: https://www.chilieia.com/sitemap.xml

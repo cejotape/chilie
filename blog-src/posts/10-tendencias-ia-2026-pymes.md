@@ -2,6 +2,7 @@ title: 2026: cinco tendencias de IA que sí van a notar las pymes
 cat: ia
 author: Iñigo
 excerpt: Nada de robots humanoides ni predicciones de ciencia ficción. Cinco cambios concretos que creemos que van a llegar a los negocios pequeños y medianos este año.
+seo: Cinco tendencias de IA para pymes en 2026
 ---
 Cada fin de año se publican decenas de listas de tendencias. La mayoría hablan de cosas que una pyme no va a ver en años. Esta lista es distinta: son cambios que ya vemos en nuestros proyectos y que creemos que se van a generalizar en 2026.
 

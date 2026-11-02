@@ -2,6 +2,7 @@ title: Presupuesto 2026: cómo reservar una partida para IA sin tirar el dinero
 cat: ia
 author: Iñigo
 excerpt: Es diciembre y toca cerrar números. Si la IA va a estar en tu plan del año que viene, estas son las preguntas que conviene hacerse antes de poner una cifra.
+seo: Presupuesto 2026: cuánto reservar para IA
 ---
 Diciembre es el mes de los presupuestos. Y este año, en muchas empresas aparece una línea nueva: "IA". El problema es que esa línea a menudo se rellena con una cifra a ojo, sin saber muy bien para qué. Y una partida sin objetivo suele acabar en una suscripción que nadie usa.
 

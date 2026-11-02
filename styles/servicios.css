@@ -33,6 +33,18 @@
 .svc-features dt { font-weight: 500; font-size: 1.0625rem; }
 .svc-features dd { margin-top: 4px; font-size: 1rem; line-height: 1.45; color: var(--fink-soft); }
 .svc-for { margin-top: 32px; font-size: 0.9375rem; color: var(--fink-soft); }
+/* Enlace a la página completa del servicio: botón invertido, vale sobre cualquier campo */
+.svc-link {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
+  min-height: 52px; padding: 0 22px; border-radius: var(--r);
+  background: var(--fink); color: var(--field); text-decoration: none; font-weight: 500;
+  transition: transform 160ms var(--ease-out), background-color 200ms ease;
+}
+.svc-link svg { transition: transform 200ms var(--ease-out); }
+.svc-link:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+  .svc-link:hover svg { transform: translateX(3px); }
+}
 
 /* Escenario de la demostración */
 .svc-visual { position: relative; display: grid; place-items: center; gap: 12px; padding: clamp(24px, 4vw, 56px); border-radius: 16px; min-height: 480px; }
@@ -134,6 +146,10 @@
 /* ── Teléfono ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .svc-index { grid-template-columns: 1fr 1fr; }
+  /* Con menos de 900 px el texto y la maqueta se apilan: la maqueta necesita el ancho entero */
+  .svc { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .svc-copy, .svc-visual { grid-column: 1 !important; grid-row: auto !important; }
+  .svc-visual { min-height: 0; }
   .combo-rail { grid-template-columns: 1fr 1fr; row-gap: 72px; }
   .combo-rail::before, .combo-rail::after { display: none; }
   .combo-dot { top: -28px; }

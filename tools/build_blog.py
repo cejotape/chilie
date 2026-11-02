@@ -13,6 +13,11 @@
 #   **negrita**, *cursiva* y [enlaces](/ruta).
 # La fecha sale del orden: un artículo cada martes desde el 28 de octubre de 2025.
 # Una línea opcional "date: AAAA-MM-DD" en la cabecera la fija a mano.
+# Una línea opcional "seo: ..." (máx. 48 caracteres) es el título corto para Google: el <title>
+# queda "<seo> | Chilie IA" y el H1 conserva el título completo. Sin "seo:", el título se recorta
+# solo (hasta los dos puntos o la última palabra que cabe). La meta description es el excerpt,
+# recortado a 160 caracteres si se pasa. Cada artículo enlaza al final a su página de servicio
+# (por cat) y, si trata de un sector con página propia, también a la de sector.
 
 import html
 import json
@@ -37,8 +42,68 @@ CATS = {
 MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
           'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
 
+# Página de servicio de cada tema y frase con la que cada artículo enlaza a ella
+SERVICE = {
+    'voz':  ('/agentes-de-voz-ia', 'agentes de voz con IA para empresas'),
+    'chat': ('/chatbots-ia', 'chatbots con IA para web y WhatsApp'),
+    'auto': ('/automatizacion-ia', 'automatización de procesos con IA'),
+    'soft': ('/software-a-medida', 'software a medida para empresas'),
+    'ia':   ('/servicios', 'servicios de IA para empresas'),
+}
+# Página de sector, cuando el artículo va de uno: se detecta por el slug y el título
+SECTOR = [
+    ('/sectores/clinicas', 'recepción con IA para clínicas', ('clinic', 'dental', 'veterin')),
+    ('/sectores/inmobiliarias', 'IA para inmobiliarias', ('inmobiliar',)),
+    ('/sectores/restaurantes', 'reservas con IA para restaurantes', ('restaurante',)),
+    ('/sectores/alquiler-vacacional', 'IA para alquiler vacacional', ('vacacional', 'avantio', 'turismo', 'huesped', 'huésped')),
+]
+SEO_MAX = 48  # 48 + " | Chilie IA" = 60
+
 
 def long_date(d): return f'{d.day} de {MONTHS[d.month - 1]} de {d.year}'
+
+
+def seo_title(p):
+    """Título corto para Google: el campo seo:, o el título recortado con criterio."""
+    if p.get('seo'):
+        return p['seo'].strip()
+    t = p['title']
+    if len(t) <= SEO_MAX:
+        return t
+    for sep in (': ', ' (', '. ', ' y '):
+        head = t.split(sep)[0]
+        if 24 <= len(head) <= SEO_MAX:
+            return head
+    return t[:SEO_MAX + 1].rsplit(' ', 1)[0].rstrip(',;:')
+
+
+def meta_desc(p):
+    """Meta description: el excerpt entero si cabe en 160; si no, hasta el último punto o palabra."""
+    d = p['excerpt'].strip()
+    if len(d) <= 160:
+        return d
+    dot = d[:160].rfind('. ')
+    if dot >= 120:
+        return d[:dot + 1]
+    return d[:158].rsplit(' ', 1)[0].rstrip(',;:') + '…'
+
+
+def sector_for(p):
+    text = (p['slug'] + ' ' + p['title']).lower()
+    for url, label, keys in SECTOR:
+        if any(k in text for k in keys):
+            return url, label
+    return None
+
+
+def next_links(p):
+    """Párrafo final del artículo con el enlace a su servicio y, si toca, a su sector."""
+    url, label = SERVICE[p['cat']]
+    out = f'<p class="post-next">Si quieres esto en tu negocio, mira cómo trabajamos los <a href="{url}">{label}</a>'
+    sector = sector_for(p)
+    if sector:
+        out += f' y lo que montamos en <a href="{sector[0]}">{sector[1]}</a>'
+    return out + '. Y si prefieres hablarlo, <a href="/contacto">escríbenos</a>: te respondemos en menos de 24 horas.</p>'
 def short_date(d): return f'{d.day} {MONTHS[d.month - 1][:3]}'
 def esc(s): return html.escape(s, quote=True)
 
@@ -112,7 +177,24 @@ BAR = '''  <a class="skip" href="#contenido">Saltar al contenido</a>
     </a>
     <nav class="bar-links" id="barLinks" aria-label="Principal">
       <a href="/">Inicio</a>
-      <a href="/servicios">Servicios</a>
+      <div class="bar-group">
+        <a href="/servicios">Servicios</a>
+        <div class="bar-panel">
+          <a href="/agentes-de-voz-ia">Agentes de voz con IA</a>
+          <a href="/chatbots-ia">Chatbots con IA</a>
+          <a href="/automatizacion-ia">Automatización de procesos</a>
+          <a href="/software-a-medida">Software a medida</a>
+        </div>
+      </div>
+      <div class="bar-group">
+        <a href="/sectores">Sectores</a>
+        <div class="bar-panel">
+          <a href="/sectores/clinicas">Clínicas</a>
+          <a href="/sectores/inmobiliarias">Inmobiliarias</a>
+          <a href="/sectores/restaurantes">Restaurantes</a>
+          <a href="/sectores/alquiler-vacacional">Alquiler vacacional</a>
+        </div>
+      </div>
       <a href="/demos">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog"{cur}>Blog</a>
@@ -144,7 +226,11 @@ FOOT = '''  <footer class="foot" data-field="white">
       <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
     </div>
     <nav class="foot-tile foot-nav" aria-label="Pie">
-      <a href="/servicios">Servicios</a>
+      <a href="/agentes-de-voz-ia">Agentes de voz</a>
+      <a href="/chatbots-ia">Chatbots</a>
+      <a href="/automatizacion-ia">Automatización</a>
+      <a href="/software-a-medida">Software a medida</a>
+      <a href="/sectores">Sectores</a>
       <a href="/demos">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog">Blog</a>
@@ -274,7 +360,7 @@ def build_index(posts):
     jsonld = ('  {\n    "@context": "https://schema.org",\n    "@type": "Blog",\n'
               f'    "url": "{SITE}/blog",\n    "name": "Blog de Chilie IA",\n'
               '    "publisher": { "@type": "Organization", "name": "Chilie IA", "url": "' + SITE + '" }\n  }')
-    return page(title='Blog — Chilie IA | Voz, chatbots, automatización y software',
+    return page(title='Blog: voz, chatbots, automatización y software | Chilie IA',
                 desc='Un artículo cada semana sobre agentes de voz, chatbots, automatización y software a medida para empresas. Escrito por el equipo de Chilie IA en Madrid.',
                 url=f'{SITE}/blog', og_type='website', jsonld=jsonld, main=main, cur=True,
                 scripts='  <script src="/home.js" defer></script>\n  <script src="/blog.js" defer></script>')
@@ -289,13 +375,14 @@ def build_post(p, posts):
     <article class="post" data-field="white">
       <header class="post-head">
         <a class="post-back" href="/blog">← Blog</a>
-        <p class="post-tag">{CATS[p["cat"]]}</p>
+        <a class="post-tag" href="{SERVICE[p["cat"]][0]}">{CATS[p["cat"]]}</a>
         <h1 class="post-title">{esc(p["title"])}</h1>
         <p class="post-lead">{esc(p["excerpt"])}</p>
         <p class="post-meta"><span>Por {p["author"]}</span><time datetime="{p["date"].isoformat()}">{long_date(p["date"])}</time><span>{p["minutes"]} min de lectura</span></p>
       </header>
       <div class="post-body">
 {markdown(p["body"])}
+{next_links(p)}
       </div>
     </article>
 
@@ -312,14 +399,28 @@ def build_post(p, posts):
 {CLOSE}'''
     url = f'{SITE}/blog/{p["slug"]}'
     jsonld = json.dumps({
-        '@context': 'https://schema.org', '@type': 'BlogPosting',
-        'headline': p['title'], 'description': p['excerpt'],
-        'datePublished': p['date'].isoformat(),
-        'author': {'@type': 'Person', 'name': p['author']},
-        'publisher': {'@type': 'Organization', 'name': 'Chilie IA', 'url': SITE},
-        'mainEntityOfPage': url, 'inLanguage': 'es-ES',
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'BlogPosting',
+                'headline': p['title'], 'description': p['excerpt'],
+                'datePublished': p['date'].isoformat(),
+                'author': {'@type': 'Person', 'name': p['author']},
+                'publisher': {'@type': 'Organization', 'name': 'Chilie IA', 'url': SITE, '@id': f'{SITE}/#business'},
+                'mainEntityOfPage': url, 'inLanguage': 'es-ES',
+                'image': f'{SITE}/img/og-cover.jpg',
+            },
+            {
+                '@type': 'BreadcrumbList',
+                'itemListElement': [
+                    {'@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': f'{SITE}/'},
+                    {'@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': f'{SITE}/blog'},
+                    {'@type': 'ListItem', 'position': 3, 'name': p['title'], 'item': url},
+                ],
+            },
+        ],
     }, ensure_ascii=False, indent=2)
-    return page(title=f'{p["title"]} — Blog de Chilie IA', desc=p['excerpt'], url=url,
+    return page(title=f'{seo_title(p)} | Chilie IA', desc=meta_desc(p), url=url,
                 og_type='article', jsonld=jsonld, main=main, cur=True,
                 scripts='  <script src="/home.js" defer></script>')
 

@@ -2,6 +2,7 @@ title: Pleno verano: un asistente multilingüe para hoteles, apartamentos y acti
 cat: chat
 author: Carlos
 excerpt: En julio llegan visitantes de todas partes y preguntan lo mismo en muchos idiomas. Cómo un asistente con IA atiende a cada turista en su idioma sin multiplicar el trabajo del equipo.
+seo: Asistente multilingüe para turismo y hoteles
 ---
 Julio. Recepción con cola, el teléfono sonando y mensajes en inglés, francés, alemán, italiano y neerlandés. Para un hotel pequeño, unos apartamentos o una empresa de excursiones, el verano es una prueba de resistencia.
 

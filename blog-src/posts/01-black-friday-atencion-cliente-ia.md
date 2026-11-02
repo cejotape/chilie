@@ -2,6 +2,7 @@ title: Black Friday está a un mes: prepara tu atención al cliente antes de que
 cat: chat
 author: Carlos
 excerpt: Noviembre multiplica las preguntas repetidas: dónde está mi pedido, hay talla, cuánto tarda el envío. Así se prepara un asistente de IA con cuatro semanas de margen.
+seo: Atención al cliente con IA para Black Friday
 ---
 Cada noviembre pasa lo mismo. Las ventas suben, pero las preguntas suben todavía más rápido. Y casi todas son iguales: *¿cuándo llega mi pedido?*, *¿tenéis la M en negro?*, *¿puedo devolverlo si no me queda bien?*. Tu equipo pasa el mes contestando lo mismo en el chat, en WhatsApp y por teléfono, mientras las consultas que de verdad necesitan a una persona esperan en la cola.
 

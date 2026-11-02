@@ -2,6 +2,7 @@ title: RGPD y asistentes de IA: lo que tienes que saber antes de poner un bot a 
 cat: ia
 author: Carlos
 excerpt: Un asistente de IA trata datos personales igual que cualquier otro sistema. Los puntos básicos de protección de datos que conviene revisar, explicados en lenguaje claro.
+seo: RGPD y asistentes de IA: lo que debes saber
 ---
 Cuando un cliente escribe a tu asistente su nombre, su teléfono o el motivo de su cita, está compartiendo datos personales. El RGPD se aplica igual que si lo hubiera escrito en un formulario o se lo hubiera dicho a tu recepcionista.
 

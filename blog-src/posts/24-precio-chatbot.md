@@ -2,6 +2,7 @@ title: Cuánto cuesta un chatbot a medida para empresa en 2026
 cat: chat
 author: Iñigo
 excerpt: Rangos orientativos, qué incluye cada nivel, los costes mensuales que se suelen olvidar y cómo calcular si te compensa antes de contratar.
+seo: Cuánto cuesta un chatbot a medida en 2026
 ---
 Si estás valorando un chatbot de IA para tu empresa, la primera pregunta es obvia: ¿cuánto me va a costar? Depende de lo que necesites, pero se puede dar una idea bastante clara.
 

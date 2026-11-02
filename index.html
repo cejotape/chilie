@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chilie IA — Software a medida e IA para empresas</title>
-  <meta name="description" content="Construimos software a medida, agentes de voz que cogen el teléfono, chatbots y automatizaciones para empresas. Propuesta gratuita en 24 horas.">
+  <title>Chilie IA | Agentes de voz, chatbots y software con IA</title>
+  <meta name="description" content="Estudio de software e IA en Madrid: agentes de voz que cogen el teléfono, chatbots para web y WhatsApp, automatización y software a medida para pymes.">
   <link rel="canonical" href="https://www.chilieia.com/">
   <meta name="theme-color" content="#EDECE7">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.chilieia.com/">
-  <meta property="og:title" content="Chilie IA — Software a medida e IA para empresas">
+  <meta property="og:title" content="Chilie IA | Agentes de voz, chatbots y software con IA">
   <meta property="og:description" content="Software a medida, agentes de voz, chatbots y automatizaciones para que tu negocio conteste siempre.">
   <meta property="og:image" content="https://www.chilieia.com/img/og-cover.jpg">
   <meta property="og:site_name" content="Chilie IA">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chilie IA — Software a medida e IA para empresas">
+  <meta name="twitter:title" content="Chilie IA | Agentes de voz, chatbots y software con IA">
   <meta name="twitter:description" content="Software a medida, agentes de voz, chatbots y automatizaciones para que tu negocio conteste siempre.">
   <meta name="twitter:image" content="https://www.chilieia.com/img/og-cover.jpg">
 
@@ -27,6 +27,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/home.css">
 
+  <!-- TODO (datos de Iñigo): añadir al LocalBusiness "telephone": "+34 6XX XX XX XX" y
+       "sameAs": ["https://www.linkedin.com/company/…", "https://www.instagram.com/…", "https://www.youtube.com/@…", "<URL del Perfil de Empresa de Google>"]
+       cuando existan los perfiles (ver Obsidian · Proyectos/Chilie SEO/05 Directorios y perfiles.md). -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,18 +39,25 @@
         "@id": "https://www.chilieia.com/#website",
         "url": "https://www.chilieia.com",
         "name": "Chilie IA",
-        "description": "Software a medida e inteligencia artificial para empresas",
+        "alternateName": "Chilie",
+        "description": "Agentes de voz, chatbots, automatización y software a medida con IA para pymes, desde Madrid",
         "inLanguage": "es"
       },
       {
         "@type": "LocalBusiness",
         "@id": "https://www.chilieia.com/#business",
         "name": "Chilie IA",
+        "alternateName": "Chilie",
         "url": "https://www.chilieia.com",
         "logo": "https://www.chilieia.com/img/favicon.svg",
         "image": "https://www.chilieia.com/img/og-cover.jpg",
-        "description": "Software a medida, agentes de voz, chatbots y automatización de procesos para empresas.",
+        "description": "Estudio de software e inteligencia artificial en Madrid: agentes de voz, chatbots, automatización de procesos y software a medida para pymes.",
         "email": "chilieagencia@gmail.com",
+        "founder": [
+          { "@type": "Person", "name": "Iñigo Iza" },
+          { "@type": "Person", "name": "Carlos Jiménez" }
+        ],
+        "knowsAbout": ["Agentes de voz con IA", "Chatbots", "Automatización de procesos", "Software a medida"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Calle del Rodio 4",
@@ -69,6 +79,7 @@
         "@type": "Service",
         "@id": "https://www.chilieia.com/#service-software",
         "name": "Software a medida",
+        "url": "https://www.chilieia.com/software-a-medida",
         "description": "Paneles internos, CRMs y herramientas de gestión, apps web e integraciones hechas para cada negocio.",
         "provider": { "@id": "https://www.chilieia.com/#business" },
         "serviceType": "Desarrollo de software a medida",
@@ -78,6 +89,7 @@
         "@type": "Service",
         "@id": "https://www.chilieia.com/#service-voice",
         "name": "Agentes de voz con IA",
+        "url": "https://www.chilieia.com/agentes-de-voz-ia",
         "description": "Agentes que atienden y hacen llamadas, resuelven consultas y reservan citas.",
         "provider": { "@id": "https://www.chilieia.com/#business" },
         "serviceType": "Agentes de voz con inteligencia artificial",
@@ -87,6 +99,7 @@
         "@type": "Service",
         "@id": "https://www.chilieia.com/#service-chatbots",
         "name": "Chatbots de IA a medida",
+        "url": "https://www.chilieia.com/chatbots-ia",
         "description": "Chatbots para web, WhatsApp e Instagram que atienden, cualifican y reservan.",
         "provider": { "@id": "https://www.chilieia.com/#business" },
         "serviceType": "Desarrollo de chatbots con inteligencia artificial",
@@ -96,10 +109,23 @@
         "@type": "Service",
         "@id": "https://www.chilieia.com/#service-automation",
         "name": "Automatización de procesos",
+        "url": "https://www.chilieia.com/automatizacion-ia",
         "description": "Correo que se responde solo y datos que pasan entre CRM, calendario y herramientas sin copiar a mano.",
         "provider": { "@id": "https://www.chilieia.com/#business" },
         "serviceType": "Automatización con IA",
         "areaServed": { "@type": "Country", "name": "España" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.chilieia.com/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de lo que haya que construir: canales, integraciones y volumen. No damos precios cerrados sin conocer tu caso. Tras una llamada de 45 minutos te enviamos una propuesta con presupuesto en 24 horas, sin compromiso." } },
+          { "@type": "Question", "name": "¿Cuánto tarda en estar funcionando?", "acceptedAnswer": { "@type": "Answer", "text": "Un chatbot o un agente sencillo, en torno a dos semanas desde la llamada. Un software a medida, según su alcance. La propuesta te dice el plazo exacto antes de empezar." } },
+          { "@type": "Question", "name": "¿Hablo con una persona o con un comercial?", "acceptedAnswer": { "@type": "Answer", "text": "Con Iñigo o con Carlos, que son quienes construyen tu sistema. Sin intermediarios." } },
+          { "@type": "Question", "name": "Ya uso un CRM y un calendario. ¿Hay que cambiarlos?", "acceptedAnswer": { "@type": "Answer", "text": "No. Nos conectamos a lo que ya usas (Google Calendar, HubSpot, Pipedrive, Shopify, tu correo) para que los datos pasen solos de un sitio a otro." } },
+          { "@type": "Question", "name": "¿Qué necesitáis de mí?", "acceptedAnswer": { "@type": "Answer", "text": "Una llamada para entender tu operativa, acceso a la información que el sistema debe conocer y un rato para probarlo con casos reales antes de lanzarlo." } },
+          { "@type": "Question", "name": "¿Y después del lanzamiento?", "acceptedAnswer": { "@type": "Answer", "text": "Todos los proyectos incluyen 30 días de soporte. Después podemos seguir manteniéndolo y mejorándolo contigo." } }
+        ]
       }
     ]
   }
@@ -117,7 +143,24 @@
     </a>
     <nav class="bar-links" id="barLinks" aria-label="Principal">
       <a href="/" aria-current="page">Inicio</a>
-      <a href="/servicios">Servicios</a>
+      <div class="bar-group">
+        <a href="/servicios">Servicios</a>
+        <div class="bar-panel">
+          <a href="/agentes-de-voz-ia">Agentes de voz con IA</a>
+          <a href="/chatbots-ia">Chatbots con IA</a>
+          <a href="/automatizacion-ia">Automatización de procesos</a>
+          <a href="/software-a-medida">Software a medida</a>
+        </div>
+      </div>
+      <div class="bar-group">
+        <a href="/sectores">Sectores</a>
+        <div class="bar-panel">
+          <a href="/sectores/clinicas">Clínicas</a>
+          <a href="/sectores/inmobiliarias">Inmobiliarias</a>
+          <a href="/sectores/restaurantes">Restaurantes</a>
+          <a href="/sectores/alquiler-vacacional">Alquiler vacacional</a>
+        </div>
+      </div>
       <a href="/demos">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog">Blog</a>
@@ -131,8 +174,8 @@
     <!-- ── Hero ─────────────────────────────────────────── -->
     <section class="hero" data-field="white" aria-labelledby="heroTitle">
       <div class="hero-copy">
-        <h1 class="hero-title" id="heroTitle">Hacemos que tu negocio conteste solo.</h1>
-        <p class="hero-sub">Software a medida, agentes de voz, chatbots y automatizaciones para empresas. Lo diseñamos y lo programamos nosotros, en Madrid.</p>
+        <h1 class="hero-title" id="heroTitle"><span class="hero-line">Hacemos que tu negocio conteste solo.</span> <span class="hero-kw">Agentes de voz, chatbots y automatización con IA para pymes, desde Madrid.</span></h1>
+        <p class="hero-sub">Cogemos tus llamadas, respondemos tus mensajes y conectamos tus herramientas. Lo diseñamos y lo programamos nosotros, y te enviamos la propuesta en 24 horas.</p>
         <div class="hero-actions">
           <a href="/contacto" class="btn btn-spark btn-lg">Pedir propuesta en 24 h</a>
           <a href="#asistente" class="btn btn-quiet btn-lg">Probar el asistente</a>
@@ -164,10 +207,10 @@
       <div class="jacks-text">
         <h2 id="jacksTitle" class="jacks-title">Todo entra por un mismo sitio</h2>
         <ul class="jack-list">
-          <li><a href="#voz"><span class="lamp" aria-hidden="true"></span>Agentes de voz</a></li>
-          <li><a href="#chat"><span class="lamp" aria-hidden="true"></span>Chatbots</a></li>
-          <li><a href="#auto"><span class="lamp" aria-hidden="true"></span>Automatización</a></li>
-          <li><a href="#software"><span class="lamp" aria-hidden="true"></span>Software a medida</a></li>
+          <li><a href="/agentes-de-voz-ia"><span class="lamp" aria-hidden="true"></span>Agentes de voz con IA</a></li>
+          <li><a href="/chatbots-ia"><span class="lamp" aria-hidden="true"></span>Chatbots con IA</a></li>
+          <li><a href="/automatizacion-ia"><span class="lamp" aria-hidden="true"></span>Automatización de procesos</a></li>
+          <li><a href="/software-a-medida"><span class="lamp" aria-hidden="true"></span>Software a medida</a></li>
         </ul>
       </div>
       <figure class="flow" aria-label="Diagrama: teléfono, WhatsApp, correo y web entran en tu sistema, que lo pasa a la agenda, al CRM y a tu panel">
@@ -569,7 +612,11 @@
       <p class="foot-legal">&copy; 2026 Chilie IA · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/politica-cookies">Cookies</a></p>
     </div>
     <nav class="foot-tile foot-nav" aria-label="Pie">
-      <a href="/servicios">Servicios</a>
+      <a href="/agentes-de-voz-ia">Agentes de voz</a>
+      <a href="/chatbots-ia">Chatbots</a>
+      <a href="/automatizacion-ia">Automatización</a>
+      <a href="/software-a-medida">Software a medida</a>
+      <a href="/sectores">Sectores</a>
       <a href="/demos">Demos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/blog">Blog</a>

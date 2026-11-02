@@ -2,6 +2,7 @@ title: Cómo escribir un buen briefing para un proyecto de software (aunque no s
 cat: soft
 author: Iñigo
 excerpt: Un buen encargo ahorra semanas y dinero. La plantilla que nos gustaría recibir de cada cliente, con ejemplos de qué escribir en cada apartado.
+seo: Cómo escribir el briefing de un software
 ---
 La mayoría de proyectos de software que se tuercen no lo hacen por el código, sino por el encargo. Se pidió una cosa, se entendió otra y se construyó una tercera. La forma más barata de evitarlo es un buen briefing.
 
