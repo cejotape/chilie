@@ -687,6 +687,7 @@ section.hero {
 .foot-clock { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
 .foot-mail { grid-column: 10 / 13; justify-content: flex-end; }
 .foot-mail a { font-size: 1.25rem; word-break: break-all; }
+.foot-mail a + a { margin-top: 8px; font-variant-numeric: tabular-nums; }
 .foot-name {
   grid-column: 1 / 9; min-height: 320px;
   background: var(--ink); color: var(--paper);

@@ -67,8 +67,14 @@ FOOT_NAV = '''<nav class="foot-tile foot-nav" aria-label="Pie">
       <a href="/contacto">Contacto</a>
     </nav>'''
 
+FOOT_MAIL = '''<div class="foot-tile foot-mail">
+      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="tel:+34682680825">682 680 825</a>
+    </div>'''
+
 NAV_RE = re.compile(r'<nav class="bar-links" id="barLinks" aria-label="Principal">.*?</nav>', re.S)
 FOOT_RE = re.compile(r'<nav class="foot-tile foot-nav" aria-label="Pie">.*?</nav>', re.S)
+MAIL_RE = re.compile(r'<div class="foot-tile foot-mail">.*?</div>', re.S)
 
 
 def targets():
@@ -88,6 +94,7 @@ def main():
         text = path.read_text(encoding='utf-8')
         new = NAV_RE.sub(lambda m: nav(route), text, count=1)
         new = FOOT_RE.sub(lambda m: FOOT_NAV, new, count=1)
+        new = MAIL_RE.sub(lambda m: FOOT_MAIL, new, count=1)
         if new != text:
             path.write_text(new, encoding='utf-8')
             print('actualizado', path.relative_to(ROOT))

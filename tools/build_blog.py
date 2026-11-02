@@ -242,6 +242,7 @@ FOOT = '''  <footer class="foot" data-field="white">
     </div>
     <div class="foot-tile foot-mail">
       <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="tel:+34682680825">682 680 825</a>
     </div>
     <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
     <a class="foot-tile foot-go" href="/contacto">
