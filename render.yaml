@@ -43,6 +43,9 @@ services:
         destination: /pages/blog.html
       # ── blog:start (lo genera tools/build_blog.py)
       - type: rewrite
+        source: /blog/verifactu-factura-electronica-calendario
+        destination: /pages/blog/verifactu-factura-electronica-calendario.html
+      - type: rewrite
         source: /blog/ley-atencion-clientela-diciembre
         destination: /pages/blog/ley-atencion-clientela-diciembre.html
       - type: rewrite
