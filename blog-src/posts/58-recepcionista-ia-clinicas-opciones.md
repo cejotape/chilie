@@ -66,7 +66,7 @@ Lo contamos con todos los números en [cuánto cuesta un agente de voz con IA](/
 
 Nosotros no vendemos una suscripción: diseñamos y programamos el agente para tu clínica, conectado a tu agenda y a tu programa de gestión, con tus reglas de urgencias, tus huecos y tu forma de hablar. Lo construimos los dos fundadores, y somos los que te cogen el teléfono después.
 
-- **Precio:** un **presupuesto cerrado de desarrollo**, por escrito y en 24 horas tras una llamada de 45 minutos, y después un coste mensual proporcional a los minutos (el coste real de la tecnología, que ronda los 110 a 150 dólares por cada 1.000 minutos). Sin permanencia y con 30 días de soporte incluidos.
+- **Precio:** **desde 300 € de puesta en marcha** para un agente sencillo, con presupuesto cerrado por escrito en 24 horas tras una llamada de 45 minutos, y después un coste mensual proporcional a los minutos (el coste real de la tecnología, que ronda los 110 a 150 dólares por cada 1.000 minutos). Sin permanencia y con 30 días de soporte incluidos.
 - **Integraciones:** la agenda y el programa que uses, con confirmación y recordatorio por WhatsApp. Si tu software tiene API o exportación, se conecta.
 - **Encaja en:** clínicas con varias salas o especialidades, reglas propias (retrasos, huecos de urgencia, primeras visitas) y volumen estable, que quieren que el agente sea suyo.
 - **Ojo con:** no es la opción para probar tres meses a ver qué pasa; para eso una suscripción es mejor. Y antes de lanzarlo lo probamos juntos con llamadas reales.
@@ -81,7 +81,7 @@ Para comparar con algo concreto: una clínica con 400 llamadas al mes de unos do
 - **Sintonai:** **desde 600 €**, todo incluido.
 - **Habla:** plan de 1.000 minutos, **449 €**.
 - **Hacerlo tú:** unos **110 a 150 dólares** de tecnología y tus horas.
-- **A medida:** los mismos 110 a 150 dólares de tecnología, más el desarrollo pagado una vez.
+- **A medida:** los mismos 110 a 150 dólares de tecnología, más el desarrollo pagado una vez, desde 300 €.
 
 Las suscripciones ganan el primer mes. A partir del segundo año, el agente a medida suele salir más barato en total y hace exactamente lo que necesita la clínica. Elige según cuánto tiempo vaya a estar funcionando y cuánto tenga que conectarse con tu operativa.
 

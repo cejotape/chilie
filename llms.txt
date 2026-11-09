@@ -6,7 +6,7 @@ Sitio: https://www.chilieia.com · Idioma: español de España · Ubicación: Ma
 
 ## Servicios
 
-- [Agentes de voz con IA](https://www.chilieia.com/agentes-de-voz-ia): cogen el teléfono las 24 horas, resuelven dudas, reservan citas sobre la agenda real, hacen llamadas de recordatorio y pasan la llamada a una persona cuando hace falta. Se presentan siempre como asistente virtual.
+- [Agentes de voz con IA](https://www.chilieia.com/agentes-de-voz-ia): cogen el teléfono las 24 horas, resuelven dudas, reservan citas sobre la agenda real, hacen llamadas de recordatorio y pasan la llamada a una persona cuando hace falta. Se presentan siempre como asistente virtual. Desde 300 € de puesta en marcha, más coste mensual proporcional a los minutos de llamada.
 - [Chatbots con IA](https://www.chilieia.com/chatbots-ia): para web, WhatsApp (API oficial de Meta) e Instagram. Responden con la información real del negocio, cualifican contactos, reservan citas y gestionan pedidos. Rangos orientativos publicados: de 1.500 a 15.000 € de desarrollo según nivel, más coste mensual de uso.
 - [Automatización de procesos con IA](https://www.chilieia.com/automatizacion-ia): correo que se clasifica y responde (primero como borrador), contactos del formulario al CRM, facturas en PDF leídas sin teclear, recordatorios, informes y avisos al equipo. Herramientas: n8n o código propio; conectan con Zapier o Make si ya se usan.
 - [Software a medida](https://www.chilieia.com/software-a-medida): paneles internos, CRMs, portales de clientes y aplicaciones web instalables en el móvil. Primera versión útil en torno a dos semanas. Tecnología: Node.js, Python, Next.js, Supabase, MySQL, Claude (Anthropic).

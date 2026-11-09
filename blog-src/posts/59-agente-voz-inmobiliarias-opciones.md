@@ -60,7 +60,7 @@ Las plataformas de agentes de voz permiten crear uno pagando solo la tecnología
 
 Diseñamos y programamos el agente para tu inmobiliaria: conectado a tu CRM y a la agenda de cada comercial, con tus preguntas de cualificación, tus zonas y tu forma de hablar. Lo construimos los dos fundadores y somos los que te atienden después.
 
-- **Precio:** un **presupuesto cerrado de desarrollo**, por escrito y en 24 horas tras una llamada de 45 minutos, y después un coste mensual proporcional a los minutos de llamada (el coste real de la tecnología, unos 110 a 150 dólares por cada 1.000 minutos). Sin permanencia y con 30 días de soporte incluidos.
+- **Precio:** **desde 300 € de puesta en marcha** para un agente sencillo, con presupuesto cerrado por escrito en 24 horas tras una llamada de 45 minutos, y después un coste mensual proporcional a los minutos de llamada (el coste real de la tecnología, unos 110 a 150 dólares por cada 1.000 minutos). Sin permanencia y con 30 días de soporte incluidos.
 - **Integraciones:** tu CRM inmobiliario, los portales por correo o API, Google Calendar o la agenda que uses, y confirmación por WhatsApp.
 - **Encaja en:** inmobiliarias con varios comerciales, reglas propias de cualificación y volumen estable, que quieren que el agente sea suyo y no depender de la plataforma de otro.
 - **Ojo con:** no es la opción para probar un mes. Para eso, una suscripción.
@@ -75,7 +75,7 @@ Una agencia con 300 llamadas al mes de unos tres minutos, 900 minutos, más 100 
 - **Anunzi:** plan de **175 dólares** con 900 minutos entrantes; las salientes y el número español, aparte.
 - **Agencia:** sin precio público; proyecto más cuota.
 - **Hacerlo tú:** unos **100 a 140 dólares** de tecnología, más las llamadas a móviles, que con Twilio cuestan 0,18 dólares por minuto en España, y tus horas.
-- **A medida:** la misma tecnología, más el desarrollo pagado una vez.
+- **A medida:** la misma tecnología, más el desarrollo pagado una vez, desde 300 €.
 
 Un detalle que muchos olvidan: las llamadas salientes a móviles son mucho más caras que las entrantes. Si tu agente va a llamar a los contactos de los portales, que el presupuesto lo tenga en cuenta.
 

@@ -15,7 +15,7 @@ Un agente de voz tiene dos costes: **uno fijo** (que te lo monten o la cuota de 
 
 - Por minuto, el coste directo de la tecnología está **entre 0,07 y 0,31 dólares** según la calidad de la voz y el modelo de IA, más la telefonía, que en España ronda **0,02 dólares por minuto** a fijos y bastante más a móviles.
 - Por suscripción, las plataformas españolas van **desde 49 € al mes con 100 minutos incluidos hasta 600 € al mes o más** con implantación incluida.
-- A medida, pagas un desarrollo cerrado una sola vez y después un coste mensual proporcional a los minutos que habla el agente.
+- A medida, pagas un desarrollo cerrado una sola vez (en Chilie, **desde 300 € de puesta en marcha**) y después un coste mensual proporcional a los minutos que habla el agente.
 
 Con 1.000 minutos de llamadas al mes (unas 400 llamadas de dos minutos y medio), el coste mensual de la tecnología queda entre 100 y 350 € según la opción. Lo vemos con números más abajo.
 
@@ -49,7 +49,7 @@ El patrón es claro: o pagas una cuota baja y minutos aparte (Clinicbot), o paga
 
 Un agente a medida no es una suscripción: es un desarrollo que te montan para tu negocio, conectado a tu agenda, tu CRM o tu programa de gestión, con tus reglas y tu forma de hablar. Así es como lo hacemos en Chilie:
 
-- **Un presupuesto cerrado de desarrollo**, por escrito y en 24 horas tras una llamada de 45 minutos. No publicamos una tarifa fija porque no hay dos agentes iguales: no cuesta lo mismo uno que coge recados que uno que da citas sobre la agenda real de tres salas y confirma por WhatsApp.
+- **Un presupuesto cerrado de desarrollo, desde 300 € de puesta en marcha** para un agente sencillo, por escrito y en 24 horas tras una llamada de 45 minutos. Sube según las integraciones: no cuesta lo mismo uno que coge recados que uno que da citas sobre la agenda real de tres salas y confirma por WhatsApp.
 - **Un coste mensual proporcional a los minutos** de llamada, que es el coste de la tecnología que acabamos de desglosar.
 - **Sin permanencia** y con 30 días de soporte incluidos después del lanzamiento.
 
@@ -62,7 +62,7 @@ Supón una clínica que recibe 400 llamadas al mes de dos minutos y medio de med
 - **Plataforma con minutos incluidos:** el plan de 1.000 minutos de Habla son 449 € al mes. Si se pasa, al plan siguiente.
 - **Plataforma con cuota baja y minutos aparte:** Clinicbot Pro, 55 € de cuota, 5 € del número y 190 € de minutos: **unos 250 € al mes**.
 - **Todo incluido:** Sintonai, desde 600 € al mes.
-- **A medida:** el coste de la tecnología para 1.000 minutos ronda los **110 a 150 dólares al mes** con un modelo rápido y una voz estándar, más el desarrollo pagado una vez.
+- **A medida:** el coste de la tecnología para 1.000 minutos ronda los **110 a 150 dólares al mes** con un modelo rápido y una voz estándar, más el desarrollo pagado una vez, desde 300 €.
 
 La diferencia está en el desarrollo inicial. Si el agente va a estar funcionando dos o tres años, el coste total de la opción a medida suele ser menor y el agente hace exactamente lo que necesita la clínica. Si quieres probar tres meses a ver qué pasa, una suscripción tiene sentido.
 
