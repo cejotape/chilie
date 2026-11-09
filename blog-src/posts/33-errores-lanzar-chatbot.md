@@ -1,7 +1,7 @@
 title: 8 errores al lanzar un chatbot que hacen que tus clientes lo odien
 cat: chat
 author: Carlos
-excerpt: Un chatbot mal lanzado hace más daño que no tener ninguno. Los errores que más vemos y cómo evitarlos antes de que lleguen a tus clientes.
+excerpt: Un chatbot mal lanzado hace más daño que no tener ninguno. Los ocho errores que más vemos al lanzarlo y cómo evitarlos antes de que lleguen a tus clientes.
 seo: 8 errores al lanzar un chatbot
 ---
 Un chatbot puede ser la mejor forma de atender a tus clientes o la manera más rápida de enfadarlos. La diferencia rara vez está en la tecnología. Está en estos ocho errores.

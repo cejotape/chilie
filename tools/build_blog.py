@@ -13,6 +13,7 @@
 #   **negrita**, *cursiva* y [enlaces](/ruta).
 # La fecha sale del orden: un artículo cada martes desde el 28 de octubre de 2025.
 # Una línea opcional "date: AAAA-MM-DD" en la cabecera la fija a mano.
+# Una línea opcional "updated: AAAA-MM-DD" marca una revisión: dateModified en el schema y lastmod en el sitemap.
 # Una línea opcional "seo: ..." (máx. 48 caracteres) es el título corto para Google: el <title>
 # queda "<seo> | Chilie IA" y el H1 conserva el título completo. Sin "seo:", el título se recorta
 # solo (hasta los dos puntos o la última palabra que cabe). La meta description es el excerpt,
@@ -61,6 +62,10 @@ SEO_MAX = 48  # 48 + " | Chilie IA" = 60
 
 
 def long_date(d): return f'{d.day} de {MONTHS[d.month - 1]} de {d.year}'
+
+
+def updated_tag(p):
+    return f'<span>Actualizado el {long_date(date.fromisoformat(p["updated"]))}</span>' if p.get('updated') else ''
 
 
 def seo_title(p):
@@ -241,7 +246,7 @@ FOOT = '''  <footer class="foot" data-field="white">
       <p class="foot-clock"><span id="clock">—</span></p>
     </div>
     <div class="foot-tile foot-mail">
-      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="mailto:hola@chilieia.com">hola@chilieia.com</a>
       <a href="tel:+34682680825">682 680 825</a>
     </div>
     <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>
@@ -284,7 +289,9 @@ def page(*, title, desc, url, og_type, jsonld, main, cur, scripts):
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/blog.css">
 
@@ -379,7 +386,7 @@ def build_post(p, posts):
         <a class="post-tag" href="{SERVICE[p["cat"]][0]}">{CATS[p["cat"]]}</a>
         <h1 class="post-title">{esc(p["title"])}</h1>
         <p class="post-lead">{esc(p["excerpt"])}</p>
-        <p class="post-meta"><span>Por {p["author"]}</span><time datetime="{p["date"].isoformat()}">{long_date(p["date"])}</time><span>{p["minutes"]} min de lectura</span></p>
+        <p class="post-meta"><span>Por {p["author"]}</span><time datetime="{p["date"].isoformat()}">{long_date(p["date"])}</time>{updated_tag(p)}<span>{p["minutes"]} min de lectura</span></p>
       </header>
       <div class="post-body">
 {markdown(p["body"])}
@@ -406,6 +413,7 @@ def build_post(p, posts):
                 '@type': 'BlogPosting',
                 'headline': p['title'], 'description': p['excerpt'],
                 'datePublished': p['date'].isoformat(),
+                'dateModified': p.get('updated', p['date'].isoformat()),
                 'author': {'@type': 'Person', 'name': p['author']},
                 'publisher': {'@type': 'Organization', 'name': 'Chilie IA', 'url': SITE, '@id': f'{SITE}/#business'},
                 'mainEntityOfPage': url, 'inLanguage': 'es-ES',
@@ -453,7 +461,7 @@ def main():
     routes = ''.join(f'      - type: rewrite\n        source: /blog/{p["slug"]}\n        destination: /pages/blog/{p["slug"]}.html\n'
                      for p in posts)
     replace_block(ROOT / 'render.yaml', '      # ── blog:start', '      # ── blog:end', routes)
-    urls = ''.join(f'  <url>\n    <loc>{SITE}/blog/{p["slug"]}</loc>\n    <lastmod>{p["date"].isoformat()}</lastmod>\n'
+    urls = ''.join(f'  <url>\n    <loc>{SITE}/blog/{p["slug"]}</loc>\n    <lastmod>{p.get("updated", p["date"].isoformat())}</lastmod>\n'
                    f'    <changefreq>yearly</changefreq>\n    <priority>0.6</priority>\n  </url>\n' for p in posts)
     replace_block(ROOT / 'sitemap.xml', '  <!-- blog:start -->', '  <!-- blog:end -->', urls)
     print(f'{len(posts)} artículos · del {posts[-1]["date"]} al {posts[0]["date"]}')

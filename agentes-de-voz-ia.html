@@ -23,7 +23,9 @@
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/servicios.css">
   <link rel="stylesheet" href="/styles/blog.css">
@@ -61,7 +63,8 @@
           { "@type": "Question", "name": "¿Funciona con mi número de teléfono actual?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Lo habitual es configurar un desvío desde tu número: fuera de horario, cuando comunica o cuando nadie contesta en unos segundos. También puede atender todas las llamadas si lo prefieres. No tienes que cambiar de número ni de operador." } },
           { "@type": "Question", "name": "¿Puede hacer llamadas salientes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí: confirmar citas el día anterior, avisar de que un pedido está listo, recordar revisiones a clientes que ya tienen relación contigo. Siempre identificándose, con una forma sencilla de no recibir más llamadas y respetando la Lista Robinson. No montamos agentes para llamar en frío a bases de datos compradas." } },
           { "@type": "Question", "name": "¿Cuánto tarda en estar funcionando?", "acceptedAnswer": { "@type": "Answer", "text": "Un agente sencillo, en torno a dos semanas desde la llamada de diagnóstico. Antes de lanzarlo lo probamos contigo con llamadas reales de tu negocio y ajustamos lo que haga falta. La propuesta te dice el plazo exacto antes de empezar." } },
-          { "@type": "Question", "name": "¿Ayuda a cumplir la ley de atención a la clientela?", "acceptedAnswer": { "@type": "Answer", "text": "La Ley 10/2025 obliga a determinadas empresas a atender en menos de tres minutos y a ofrecer siempre la opción de hablar con una persona; no prohíbe los asistentes, pero no pueden ser la única vía. Un agente de voz bien montado coge al primer tono y pasa a una persona cuando el cliente lo pide." } }
+          { "@type": "Question", "name": "¿Ayuda a cumplir la ley de atención a la clientela?", "acceptedAnswer": { "@type": "Answer", "text": "La Ley 10/2025 obliga a determinadas empresas a atender en menos de tres minutos y a ofrecer siempre la opción de hablar con una persona; no prohíbe los asistentes, pero no pueden ser la única vía. Un agente de voz bien montado coge al primer tono y pasa a una persona cuando el cliente lo pide." } },
+          { "@type": "Question", "name": "¿Cuánto cuesta un agente de voz?", "acceptedAnswer": { "@type": "Answer", "text": "No publicamos una tarifa fija: cada agente tiene un presupuesto cerrado de desarrollo, por escrito en 24 horas tras una llamada de 45 minutos, y un coste mensual proporcional a los minutos de llamada. Para que te hagas una idea, la tecnología cuesta entre 0,07 y 0,31 dólares por minuto y las plataformas de suscripción en España van de 49 a más de 600 euros al mes. Lo desglosamos con números en el blog." } }
         ]
       }
     ]
@@ -243,7 +246,7 @@
           <div><dt>Lo que sube el coste mensual</dt><dd>El volumen de minutos: no es lo mismo cubrir las tardes de un despacho que atender el teléfono de una clínica con tres salas durante todo el día.</dd></div>
           <div><dt>Lo que no te vamos a cobrar</dt><dd>Nada por la llamada inicial ni por la propuesta, y nada que no esté escrito en ella.</dd></div>
         </dl>
-        <p>Para hacerte una idea de cómo presupuestamos un asistente, en el blog explicamos <a href="/blog/precio-chatbot">cuánto cuesta un chatbot a medida</a>, con rangos por nivel y los costes mensuales que se suelen olvidar.</p>
+        <p>En el blog explicamos <a href="/blog/precio-agente-de-voz">cuánto cuesta un agente de voz con IA en 2026</a>: el precio por minuto de la tecnología, lo que cobran las plataformas de suscripción en España y una cuenta hecha para una clínica. Y, para comparar, <a href="/blog/precio-chatbot">cuánto cuesta un chatbot a medida</a>.</p>
       </div>
     </section>
 
@@ -274,6 +277,10 @@
         <details name="faq">
           <summary>¿Ayuda a cumplir la ley de atención a la clientela?</summary>
           <p>La Ley 10/2025 obliga a determinadas empresas a atender en menos de tres minutos y a ofrecer siempre la opción de hablar con una persona; no prohíbe los asistentes, pero no pueden ser la única vía. Un agente de voz bien montado coge al primer tono y pasa a una persona cuando el cliente lo pide. Lo explicamos en <a href="/blog/ley-atencion-clientela-diciembre">qué cambia en diciembre para el teléfono y los bots</a>.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Cuánto cuesta un agente de voz?</summary>
+          <p>No publicamos una tarifa fija: cada agente tiene un presupuesto cerrado de desarrollo, por escrito en 24 horas tras una llamada de 45 minutos, y un coste mensual proporcional a los minutos de llamada. Para que te hagas una idea, la tecnología cuesta entre 0,07 y 0,31 dólares por minuto y las plataformas de suscripción en España van de 49 a más de 600 euros al mes. Lo desglosamos con números en <a href="/blog/precio-agente-de-voz">cuánto cuesta un agente de voz con IA en 2026</a>.</p>
         </details>
       </div>
     </section>
@@ -352,7 +359,7 @@
       <p class="foot-clock"><span id="clock">—</span></p>
     </div>
     <div class="foot-tile foot-mail">
-      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="mailto:hola@chilieia.com">hola@chilieia.com</a>
       <a href="tel:+34682680825">682 680 825</a>
     </div>
     <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>

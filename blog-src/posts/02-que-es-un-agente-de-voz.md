@@ -1,7 +1,7 @@
 title: Qué es un agente de voz con IA y por qué ya no suena a robot
 cat: voz
 author: Iñigo
-excerpt: Ni centralita de "pulse 1" ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Te contamos cómo funciona por dentro.
+excerpt: Ni centralita de "pulse 1" ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Así funciona por dentro.
 ---
 Cuando decimos "agente de voz", mucha gente piensa en la centralita de toda la vida: *pulse 1 para citas, pulse 2 para información*. No tiene nada que ver. Un agente de voz con IA coge el teléfono, escucha lo que le dices con tus propias palabras y responde como lo haría una persona de tu equipo.
 

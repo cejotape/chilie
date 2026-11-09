@@ -43,6 +43,15 @@ services:
         destination: /pages/blog.html
       # ── blog:start (lo genera tools/build_blog.py)
       - type: rewrite
+        source: /blog/precio-agente-de-voz
+        destination: /pages/blog/precio-agente-de-voz.html
+      - type: rewrite
+        source: /blog/recepcionista-ia-clinicas-opciones
+        destination: /pages/blog/recepcionista-ia-clinicas-opciones.html
+      - type: rewrite
+        source: /blog/agente-voz-inmobiliarias-opciones
+        destination: /pages/blog/agente-voz-inmobiliarias-opciones.html
+      - type: rewrite
         source: /blog/verifactu-factura-electronica-calendario
         destination: /pages/blog/verifactu-factura-electronica-calendario.html
       - type: rewrite

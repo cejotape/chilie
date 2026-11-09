@@ -68,7 +68,7 @@ FOOT_NAV = '''<nav class="foot-tile foot-nav" aria-label="Pie">
     </nav>'''
 
 FOOT_MAIL = '''<div class="foot-tile foot-mail">
-      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="mailto:hola@chilieia.com">hola@chilieia.com</a>
       <a href="tel:+34682680825">682 680 825</a>
     </div>'''
 

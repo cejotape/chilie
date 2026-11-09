@@ -20,7 +20,9 @@
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/blog.css">
 
@@ -79,11 +81,11 @@
     </section>
 
     <section class="feat" data-field="white" aria-label="Último artículo">
-      <a class="feat-link" href="/blog/verifactu-factura-electronica-calendario">
-        <p class="feat-meta"><span>Último artículo</span><span>Automatización</span><time datetime="2026-11-03">3 de noviembre de 2026</time></p>
-        <h2 class="feat-title">Verifactu y factura electrónica: qué fechas valen hoy y qué hacer antes de enero</h2>
-        <p class="feat-excerpt">Hacienda ha anunciado otro aplazamiento de Verifactu a octubre de 2028, pero todavía no está en el BOE. La factura electrónica entre empresas, en cambio, ya tiene fecha. Qué vale hoy y cómo prepararte sin perder dinero.</p>
-        <span class="feat-go">Leer artículo · 7 min <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a class="feat-link" href="/blog/precio-agente-de-voz">
+        <p class="feat-meta"><span>Último artículo</span><span>Agentes de voz</span><time datetime="2026-11-09">9 de noviembre de 2026</time></p>
+        <h2 class="feat-title">Cuánto cuesta un agente de voz con IA en 2026: por minuto, por mes y a medida</h2>
+        <p class="feat-excerpt">Lo que cuesta cada minuto de llamada (voz, IA, telefonía), lo que cobran las plataformas españolas al mes y cuándo compensa un agente a medida. Con números.</p>
+        <span class="feat-go">Leer artículo · 8 min <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </section>
 
@@ -99,6 +101,35 @@
         <button type="button" data-cat="ia" aria-pressed="false">IA para empresas</button>
         </div>
       </div>
+      <section class="month">
+      <h2 class="month-title">Noviembre 2026</h2>
+      <ol class="post-list">
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/recepcionista-ia-clinicas-opciones">
+            <time datetime="2026-11-09">9 nov</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Recepcionista con IA para clínicas: 5 opciones en España, precios y qué elegir en 2026</b><small>Comparamos Clinicbot, Sintonai, Habla, montarlo tú con Retell o Vapi y un agente a medida: qué hace cada uno, cuánto cuesta y para qué clínica encaja.</small></span>
+            <span class="post-min">7 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="voz">
+          <a href="/blog/agente-voz-inmobiliarias-opciones">
+            <time datetime="2026-11-09">9 nov</time>
+            <span class="post-cat">Agentes de voz</span>
+            <span class="post-main"><b>Agente de voz con IA para inmobiliarias: 5 opciones en España y cuánto cuestan (2026)</b><small>Comparamos Agentes IA Voz, Anunzi, una agencia, montarlo tú con Retell o Vapi y un agente a medida: precios, integraciones y para qué inmobiliaria encaja.</small></span>
+            <span class="post-min">6 min</span>
+          </a>
+        </li>
+        <li class="post-row" data-cat="auto">
+          <a href="/blog/verifactu-factura-electronica-calendario">
+            <time datetime="2026-11-03">3 nov</time>
+            <span class="post-cat">Automatización</span>
+            <span class="post-main"><b>Verifactu y factura electrónica: qué fechas valen hoy y qué hacer antes de enero</b><small>Hacienda ha anunciado otro aplazamiento de Verifactu a octubre de 2028, pero todavía no está en el BOE. La factura electrónica entre empresas, en cambio, ya tiene fecha. Qué vale hoy y cómo prepararte sin perder dinero.</small></span>
+            <span class="post-min">7 min</span>
+          </a>
+        </li>
+      </ol>
+      </section>
       <section class="month">
       <h2 class="month-title">Octubre 2026</h2>
       <ol class="post-list">
@@ -286,7 +317,7 @@
           <a href="/blog/errores-lanzar-chatbot">
             <time datetime="2026-06-09">9 jun</time>
             <span class="post-cat">Chatbots</span>
-            <span class="post-main"><b>8 errores al lanzar un chatbot que hacen que tus clientes lo odien</b><small>Un chatbot mal lanzado hace más daño que no tener ninguno. Los errores que más vemos y cómo evitarlos antes de que lleguen a tus clientes.</small></span>
+            <span class="post-main"><b>8 errores al lanzar un chatbot que hacen que tus clientes lo odien</b><small>Un chatbot mal lanzado hace más daño que no tener ninguno. Los ocho errores que más vemos al lanzarlo y cómo evitarlos antes de que lleguen a tus clientes.</small></span>
             <span class="post-min">2 min</span>
           </a>
         </li>
@@ -368,8 +399,8 @@
           <a href="/blog/precio-chatbot">
             <time datetime="2026-04-07">7 abr</time>
             <span class="post-cat">Chatbots</span>
-            <span class="post-main"><b>Cuánto cuesta un chatbot a medida para empresa en 2026</b><small>Rangos orientativos, qué incluye cada nivel, los costes mensuales que se suelen olvidar y cómo calcular si te compensa antes de contratar.</small></span>
-            <span class="post-min">3 min</span>
+            <span class="post-main"><b>Cuánto cuesta un chatbot de WhatsApp y web para tu empresa en 2026: precios reales</b><small>Desarrollo de 1.500 a 15.000 € según nivel, lo que cobra Meta por mensaje desde octubre de 2026, el coste mensual de la IA y tres ejemplos con números.</small></span>
+            <span class="post-min">9 min</span>
           </a>
         </li>
       </ol>
@@ -569,7 +600,7 @@
           <a href="/blog/que-es-un-agente-de-voz">
             <time datetime="2025-11-04">4 nov</time>
             <span class="post-cat">Agentes de voz</span>
-            <span class="post-main"><b>Qué es un agente de voz con IA y por qué ya no suena a robot</b><small>Ni centralita de &quot;pulse 1&quot; ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Te contamos cómo funciona por dentro.</small></span>
+            <span class="post-main"><b>Qué es un agente de voz con IA y por qué ya no suena a robot</b><small>Ni centralita de &quot;pulse 1&quot; ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Así funciona por dentro.</small></span>
             <span class="post-min">2 min</span>
           </a>
         </li>
@@ -629,7 +660,7 @@
       <p class="foot-clock"><span id="clock">—</span></p>
     </div>
     <div class="foot-tile foot-mail">
-      <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>
+      <a href="mailto:hola@chilieia.com">hola@chilieia.com</a>
       <a href="tel:+34682680825">682 680 825</a>
     </div>
     <div class="foot-tile foot-name" aria-hidden="true">Chilie IA</div>

@@ -17,7 +17,7 @@ Lo que hacemos:
 
 Si tu equipo pierde tiempo respondiendo las mismas preguntas o se te escapan leads fuera de horario, hablemos.
 
-📩 chilieagencia@gmail.com
+📩 hola@chilieia.com
 🌐 chilieia.com
 
 ### Experiencia
@@ -76,7 +76,7 @@ Cada solución es a medida: analizamos tu negocio, diseñamos la arquitectura de
 🔹 Automatización de reservas y citas
 
 Propuesta personalizada en menos de 24 horas.
-📩 chilieagencia@gmail.com
+📩 hola@chilieia.com
 🌐 chilieia.com
 
 ### Visual

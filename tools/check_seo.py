@@ -23,7 +23,7 @@ def pages():
     for f in (ROOT / 'pages' / 'blog').glob('*.html'):
         m['/blog/' + f.stem] = f
     for f in ROOT.glob('*.html'):
-        if f.name != 'index.html':
+        if f.name not in ('index.html', '404.html'):  # 404.html lleva noindex y no va en el sitemap
             m['/' + f.stem] = f
     sect = ROOT / 'sectores'
     if sect.exists():

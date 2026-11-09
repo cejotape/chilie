@@ -20,7 +20,7 @@ TITULAR = '''<div class="legal-card"><dl>
 <dt>Nombre comercial</dt><dd>Chilie (Chilie IA)</dd>
 <dt>NIF</dt><dd>12458185M</dd>
 <dt>Domicilio</dt><dd>Calle del Rodio 4, 28045 Madrid</dd>
-<dt>Correo</dt><dd><a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a></dd>
+<dt>Correo</dt><dd><a href="mailto:hola@chilieia.com">hola@chilieia.com</a></dd>
 <dt>Sitio web</dt><dd>chilieia.com</dd>
 </dl></div>'''
 
@@ -89,7 +89,7 @@ CONTENT = {
 </tbody></table></div>
 <p>Cuando un proveedor trata datos fuera del Espacio Económico Europeo, lo hace con las garantías que exige el RGPD, como las cláusulas contractuales tipo aprobadas por la Comisión Europea o el Marco de Privacidad de Datos UE-EE. UU. cuando el proveedor está adherido a él.</p>'''),
         ('derechos', 'Tus derechos', '''
-<p>Puedes ejercer en cualquier momento tus derechos de <strong>acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad</strong>, así como retirar tu consentimiento, escribiendo a <a href="mailto:chilieagencia@gmail.com">chilieagencia@gmail.com</a>. Te responderemos en el plazo de un mes. Si es necesario para verificar tu identidad, podremos pedirte información adicional.</p>
+<p>Puedes ejercer en cualquier momento tus derechos de <strong>acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad</strong>, así como retirar tu consentimiento, escribiendo a <a href="mailto:hola@chilieia.com">hola@chilieia.com</a>. Te responderemos en el plazo de un mes. Si es necesario para verificar tu identidad, podremos pedirte información adicional.</p>
 <p>Si consideras que no hemos tratado bien tus datos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es">www.aepd.es</a>).</p>'''),
         ('menores', 'Menores de edad', '''
 <p>Nuestros servicios están dirigidos a empresas y profesionales. No recogemos de forma consciente datos de menores de 14 años.</p>'''),
@@ -98,7 +98,7 @@ CONTENT = {
         ('cambios', 'Cambios en esta política', '''
 <p>Si cambiamos la forma de tratar los datos, actualizaremos esta política e indicaremos la fecha arriba.</p>'''),
     ]),
-    'politica-cookies': ('Qué guarda esta web en tu navegador y a qué servicios externos se conecta.', [
+    'politica-cookies': ('Qué guarda esta web en tu navegador y a qué servicios se conecta.', [
         ('resumen', 'En resumen', '''
 <p>Esta web <strong>no usa cookies de análisis ni de publicidad</strong>. Solo guarda en tu navegador tu elección sobre el aviso de cookies, y carga sus tipografías desde Google Fonts.</p>'''),
         ('que-son', 'Qué son las cookies', '''
