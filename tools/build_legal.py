@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-UPDATED = '27 de octubre de 2026'
+UPDATED = '10 de noviembre de 2026'
 SITE = 'https://www.chilieia.com'
 
 DOCS = [
@@ -85,7 +85,7 @@ CONTENT = {
 <tbody>
 <tr><td>Render Services, Inc.</td><td>Alojamiento del sitio web y del servidor del chat y los formularios</td><td>Estados Unidos</td></tr>
 <tr><td>Anthropic, PBC</td><td>Modelo de inteligencia artificial que genera las respuestas del chat y de las demos</td><td>Estados Unidos</td></tr>
-<tr><td>Google LLC</td><td>Correo electrónico (Gmail), por el que nos llegan los formularios, y tipografías (Google Fonts)</td><td>Estados Unidos</td></tr>
+<tr><td>Google LLC</td><td>Correo electrónico (Gmail), por el que nos llegan los formularios</td><td>Estados Unidos</td></tr>
 </tbody></table></div>
 <p>Cuando un proveedor trata datos fuera del Espacio Económico Europeo, lo hace con las garantías que exige el RGPD, como las cláusulas contractuales tipo aprobadas por la Comisión Europea o el Marco de Privacidad de Datos UE-EE. UU. cuando el proveedor está adherido a él.</p>'''),
         ('derechos', 'Tus derechos', '''
@@ -100,7 +100,7 @@ CONTENT = {
     ]),
     'politica-cookies': ('Qué guarda esta web en tu navegador y a qué servicios se conecta.', [
         ('resumen', 'En resumen', '''
-<p>Esta web <strong>no usa cookies de análisis ni de publicidad</strong>. Solo guarda en tu navegador tu elección sobre el aviso de cookies, y carga sus tipografías desde Google Fonts.</p>'''),
+<p>Esta web <strong>no usa cookies de análisis ni de publicidad</strong>. Solo guarda en tu navegador tu elección sobre el aviso de cookies. La tipografía se sirve desde nuestro propio dominio, sin conexiones a terceros.</p>'''),
         ('que-son', 'Qué son las cookies', '''
 <p>Las cookies y tecnologías similares (como el almacenamiento local del navegador) son pequeños datos que un sitio web guarda en tu dispositivo para recordar información entre visitas.</p>'''),
         ('usamos', 'Qué usamos', '''
@@ -115,7 +115,6 @@ CONTENT = {
 <div class="legal-table-wrap"><table>
 <thead><tr><th>Servicio</th><th>Titular</th><th>Para qué</th><th>Más información</th></tr></thead>
 <tbody>
-<tr><td>Google Fonts</td><td>Google LLC</td><td>Cargar la tipografía Jost. Al descargarla, tu navegador se conecta a los servidores de Google, que reciben tu dirección IP. Según Google, este servicio no instala cookies.</td><td><a href="https://policies.google.com/privacy">Privacidad de Google</a></td></tr>
 </tbody></table></div>
 <p>El chat de la web se comunica con nuestro servidor para generar las respuestas, pero no guarda cookies en tu navegador. Si reservas una llamada desde un enlace de Calendly, saldrás a su web, que aplica su propia política de cookies.</p>'''),
         ('gestionar', 'Cómo gestionarlas', '''

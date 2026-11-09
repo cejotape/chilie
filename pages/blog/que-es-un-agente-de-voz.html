@@ -12,17 +12,17 @@
   <meta property="og:url" content="https://www.chilieia.com/blog/que-es-un-agente-de-voz">
   <meta property="og:title" content="Qué es un agente de voz con IA | Chilie IA">
   <meta property="og:description" content="Ni centralita de &quot;pulse 1&quot; ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Así funciona por dentro.">
-  <meta property="og:image" content="https://www.chilieia.com/img/og-cover.jpg">
+  <meta property="og:image" content="https://www.chilieia.com/img/og/que-es-un-agente-de-voz.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Chilie IA">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.chilieia.com/img/og/que-es-un-agente-de-voz.png">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"></noscript>
+  <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/fonts.css">
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/blog.css">
 
@@ -35,7 +35,7 @@
       "headline": "Qué es un agente de voz con IA y por qué ya no suena a robot",
       "description": "Ni centralita de \"pulse 1\" ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Así funciona por dentro.",
       "datePublished": "2025-11-04",
-      "dateModified": "2025-11-04",
+      "dateModified": "2026-11-10",
       "author": {
         "@type": "Person",
         "name": "Iñigo"
@@ -48,7 +48,7 @@
       },
       "mainEntityOfPage": "https://www.chilieia.com/blog/que-es-un-agente-de-voz",
       "inLanguage": "es-ES",
-      "image": "https://www.chilieia.com/img/og-cover.jpg"
+      "image": "https://www.chilieia.com/img/og/que-es-un-agente-de-voz.png"
     },
     {
       "@type": "BreadcrumbList",
@@ -122,22 +122,48 @@
         <a class="post-tag" href="/agentes-de-voz-ia">Agentes de voz</a>
         <h1 class="post-title">Qué es un agente de voz con IA y por qué ya no suena a robot</h1>
         <p class="post-lead">Ni centralita de &quot;pulse 1&quot; ni contestador. Un agente de voz entiende lo que le dicen, consulta tu agenda y resuelve la llamada. Así funciona por dentro.</p>
-        <p class="post-meta"><span>Por Iñigo</span><time datetime="2025-11-04">4 de noviembre de 2025</time><span>2 min de lectura</span></p>
+        <p class="post-meta"><span>Por Iñigo</span><time datetime="2025-11-04">4 de noviembre de 2025</time><span>Actualizado el 10 de noviembre de 2026</span><span>8 min de lectura</span></p>
       </header>
       <div class="post-body">
-<p>Cuando decimos &quot;agente de voz&quot;, mucha gente piensa en la centralita de toda la vida: <em>pulse 1 para citas, pulse 2 para información</em>. No tiene nada que ver. Un agente de voz con IA coge el teléfono, escucha lo que le dices con tus propias palabras y responde como lo haría una persona de tu equipo.</p>
+<p>Cuando decimos &quot;agente de voz&quot;, mucha gente piensa en la centralita de toda la vida: <em>pulse 1 para citas, pulse 2 para información</em>. No tiene nada que ver. Un agente de voz con IA coge el teléfono, escucha lo que le dices con tus propias palabras y responde como lo haría una persona de tu equipo. Y, sobre todo, hace cosas: mira la agenda, reserva, confirma por WhatsApp y avisa a quien toca.</p>
+<p>Este artículo explica qué es exactamente, cómo funciona por dentro, qué puede y qué no puede hacer, y cómo saber si tiene sentido para tu negocio.</p>
+<h2>La respuesta corta</h2>
+<p>Un agente de voz con IA es un programa que atiende llamadas de teléfono en lenguaje natural. Escucha, entiende la intención de quien llama, consulta la información o los sistemas de tu negocio, responde con una voz natural y, si hace falta, pasa la llamada a una persona. Funciona las 24 horas, atiende varias llamadas a la vez y deja todo apuntado.</p>
+<p>No es un contestador (ese solo graba), ni una centralita de opciones (esa solo enruta), ni una recepcionista humana remota (esa es una persona). Es una cuarta cosa que no existía hace tres años.</p>
 <h2>Cómo funciona por dentro</h2>
-<p>Una llamada con un agente de voz pasa por tres piezas que trabajan en tiempo real:</p>
-<ol><li><strong>Reconocimiento de voz</strong>: convierte lo que dice el cliente en texto mientras habla.</li><li><strong>Un modelo de lenguaje</strong>: entiende la petición, decide qué hacer y redacta la respuesta. Aquí está la &quot;inteligencia&quot;.</li><li><strong>Síntesis de voz</strong>: convierte la respuesta en una voz natural, con pausas y entonación.</li></ol>
-<p>Todo eso ocurre en menos de un segundo. Y lo importante: el agente no solo habla, también <strong>actúa</strong>. Puede consultar los huecos libres de tu agenda, crear la cita, enviar un WhatsApp de confirmación o dejar una nota en tu CRM.</p>
+<p>Una llamada con un agente de voz pasa por cuatro piezas que trabajan en tiempo real:</p>
+<ol><li><strong>Reconocimiento de voz.</strong> Convierte lo que dice el cliente en texto mientras habla, sin esperar a que termine la frase. Los sistemas actuales entienden acentos, ruido de fondo y a alguien que habla desde el coche.</li><li><strong>Un modelo de lenguaje.</strong> Lee ese texto, entiende qué quiere la persona, decide qué hacer y redacta la respuesta. Aquí está la &quot;inteligencia&quot;. Trabaja con instrucciones que le hemos escrito (cómo se llama tu negocio, qué hace, qué no debe decir) y con tu información real.</li><li><strong>Herramientas.</strong> El modelo no solo habla: puede llamar a funciones. Consultar los huecos de tu agenda, crear la cita, buscar un pedido, enviar un WhatsApp, dejar una nota en el CRM o pasar la llamada. Lo que se consulta en tu sistema no se inventa.</li><li><strong>Síntesis de voz.</strong> Convierte la respuesta en una voz natural, con pausas y entonación, y la reproduce mientras se va generando.</li></ol>
+<p>Todo eso ocurre en torno a un segundo entre que el cliente termina de hablar y el agente empieza a responder. Ese tiempo, la latencia, es lo que separa una conversación natural de una incómoda; lo explicamos en <a href="/blog/latencia-agentes-de-voz">latencia en agentes de voz: por qué cada medio segundo cuenta</a>.</p>
 <h2>Por qué ya no suena a robot</h2>
-<p>Hace no tanto, las voces sintéticas se notaban a la legua. Hoy las mejores voces tienen respiraciones, cambios de ritmo y acentos regionales. Además, los agentes modernos permiten que el cliente les interrumpa a mitad de frase, algo impensable con las centralitas clásicas.</p>
-<p>Eso no significa que haya que engañar a nadie. Nosotros siempre configuramos el agente para que diga que es un asistente virtual al empezar la llamada. A la gente no le molesta hablar con una IA; le molesta que no le resuelvan nada.</p>
+<p>Hace no tanto, las voces sintéticas se notaban a la legua. Hoy las mejores voces tienen respiraciones, cambios de ritmo, acentos regionales y muletillas suaves. Tres cosas han cambiado la experiencia:</p>
+<ul><li><strong>Se puede interrumpir.</strong> Si el cliente empieza a hablar mientras el agente responde, el agente se calla y escucha. Con las centralitas clásicas había que esperar a que terminara el mensaje.</li><li><strong>Entiende el contexto.</strong> &quot;El jueves mejor&quot; después de haber propuesto el miércoles se entiende sin volver a preguntar la fecha completa.</li><li><strong>Habla como tu negocio.</strong> El tono, el vocabulario y la forma de despedirse se configuran. Una clínica dental y un taller no suenan igual, y el agente tampoco debería. En <a href="/blog/elegir-voz-para-tu-marca">cómo elegir la voz de tu agente</a> contamos qué mirar.</li></ul>
+<p>Que suene natural no significa engañar a nadie. Nosotros siempre configuramos el agente para que diga que es un asistente virtual al empezar la llamada. Lo pide la normativa europea de inteligencia artificial y, además, funciona mejor: a la gente no le molesta hablar con una IA; le molesta que no le resuelvan nada.</p>
 <h2>Qué puede resolver y qué no</h2>
-<p>Un agente de voz funciona muy bien con llamadas que siguen un patrón:</p>
-<ul><li>Pedir, cambiar o cancelar citas.</li><li>Preguntar horarios, precios o cómo llegar.</li><li>Cualificar a alguien que llama por un anuncio.</li><li>Tomar un recado y avisar al responsable.</li></ul>
-<p>Lo que no debe hacer es gestionar una queja delicada o una urgencia. Para eso está el traspaso a una persona, que el agente hace en cuanto detecta que la llamada se le escapa.</p>
-<h2>¿Cómo suena en la práctica?</h2>
+<p>Un agente de voz funciona muy bien con llamadas que siguen un patrón, aunque cada una se exprese de forma distinta:</p>
+<ul><li><strong>Citas:</strong> pedir, cambiar o cancelar una cita sobre la agenda real, con confirmación por WhatsApp o SMS.</li><li><strong>Información:</strong> horarios, dirección, cómo llegar, precios orientativos, qué llevar, si hay aparcamiento.</li><li><strong>Cualificación:</strong> alguien llama por un anuncio o un piso y el agente hace las tres o cuatro preguntas que tu equipo haría antes de dedicarle tiempo.</li><li><strong>Recados:</strong> toma nota de quién llama y para qué, y avisa al responsable al momento.</li><li><strong>Estado de algo:</strong> un pedido, una reparación, un expediente, consultando tu sistema.</li><li><strong>Llamadas salientes sencillas:</strong> recordar una cita el día anterior, avisar de que algo está listo, confirmar una reserva.</li></ul>
+<p>Lo que no debe hacer es gestionar una queja delicada, una urgencia médica, una negociación o una decisión que te corresponde a ti. Para eso está el traspaso a una persona, que el agente hace en cuanto detecta que la llamada se le escapa o en cuanto el cliente lo pide. En <a href="/blog/traspaso-a-humano">cuándo debe un asistente pasarte con una persona</a> explicamos cómo hacerlo bien, con un resumen de lo hablado para que nadie tenga que repetirse.</p>
+<h2>Cómo se conecta con tu negocio</h2>
+<p>No hay que cambiar de número ni de operador. Lo habitual es un desvío desde tu línea actual, que puedes configurar de tres formas:</p>
+<ul><li><strong>Fuera de horario:</strong> el agente atiende por la noche, los fines de semana y en vacaciones.</li><li><strong>Cuando comunica o nadie contesta</strong> en unos segundos: el agente coge lo que se te escaparía.</li><li><strong>Siempre:</strong> el agente atiende la primera llamada y pasa a una persona solo lo que lo necesita.</li></ul>
+<p>Después se conecta con lo que ya usas: la agenda (Google Calendar, Calendly, el programa de gestión de la clínica o del restaurante), el CRM, WhatsApp para confirmar y el correo o un grupo para avisar al equipo. Tras cada llamada, tu equipo recibe un resumen: quién ha llamado, qué quería, qué se ha hecho y qué queda pendiente.</p>
+<h2>Lo que dice la ley</h2>
+<p>Dos normas importan en España:</p>
+<ul><li><strong>El Reglamento Europeo de IA</strong> obliga a que la persona sepa que habla con una IA. El agente se presenta como asistente virtual y no finge ser humano. Lo explicamos en <a href="/blog/ai-act-agosto-2026">qué cambia en agosto de 2026 para una pyme</a>.</li><li><strong>La Ley 10/2025 de atención a la clientela</strong> obliga a determinadas empresas a atender en menos de tres minutos y a ofrecer siempre la opción de hablar con una persona. No prohíbe los asistentes, pero no pueden ser la única vía. Un agente bien montado ayuda a cumplirla: coge al primer tono y pasa a una persona cuando el cliente lo pide. Más en <a href="/blog/ley-atencion-clientela-diciembre">qué cambia en diciembre para el teléfono y los bots</a>.</li></ul>
+<p>Y, como cualquier sistema que trata datos personales, el agente debe cumplir el RGPD: informar, pedir solo lo necesario y guardar lo justo. Lo repasamos en <a href="/blog/rgpd-asistentes-ia">RGPD y asistentes de IA</a>.</p>
+<h2>Cuánto cuesta</h2>
+<p>Dos costes: montarlo y los minutos de llamada. En Chilie, el desarrollo parte de 300 € de puesta en marcha para un agente sencillo y sube según con qué se integre y cuántas cosas tenga que resolver, con presupuesto cerrado por escrito en 24 horas. Después, un coste mensual proporcional a los minutos que habla el agente. El desglose completo, con lo que cobran las plataformas de suscripción en España y una cuenta hecha para una clínica, está en <a href="/blog/precio-agente-de-voz">cuánto cuesta un agente de voz con IA en 2026</a>.</p>
+<h2>Cómo saber si te compensa</h2>
+<p>Antes de pensar en el agente, mide el problema: cuántas llamadas se te escapan y cuándo. En <a href="/blog/cuantas-llamadas-pierdes">cuántas llamadas pierde tu negocio</a> explicamos cómo hacerlo en una semana con el registro de tu operadora. Si el resultado son dos o tres clientes al mes, el agente se paga solo; si son dos al año, probablemente no lo necesitas.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Mis clientes notarán que es una IA?</h3>
+<p>Sí, porque se lo dice al empezar. Lo que no notarán es la diferencia en el resultado: la cita queda reservada y la pregunta respondida.</p>
+<h3>¿Qué pasa si habla en otro idioma?</h3>
+<p>Los agentes actuales entienden y hablan varios idiomas y pueden cambiar a mitad de llamada si quien llama lo hace. Para un negocio turístico es una de las ventajas más claras.</p>
+<h3>¿Puede atender varias llamadas a la vez?</h3>
+<p>Sí. Es una de las diferencias con una persona: en hora punta atiende diez llamadas simultáneas sin que ninguna comunique.</p>
+<h3>¿Cuánto tarda en estar funcionando?</h3>
+<p>Un agente sencillo, en torno a dos semanas desde la primera llamada. Antes de lanzarlo lo probamos contigo con llamadas reales; en <a href="/blog/probar-agente-de-voz">cómo probar un agente de voz</a> está el guion que usamos.</p>
+<h3>¿Cómo suena en la práctica?</h3>
 <p>La mejor forma de entenderlo es probarlo. En nuestra página de <a href="/demos">demos</a> tienes asistentes de negocios de ejemplo, y si quieres oír cómo sonaría con tu negocio, <a href="/contacto">escríbenos</a> y lo preparamos.</p>
 <p class="post-next">Si quieres esto en tu negocio, mira cómo trabajamos los <a href="/agentes-de-voz-ia">agentes de voz con IA para empresas</a>. Y si prefieres hablarlo, <a href="/contacto">escríbenos</a>: te respondemos en menos de 24 horas.</p>
       </div>
@@ -161,8 +187,8 @@
           <a href="/blog/cuantas-llamadas-pierdes">
             <time datetime="2026-01-27">27 ene</time>
             <span class="post-cat">Agentes de voz</span>
-            <span class="post-main"><b>¿Cuántas llamadas pierde tu negocio? Cómo medirlo en una semana</b><small>Casi ningún negocio sabe cuántas llamadas se le escapan. Un método sencillo para medirlo con lo que ya tienes, y qué hacer con el resultado.</small></span>
-            <span class="post-min">2 min</span>
+            <span class="post-main"><b>¿Cuántas llamadas pierde tu negocio? Cómo medirlo en una semana</b><small>Casi ningún negocio sabe cuántas llamadas se le escapan. Un método sencillo para medirlo con lo que ya tienes, ponerle precio y decidir qué hacer.</small></span>
+            <span class="post-min">6 min</span>
           </a>
         </li>
         <li class="post-row" data-cat="voz">

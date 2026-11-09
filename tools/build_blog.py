@@ -26,8 +26,10 @@ import math
 import re
 from datetime import date, timedelta
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / 'tools'))
 SRC = ROOT / 'blog-src' / 'posts'
 OUT = ROOT / 'pages' / 'blog'
 SITE = 'https://www.chilieia.com'
@@ -62,6 +64,12 @@ SEO_MAX = 48  # 48 + " | Chilie IA" = 60
 
 
 def long_date(d): return f'{d.day} de {MONTHS[d.month - 1]} de {d.year}'
+
+
+def og_url(p):
+    """Imagen OG del artículo si existe img/og/<slug>.png; si no, la portada genérica."""
+    f = ROOT / 'img' / 'og' / f'{p["slug"]}.png'
+    return f'{SITE}/img/og/{p["slug"]}.png' if f.exists() else f'{SITE}/img/og-cover.jpg'
 
 
 def updated_tag(p):
@@ -266,7 +274,8 @@ FOOT = '''  <footer class="foot" data-field="white">
 '''
 
 
-def page(*, title, desc, url, og_type, jsonld, main, cur, scripts):
+def page(*, title, desc, url, og_type, jsonld, main, cur, scripts, og_image=None):
+    og_image = og_image or f'{SITE}/img/og-cover.jpg'
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -281,17 +290,17 @@ def page(*, title, desc, url, og_type, jsonld, main, cur, scripts):
   <meta property="og:url" content="{url}">
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(desc)}">
-  <meta property="og:image" content="{SITE}/img/og-cover.jpg">
+  <meta property="og:image" content="{og_image}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Chilie IA">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{og_image}">
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"></noscript>
+  <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/fonts.css">
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/blog.css">
 
@@ -417,7 +426,7 @@ def build_post(p, posts):
                 'author': {'@type': 'Person', 'name': p['author']},
                 'publisher': {'@type': 'Organization', 'name': 'Chilie IA', 'url': SITE, '@id': f'{SITE}/#business'},
                 'mainEntityOfPage': url, 'inLanguage': 'es-ES',
-                'image': f'{SITE}/img/og-cover.jpg',
+                'image': og_url(p),
             },
             {
                 '@type': 'BreadcrumbList',
@@ -430,7 +439,7 @@ def build_post(p, posts):
         ],
     }, ensure_ascii=False, indent=2)
     return page(title=f'{seo_title(p)} | Chilie IA', desc=meta_desc(p), url=url,
-                og_type='article', jsonld=jsonld, main=main, cur=True,
+                og_type='article', jsonld=jsonld, main=main, cur=True, og_image=og_url(p),
                 scripts='  <script src="/home.js" defer></script>')
 
 
@@ -443,6 +452,11 @@ def replace_block(path, start, end, body):
 
 def main():
     posts = load()
+    try:
+        import og_images
+        og_images.generate_all(posts)
+    except Exception as e:  # sin Pillow o sin fuente: portada genérica
+        print('og_images:', e)
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob('*.html'):
         old.unlink()

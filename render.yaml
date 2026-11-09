@@ -43,6 +43,12 @@ services:
         destination: /pages/blog.html
       # ── blog:start (lo genera tools/build_blog.py)
       - type: rewrite
+        source: /blog/reservas-ia-restaurantes-opciones
+        destination: /pages/blog/reservas-ia-restaurantes-opciones.html
+      - type: rewrite
+        source: /blog/chatbot-alquiler-vacacional-opciones
+        destination: /pages/blog/chatbot-alquiler-vacacional-opciones.html
+      - type: rewrite
         source: /blog/precio-agente-de-voz
         destination: /pages/blog/precio-agente-de-voz.html
       - type: rewrite

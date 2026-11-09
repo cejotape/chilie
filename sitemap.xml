@@ -110,6 +110,18 @@
   </url>
   <!-- blog:start -->
   <url>
+    <loc>https://www.chilieia.com/blog/reservas-ia-restaurantes-opciones</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.chilieia.com/blog/chatbot-alquiler-vacacional-opciones</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.chilieia.com/blog/precio-agente-de-voz</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
@@ -267,7 +279,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/agente-voz-inmobiliarias</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -285,7 +297,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/alucinaciones-ia</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -333,7 +345,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/facturas-pdf-extraer-datos-ia</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -345,7 +357,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/rgpd-asistentes-ia</loc>
-    <lastmod>2026-02-24</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -363,19 +375,19 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/n8n-zapier-make</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/cuantas-llamadas-pierdes</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/chatbot-reglas-vs-ia</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -411,7 +423,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/software-a-medida-o-saas</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -441,7 +453,7 @@
   </url>
   <url>
     <loc>https://www.chilieia.com/blog/que-es-un-agente-de-voz</loc>
-    <lastmod>2025-11-04</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
