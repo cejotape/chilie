@@ -1,0 +1,38 @@
+# Lanza el deploy de la landing en Render con cada push a main.
+#
+# Por qué existe: el servicio chilie-landing tiene "Auto-Deploy: On Commit" en Render, pero
+# los commits no disparan despliegues (el 9-nov-2026 ninguno de los pushes desplegó solo y
+# el artículo del 3-nov estuvo seis días sin publicar). Todos los deploys que han funcionado
+# entraron por el Deploy Hook o a mano desde el panel.
+#
+# Configuración (una vez, alguien con permiso de administrador en el repo):
+#   GitHub → Settings → Secrets and variables → Actions → New repository secret
+#   Nombre: RENDER_DEPLOY_HOOK
+#   Valor: la URL del Deploy Hook de chilie-landing (Render → chilie-landing → Settings → Deploy Hook)
+# Sin el secreto, el workflow no hace nada y lo dice en el log.
+
+name: Deploy en Render
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: render-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar al Deploy Hook de Render
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::Falta el secreto RENDER_DEPLOY_HOOK; no se lanza el deploy."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK" -o /dev/null
+          echo "Deploy solicitado a Render para $GITHUB_SHA"
