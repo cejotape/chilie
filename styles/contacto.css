@@ -149,3 +149,16 @@
   .brief-block { padding: 16px; }
   .pick button { font-size: 0.9375rem; padding: 10px 8px; }
 }
+
+/* ── Safari / iPhone: el título de cada bloque se salía por arriba de la caja ──
+   En WebKit, un <legend> dentro de un fieldset con display:grid se sigue
+   pintando sobre el borde superior aunque flote. Con el fieldset en bloque
+   el truco del float sí funciona en todos los navegadores, así que el
+   espaciado entre hijos pasa de gap a márgenes. */
+.brief-block { display: block; }
+.brief-block > * + * { margin-top: 14px; }
+.brief-q { padding-bottom: 14px; }
+.brief-q + * { clear: both; margin-top: 0; }
+.brief-q + .brief-hint { position: relative; top: -6px; margin-bottom: -6px; }
+.brief-block > .brief-label, .brief-block > .field--select { margin-top: 20px; }
+.brief-block::after { content: ""; display: block; clear: both; }
