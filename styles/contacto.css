@@ -111,3 +111,41 @@
 .brief-form[hidden], .brief-done[hidden] { display: none; }
 .brief-aside { grid-row: 1; }
 @media (max-width: 900px) { .brief-aside { grid-row: auto; } }
+
+/* ── Ajustes de teléfono y tableta ───────────────────────────
+   Menos aire muerto arriba, opciones en dos columnas con zona de
+   toque amplia y textos que no se cortan en pantallas estrechas. */
+@media (max-width: 900px) {
+  .page-hero .page-sub { grid-column: 1 / -1; max-width: 52ch; }
+}
+@media (max-width: 760px) {
+  .page-hero { padding-top: calc(64px + 36px); padding-bottom: 28px; gap: 18px; }
+  .brief { padding-top: 8px; gap: 36px; }
+  .brief-form { gap: 10px; }
+  .brief-q { font-size: 1.3125rem; line-height: 1.15; }
+
+  /* Opciones: rejilla de dos columnas en vez de una píldora por línea */
+  .pick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .pick button {
+    min-height: 48px; padding: 10px 12px; border-radius: 14px;
+    white-space: normal; line-height: 1.2; text-align: center; text-wrap: balance;
+  }
+  .pick button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  .field input { text-overflow: ellipsis; }
+  .field textarea { min-height: 160px; }
+  .field--select { max-width: none; }
+
+  /* Zonas de toque de al menos 44 px */
+  .consent { gap: 14px; padding: 6px 0; }
+  .consent input { width: 24px; height: 24px; }
+  .consent a { display: inline-block; padding: 4px 0; }
+  .brief-send { padding: 16px 4px 0; }
+  .aside-contact { gap: 2px; padding: 20px; }
+  .aside-mail { display: flex; align-items: center; min-height: 44px; }
+  .aside-steps li { padding: 16px 0 16px 44px; }
+}
+@media (max-width: 360px) {
+  .brief-block { padding: 16px; }
+  .pick button { font-size: 0.9375rem; padding: 10px 8px; }
+}
