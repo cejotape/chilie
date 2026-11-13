@@ -29,6 +29,10 @@ services:
       - type: rewrite
         source: /demos
         destination: /pages/demos.html
+      # Formulario corto para quien llega desde un reel de Instagram (/pide?v=palabra)
+      - type: rewrite
+        source: /pide
+        destination: /pages/pide.html
       - type: rewrite
         source: /aviso-legal
         destination: /pages/aviso-legal.html

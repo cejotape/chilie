@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Te lo mandamos | Chilie IA</title>
+  <meta name="description" content="Cuéntanos tu caso en un minuto y te escribimos nosotros.">
+  <!-- Página de captación para quien llega desde un reel: no se indexa ni va en el sitemap -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F7F7F5">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/fonts.css">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/contacto.css?v=20261113">
+  <style>
+    /* Una sola columna y sin menú: quien llega desde Instagram viene a rellenar esto y nada más */
+    .bar-links, .bar-menu, .bar .btn-bar { display: none !important; }
+    .brief { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+    .brief-form, .brief-done { grid-column: 1; }
+    .page-hero { max-width: 900px; }
+    .pide-sello { justify-self: start; font-size: 0.9375rem; font-weight: 500; padding: 5px 14px; border-radius: 99px; background: var(--blue); color: var(--paper); }
+  </style>
+</head>
+<body>
+
+  <header class="bar" id="bar" data-field="white">
+    <a href="/" class="wordmark" aria-label="Chilie IA, inicio">
+      <img src="/img/logo-mark.svg" alt="" width="24" height="32">
+      <span>Chilie IA</span>
+    </a>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero" data-field="white" aria-labelledby="pageTitle">
+      <span class="pide-sello" id="pideSello">Desde Instagram</span>
+      <h1 class="page-title" id="pageTitle">Cuéntanos tu caso y te escribimos.</h1>
+      <p class="page-sub" id="pageSub">Un minuto. Lo leemos Iñigo o Carlos y te contestamos en menos de 24 horas.</p>
+    </section>
+
+    <section class="brief" data-field="white" aria-label="Formulario">
+      <form class="brief-form" id="pideForm" novalidate>
+        <!-- Las preguntas de cada vídeo las pinta pide.js aquí -->
+        <div id="pidePreguntas" style="display: grid; gap: 12px;"></div>
+
+        <fieldset class="brief-block">
+          <legend class="brief-q"><span id="pideNumContacto">3</span>¿Dónde te escribimos?</legend>
+          <div class="brief-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="nombreErr">
+              <p class="field-err" id="nombreErr"></p>
+            </div>
+            <div class="field">
+              <label for="email">Correo</label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailErr" placeholder="nombre@tuempresa.es">
+              <p class="field-err" id="emailErr"></p>
+            </div>
+          </div>
+          <div class="brief-row">
+            <div class="field">
+              <label for="telefono">Teléfono <small>(opcional)</small></label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <div class="field">
+              <label for="empresa">Empresa <small>(opcional)</small></label>
+              <input id="empresa" name="empresa" type="text" autocomplete="organization">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="brief-send">
+          <label class="consent">
+            <input type="checkbox" id="consent" required aria-describedby="consentErr">
+            <span>He leído y acepto la <a href="/politica-privacidad">política de privacidad</a>. Usaremos tus datos solo para responder a tu consulta.</span>
+          </label>
+          <p class="field-err" id="consentErr"></p>
+          <button type="submit" class="btn btn-lg brief-submit">Enviar <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p class="brief-status" id="pideStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="brief-done" id="pideDone" hidden tabindex="-1">
+        <span class="brief-done-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h2 class="brief-done-title">Recibido. Gracias.</h2>
+        <p class="brief-done-text">Te escribimos en menos de 24 horas. Mientras tanto, puedes probar los asistentes de nuestras <a href="/demos">demos</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/pide.js" defer></script>
+</body>
+</html>

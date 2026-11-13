@@ -883,6 +883,8 @@ app.get('/contacto', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'contacto.html')));
 app.get('/demos', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'demos.html')));
+app.get('/pide', (_req, res) =>
+  res.sendFile(path.join(__dirname, '..', 'pages', 'pide.html')));
 app.get('/aviso-legal', (_req, res) =>
   res.sendFile(path.join(__dirname, '..', 'pages', 'aviso-legal.html')));
 app.get('/politica-privacidad', (_req, res) =>
