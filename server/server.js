@@ -192,6 +192,53 @@ function handleAnthropicError(err, res, label) {
   return res.status(500).json({ error: 'No he podido procesar tu mensaje. Inténtalo de nuevo.' });
 }
 
+// ── Reel diario: el agente manda el mp4 y se reenvía adjunto ──
+// La tarea programada que hace el reel de cada día lo sube aquí y el servidor lo manda por correo,
+// como adjunto, a la misma bandeja que el formulario de contacto. El destinatario es fijo: no se
+// puede usar para escribir a nadie más. Solo acepta un mp4 de hasta 20 MB, con la llave del agente
+// (aquí está solo su huella SHA-256; la llave vive en el repositorio privado de los reels) y como
+// mucho 6 envíos al día.
+const crypto = require('crypto');
+const REEL_KEY_SHA256 = 'be03b304cc6243e76a0a286abbae0befb5cba528b882cb2cb47589e8f826d181';
+let reelEnvios = [];
+
+app.post('/api/reel-mail', express.raw({ type: 'video/mp4', limit: '20mb' }), async (req, res) => {
+  const huella = crypto.createHash('sha256').update(String(req.get('x-reel-key') || '')).digest('hex');
+  if (!crypto.timingSafeEqual(Buffer.from(huella), Buffer.from(REEL_KEY_SHA256))) {
+    return res.status(403).json({ error: 'No autorizado.' });
+  }
+  const ahora = Date.now();
+  reelEnvios = reelEnvios.filter(t => ahora - t < 24 * 60 * 60 * 1000);
+  if (reelEnvios.length >= 6) {
+    return res.status(429).json({ error: 'Ya se han enviado 6 reels en las últimas 24 horas.' });
+  }
+  const video = req.body;
+  if (!Buffer.isBuffer(video) || video.length < 50000 || video.slice(4, 8).toString('latin1') !== 'ftyp') {
+    return res.status(400).json({ error: 'El cuerpo tiene que ser un archivo mp4.' });
+  }
+  if (!mailer) {
+    return res.status(500).json({ error: 'El correo no está configurado en el servidor.' });
+  }
+  const limpio = (s, n) => String(s || '').replace(/[\r\n]+/g, ' ').trim().slice(0, n);
+  const asunto = limpio(req.get('x-asunto'), 150) || 'Reel del día';
+  const nombre = (limpio(req.get('x-archivo'), 80).replace(/[^A-Za-z0-9._-]/g, '') || 'reel') .replace(/\.mp4$/i, '') + '.mp4';
+
+  try {
+    await mailer.sendMail({
+      from:    `"Chilie IA · Reels" <${process.env.SMTP_USER}>`,
+      to:      process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      subject: asunto,
+      text:    'Reel del día adjunto (' + (video.length / 1e6).toFixed(1) + ' MB). El informe completo va en otro correo.',
+      attachments: [{ filename: nombre, content: video, contentType: 'video/mp4' }],
+    });
+    reelEnvios.push(ahora);
+    res.json({ ok: true, mb: +(video.length / 1e6).toFixed(1) });
+  } catch (err) {
+    console.error('[Reel Mail Error]', err.message);
+    res.status(500).json({ error: 'No se ha podido enviar el correo.' });
+  }
+});
+
 // ── Health check ──────────────────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Chilie IA', timestamp: new Date().toISOString() });
