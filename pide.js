@@ -42,6 +42,19 @@
           opciones: ['A mediodía', 'Fuera de horario', 'Fines de semana', 'Cuando hay mucha gente', 'No lo sé'] },
       ],
     },
+    // Reel "El correo se contesta solo" (14-nov-2026): la bandeja que se clasifica y se responde sola
+    correo: {
+      titulo: 'Que el correo de siempre se conteste solo.',
+      sub: 'Cuéntanos cómo es vuestra bandeja y te decimos qué se puede clasificar y responder sin que nadie lo abra. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'volumen', texto: '¿Cuántos correos entran al día en la bandeja general, más o menos?',
+          opciones: ['Menos de 20', 'De 20 a 50', 'De 50 a 200', 'Más de 200', 'No lo sé'] },
+        { id: 'tipos', texto: '¿Qué llega más?', multi: true,
+          opciones: ['Peticiones de presupuesto', 'Reservas y citas', 'Dudas de siempre', 'Facturas de proveedores', 'Incidencias', 'Otra cosa'] },
+        { id: 'detalle', texto: '¿Qué pasa hoy con esos correos?', libre: true,
+          ejemplo: 'Por ejemplo: los contesta una persona cuando puede y algunos se quedan días sin respuesta.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
