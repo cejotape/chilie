@@ -239,6 +239,69 @@ app.post('/api/reel-mail', express.raw({ type: 'video/mp4', limit: '20mb' }), as
   }
 });
 
+// ── Reel diario, paquete completo: vídeo + hero + portada en UN solo correo ──
+// Mismo destinatario fijo, misma llave y mismo tope diario que /api/reel-mail. El cuerpo es JSON
+// (se manda como application/x-reel-pack para que no lo frene el límite de 10 kb del JSON normal):
+//   { "asunto": "...", "texto": "...", "adjuntos": [ { "nombre": "reel.mp4", "base64": "..." }, … ] }
+// Solo admite mp4 y png, hasta 4 adjuntos y 22 MB en total (el tope de Gmail son 25).
+app.post('/api/reel-pack', express.raw({ type: 'application/x-reel-pack', limit: '32mb' }), async (req, res) => {
+  const huella = crypto.createHash('sha256').update(String(req.get('x-reel-key') || '')).digest('hex');
+  if (!crypto.timingSafeEqual(Buffer.from(huella), Buffer.from(REEL_KEY_SHA256))) {
+    return res.status(403).json({ error: 'No autorizado.' });
+  }
+  const ahora = Date.now();
+  reelEnvios = reelEnvios.filter(t => ahora - t < 24 * 60 * 60 * 1000);
+  if (reelEnvios.length >= 6) {
+    return res.status(429).json({ error: 'Ya se han enviado 6 reels en las últimas 24 horas.' });
+  }
+  let datos;
+  try {
+    datos = JSON.parse(Buffer.isBuffer(req.body) ? req.body.toString('utf8') : '');
+  } catch (_e) {
+    return res.status(400).json({ error: 'El cuerpo tiene que ser JSON.' });
+  }
+  const lista = Array.isArray(datos && datos.adjuntos) ? datos.adjuntos : [];
+  if (lista.length < 1 || lista.length > 4) {
+    return res.status(400).json({ error: 'Tiene que haber entre 1 y 4 adjuntos.' });
+  }
+  const limpio = (s, n) => String(s || '').replace(/[\r\n]+/g, ' ').trim().slice(0, n);
+  const adjuntos = [];
+  let total = 0;
+  for (const a of lista) {
+    const buf = Buffer.from(String((a && a.base64) || ''), 'base64');
+    const esMp4 = buf.length > 50000 && buf.slice(4, 8).toString('latin1') === 'ftyp';
+    const esPng = buf.length > 1000 && buf.slice(0, 8).toString('hex') === '89504e470d0a1a0a';
+    if (!esMp4 && !esPng) {
+      return res.status(400).json({ error: 'Cada adjunto tiene que ser un mp4 o un png.' });
+    }
+    const ext = esMp4 ? '.mp4' : '.png';
+    const base = limpio(a.nombre, 80).replace(/[^A-Za-z0-9._-]/g, '').replace(/\.(mp4|png)$/i, '') || 'adjunto';
+    adjuntos.push({ filename: base + ext, content: buf, contentType: esMp4 ? 'video/mp4' : 'image/png' });
+    total += buf.length;
+  }
+  if (total > 22 * 1024 * 1024) {
+    return res.status(400).json({ error: 'Los adjuntos pasan de 22 MB.' });
+  }
+  if (!mailer) {
+    return res.status(500).json({ error: 'El correo no está configurado en el servidor.' });
+  }
+  try {
+    await mailer.sendMail({
+      from:    `"Chilie IA · Reels" <${process.env.SMTP_USER}>`,
+      to:      process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      subject: limpio(datos.asunto, 150) || 'Reel del día',
+      text:    String(datos.texto || '').slice(0, 2000) ||
+               'Reel del día con su portada y el hero de la tanda. El informe completo va en otro correo.',
+      attachments: adjuntos,
+    });
+    reelEnvios.push(ahora);
+    res.json({ ok: true, adjuntos: adjuntos.map(a => a.filename), mb: +(total / 1e6).toFixed(1) });
+  } catch (err) {
+    console.error('[Reel Pack Error]', err.message);
+    res.status(500).json({ error: 'No se ha podido enviar el correo.' });
+  }
+});
+
 // ── Health check ──────────────────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Chilie IA', timestamp: new Date().toISOString() });
