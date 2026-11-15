@@ -35,6 +35,8 @@ const allowedOrigins = [
   'http://127.0.0.1:3001',
   // La landing de Automa vive en otro dominio y llama a /api/automa/checkout
   ...(() => { try { return [new URL(process.env.AUTOMA_SITE_URL).origin]; } catch { return []; } })(),
+  // La dirección pública de este mismo servicio en Render (la usa el panel de /linkedin)
+  ...(process.env.RENDER_EXTERNAL_URL ? [process.env.RENDER_EXTERNAL_URL] : []),
   ...(process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()).filter(Boolean)
     : [])
@@ -349,6 +351,15 @@ if (process.env.AUTOMA_DISCORD_ENABLED === 'true') {
       guildId: process.env.AUTOMA_GUILD_ID,
     }))
     .catch((err) => console.error('[automa-discord] No ha arrancado:', err.message));
+}
+
+// ── LinkedIn: post de la empresa cada 3 días + reposts de Iñigo y Carlos ──
+// Panel en /linkedin?clave=…  Todo lo demás está en server/linkedin/ (ver su README).
+// Si este módulo falla al cargar, el chatbot y el formulario tienen que seguir funcionando.
+try {
+  require('./linkedin')(app, { anthropic, mailer });
+} catch (err) {
+  console.error('[LinkedIn] No se ha podido arrancar:', err.message);
 }
 
 // ── Health check ──────────────────────────────────────────

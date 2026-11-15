@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>LinkedIn · Chilie IA</title>
+<style>
+  :root { --paper:#F7F7F5; --ink:#0E0E12; --soft:#4A4A55; --blue:#3B3FC4; --sky:#E6E7F8; --spark:#FF5A36; --line:#DDDDD8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 Jost, Futura, system-ui, sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 16px 80px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  h2 { font-size:19px; margin:36px 0 12px; }
+  p { margin:0 0 10px; }
+  .soft { color:var(--soft); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:12px; }
+  .row { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .pill { display:inline-block; padding:2px 10px; border-radius:99px; font-size:14px; background:var(--sky); color:var(--blue); }
+  .pill.bad { background:#FFE6DF; color:#B5310F; }
+  button, a.btn { font:inherit; border:1px solid var(--blue); background:var(--blue); color:#fff; border-radius:8px; padding:8px 14px; cursor:pointer; text-decoration:none; display:inline-block; }
+  button.sec, a.btn.sec { background:#fff; color:var(--blue); }
+  button:disabled { opacity:.5; cursor:wait; }
+  textarea { width:100%; min-height:110px; font:inherit; padding:10px; border:1px solid var(--line); border-radius:8px; resize:vertical; }
+  pre { white-space:pre-wrap; font:inherit; margin:8px 0 0; }
+  img { max-width:320px; width:100%; border-radius:8px; border:1px solid var(--line); }
+  details summary { cursor:pointer; color:var(--blue); }
+  .aviso { border-color:var(--spark); }
+  code { background:var(--sky); padding:1px 5px; border-radius:4px; font-size:14px; word-break:break-all; }
+</style>
+</head>
+<body>
+<main>
+  <h1>LinkedIn de Chilie</h1>
+  <p class="soft" id="resumen">Cargando…</p>
+  <div id="avisos"></div>
+
+  <h2>Cuentas</h2>
+  <div id="cuentas"></div>
+
+  <h2>Próximo post</h2>
+  <div class="card">
+    <p>Si quieres que el siguiente post trate de algo concreto (un proyecto, una novedad), escríbelo aquí con los datos que se puedan contar. Se usa una vez y después se vuelve a los temas de siempre.</p>
+    <textarea id="tema" placeholder="Ej.: Hemos entregado a la clínica X un agente de voz que coge las llamadas fuera de horario y reserva en su agenda. Se puede nombrar al cliente."></textarea>
+    <p class="row" style="margin-top:10px">
+      <span><button id="guardarTema">Guardar tema</button> <button class="sec" id="quitarTema">Quitar</button></span>
+      <span><button class="sec" id="previa">Ver cómo quedaría</button> <button class="sec" id="publicar">Publicar ahora</button></span>
+    </p>
+    <div id="salida"></div>
+  </div>
+
+  <h2>Últimas publicaciones</h2>
+  <div id="publicaciones"></div>
+</main>
+
+<script>
+const clave = new URLSearchParams(location.search).get('clave') || '';
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+
+async function api(ruta, cuerpo) {
+  const res = await fetch('/linkedin/api/' + ruta, {
+    method: cuerpo === undefined ? 'GET' : 'POST',
+    headers: { 'x-linkedin-key': clave, ...(cuerpo === undefined ? {} : { 'Content-Type': 'application/json' }) },
+    body: cuerpo === undefined ? undefined : JSON.stringify(cuerpo),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(json.error || 'Error ' + res.status);
+  return json;
+}
+
+async function conBoton(boton, fn) {
+  boton.disabled = true;
+  try { await fn(); } catch (err) { $('salida').innerHTML = '<p class="pill bad">' + esc(err.message) + '</p>'; }
+  boton.disabled = false;
+}
+
+async function cargar() {
+  const e = await api('estado');
+  $('resumen').innerHTML = !e.activo
+    ? 'La publicación automática está <strong>apagada</strong> (falta LINKEDIN_ENABLED=true en Render).'
+    : e.pausado
+      ? 'En <strong>pausa</strong>. <button class="sec" onclick="pausar(false)">Reanudar</button>'
+      : 'Funcionando. Próximo post: <strong>' + esc(e.proximo) + '</strong>. <button class="sec" onclick="pausar(true)">Pausar</button>';
+
+  let avisos = '';
+  if (e.sinConfigurar.length) avisos += '<div class="card aviso">Falta definir en Render LINKEDIN_CLIENT_ID y LINKEDIN_CLIENT_SECRET.</div>';
+  if (!e.pagina) avisos += '<div class="card aviso">Todavía no se sabe cuál es la página de empresa: se averigua al conectar la cuenta que la administra.</div>';
+  const dudoso = e.publicaciones[0] && e.publicaciones[0].estado === 'publicando';
+  if (dudoso) avisos += '<div class="card aviso"><p>El servidor se reinició mientras publicaba <strong>' + esc(e.publicaciones[0].titular) + '</strong>. Mira en la página de LinkedIn si llegó a salir.</p><button onclick="resolver(true)">Sí salió</button> <button class="sec" onclick="resolver(false)">No salió, reintentar</button></div>';
+  avisos += '<p class="soft">Dirección de retorno que hay que poner en la app de LinkedIn: <code>' + esc(e.redirectUri) + '</code></p>';
+  $('avisos').innerHTML = avisos;
+
+  $('cuentas').innerHTML = e.cuentas.map(c => {
+    const estado = !c.conectada ? '<span class="pill bad">Sin conectar</span>'
+      : c.diasRestantes < 0 ? '<span class="pill bad">Permiso caducado</span>'
+      : '<span class="pill">Conectada' + (c.seRenuevaSola ? '' : ' · caduca el ' + esc(c.caduca)) + '</span>';
+    return '<div class="card row"><div><strong>' + esc(c.nombre) + '</strong>' + (c.empresa ? ' <span class="soft">· publica también como la página de Chilie</span>' : '')
+      + '<br>' + estado + (c.comoQuien ? ' <span class="soft">' + esc(c.comoQuien) + '</span>' : '') + '</div>'
+      + '<a class="btn ' + (c.conectada && c.diasRestantes > 7 ? 'sec' : '') + '" href="/linkedin/conectar/' + c.id + '?clave=' + encodeURIComponent(clave) + '">' + (c.conectada ? 'Volver a autorizar' : 'Conectar') + '</a></div>';
+  }).join('');
+
+  if (document.activeElement !== $('tema')) $('tema').value = e.temaEspecial;
+
+  $('publicaciones').innerHTML = e.publicaciones.length ? e.publicaciones.map(p =>
+    '<div class="card"><div class="row"><strong>' + esc(p.titular) + '</strong><span class="soft">' + esc(p.fecha) + '</span></div>'
+    + (p.enlace ? '<a href="' + esc(p.enlace) + '" target="_blank" rel="noopener">Ver en LinkedIn</a>' : '<span class="pill bad">' + esc(p.estado) + '</span>')
+    + e.cuentas.map(c => { const r = p.reposts[c.id]; return ' · ' + esc(c.nombre.split(' ')[0]) + ': ' + (r && r.enlace ? '<a href="' + esc(r.enlace) + '" target="_blank" rel="noopener">reposteado</a>' : r ? esc(r.estado) : 'pendiente'); }).join('')
+    + '<details><summary>Textos</summary><pre>' + esc(p.texto) + '</pre>'
+    + Object.entries(p.reposts).map(([id, r]) => '<pre class="soft">' + esc(id) + ': ' + esc(r.texto) + '</pre>').join('') + '</details></div>'
+  ).join('') : '<p class="soft">Todavía no se ha publicado nada.</p>';
+}
+
+async function pausar(pausado) { await api('pausa', { pausado }); cargar(); }
+async function resolver(salio) { await api('resolver', { salio }); cargar(); }
+
+$('guardarTema').onclick = ev => conBoton(ev.target, async () => { await api('tema', { texto: $('tema').value }); $('salida').innerHTML = '<p class="pill">Guardado: será el tema del próximo post.</p>'; });
+$('quitarTema').onclick = ev => conBoton(ev.target, async () => { $('tema').value = ''; await api('tema', { texto: '' }); $('salida').innerHTML = ''; });
+$('previa').onclick = ev => conBoton(ev.target, async () => {
+  $('salida').innerHTML = '<p class="soft">Redactando… tarda unos segundos.</p>';
+  const p = await api('vista-previa', {});
+  $('salida').innerHTML = '<p class="soft">Es un ejemplo: el que se publique se redacta de nuevo y no será idéntico.</p><img src="' + p.imagen + '" alt=""><pre>' + esc(p.texto) + '</pre>';
+});
+$('publicar').onclick = ev => conBoton(ev.target, async () => {
+  if (!confirm('Se publicará ahora mismo en la página de Chilie, y Carlos e Iñigo lo repostearán en las próximas horas. ¿Seguimos?')) return;
+  $('salida').innerHTML = '<p class="soft">Publicando…</p>';
+  const p = await api('publicar', {});
+  $('salida').innerHTML = '<p class="pill">Publicado.</p> <a href="' + esc(p.enlace) + '" target="_blank" rel="noopener">Ver en LinkedIn</a>';
+  cargar();
+});
+
+cargar().catch(err => { $('resumen').textContent = err.message; });
+</script>
+</body>
+</html>

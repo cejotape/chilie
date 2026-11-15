@@ -37,3 +37,6 @@ img/video/
 img/equipo/*.mp4
 img/equipo/inigo.jpg
 img/equipo/carlos.jpg
+
+# Claves de LinkedIn e historial de publicaciones (en Render van en el disco /var/data)
+server/.data/
