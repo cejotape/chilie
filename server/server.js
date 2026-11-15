@@ -46,6 +46,12 @@ app.use(cors({
   },
   methods: ['GET', 'POST', 'OPTIONS'],
 }));
+
+// ── Automa: venta y entrega (Stripe) ──────────────────────
+// Va antes de express.json() porque el webhook de Stripe necesita el cuerpo sin procesar.
+// Sin AUTOMA_STRIPE_SECRET_KEY las rutas responden 503. Ver server/automa/README.md.
+require('./automa')(app, { getMailer: () => mailer });
+
 app.use(express.json({ limit: '10kb' }));
 
 // ── Anthropic ─────────────────────────────────────────────

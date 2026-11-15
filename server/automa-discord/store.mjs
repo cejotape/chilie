@@ -15,6 +15,8 @@ export const empty = () => ({
   codes: {},
   members: {},
   tickets: {},
+  orders: {},
+  invite: null,
 });
 
 export function load() {

@@ -266,6 +266,39 @@ async function expireSupport() {
   }
 }
 
+// ---------- Para el servidor de ventas ----------
+// El webhook de Stripe usa estas funciones para entregar una compra premium.
+
+export const isRunning = () => Boolean(store) && client.isReady();
+
+export function createCode(source) {
+  let code = newCode();
+  while (store.codes[code]) code = newCode();
+  store.codes[code] = { createdAt: Date.now(), createdBy: source, usedBy: null, usedAt: null };
+  save(store);
+  return code;
+}
+
+// Enlace permanente de entrada al servidor. Se crea una vez y se reutiliza.
+export async function inviteUrl() {
+  if (store.invite) return store.invite;
+  const channel = await client.channels.fetch(store.ids.channels.bienvenida);
+  const invite = await channel.createInvite({ maxAge: 0, maxUses: 0, unique: false, reason: 'Automa: enlace de entrada' });
+  store.invite = invite.url;
+  save(store);
+  return store.invite;
+}
+
+// Registro de pedidos ya entregados, para no entregar dos veces si Stripe repite el aviso.
+export const getOrder = (id) => store.orders[id] ?? null;
+
+export function setOrder(id, data) {
+  store.orders[id] = data;
+  save(store);
+}
+
+export const notify = (text) => audit(text);
+
 // ---------- Arranque ----------
 
 client.on(Events.InteractionCreate, async (interaction) => {

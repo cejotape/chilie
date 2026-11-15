@@ -291,7 +291,7 @@ services:
         sync: false
       # ─── Automa: bot de Discord (server/automa-discord/README.md) ───
       - key: AUTOMA_DISCORD_ENABLED   # "true" para que el bot arranque con el servidor
-        value: "false"
+        value: "true"
       # No necesita disco: el bot guarda sus datos en el canal #datos-bot de Discord
       # y los recupera al arrancar. Esta carpeta es solo una caché temporal.
       - key: AUTOMA_DATA_DIR
@@ -299,4 +299,15 @@ services:
       - key: AUTOMA_DISCORD_TOKEN
         sync: false
       - key: AUTOMA_GUILD_ID
+        sync: false
+      # ─── Automa: venta y entrega con Stripe (server/automa/README.md) ───
+      - key: AUTOMA_SITE_URL          # dirección de la landing, sin barra final
+        sync: false
+      - key: AUTOMA_STRIPE_SECRET_KEY
+        sync: false
+      - key: AUTOMA_STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: AUTOMA_GITHUB_OWNER      # dueño de los repos privados automa-base y automa-premium
+        sync: false
+      - key: AUTOMA_GITHUB_TOKEN
         sync: false
