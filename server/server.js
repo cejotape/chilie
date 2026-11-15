@@ -33,6 +33,8 @@ const allowedOrigins = [
   'http://localhost:3001',
   'http://127.0.0.1:3000',
   'http://127.0.0.1:3001',
+  // La landing de Automa vive en otro dominio y llama a /api/automa/checkout
+  ...(() => { try { return [new URL(process.env.AUTOMA_SITE_URL).origin]; } catch { return []; } })(),
   ...(process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()).filter(Boolean)
     : [])
