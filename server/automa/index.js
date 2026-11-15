@@ -27,7 +27,7 @@ const isBlockedCountry = (code) => Boolean(code) && EU_EXCEPT_SPAIN.has(String(c
 
 // Las claves se pegan a mano en el panel y a veces llegan con espacios, saltos de línea o el
 // nombre de la variable delante: se extrae solo la clave.
-const pick = (value, pattern) => { const m = pattern.exec(String(value || '')); return m ? m[0] : ''; };
+const pick = (value, pattern) => { const m = pattern.exec(String(value || '').replace(/\s+/g, '')); return m ? m[0] : ''; };
 
 const env = () => ({
   stripeKey:     pick(process.env.AUTOMA_STRIPE_SECRET_KEY, /[sr]k_(?:live|test)_[A-Za-z0-9]+/),
