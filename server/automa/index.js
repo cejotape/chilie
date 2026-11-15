@@ -66,7 +66,7 @@ async function createCheckoutSession(planKey, cfg) {
       label: { type: 'custom', custom: 'Tu usuario de GitHub (si tienes)' },
     }],
     custom_text: {
-      submit: { message: 'Recibirás el acceso por correo al momento. Al ser contenido digital de acceso inmediato, no admite desistimiento.' },
+      submit: { message: 'Venta solo en España. Recibirás el acceso por correo al momento. Al ser contenido digital de acceso inmediato, no admite desistimiento.' },
     },
     metadata: {
       producto: 'automa',
