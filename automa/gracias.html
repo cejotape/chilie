@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gracias — Automa</title>
+<link rel="icon" type="image/svg+xml" href="/automa/logo.svg">
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0d0c1d; color: #f2f1fb; font: 17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
+  main { max-width: 560px; padding: 32px 24px; }
+  img { width: 56px; height: 56px; border-radius: 14px; }
+  h1 { font-size: 34px; line-height: 1.15; margin: 20px 0 12px; }
+  p, li { color: #a9a6c9; }
+  ol { padding-left: 20px; }
+  li { margin: 8px 0; }
+  strong { color: #f2f1fb; }
+  a { color: #9b8cff; }
+  .premium { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <img src="/automa/logo.svg" alt="">
+  <h1>Pago recibido. Gracias.</h1>
+  <p>En unos minutos te llega un correo a la dirección que has puesto en el pago. Si no lo ves, mira en la carpeta de spam.</p>
+  <ol>
+    <li><strong>La guía en PDF</strong> va adjunta al correo. Empieza por "Empieza aquí".</li>
+    <li><strong>El repositorio privado:</strong> acepta la invitación que te envía GitHub. Si no diste tu usuario de GitHub, responde al correo con él.</li>
+    <li class="premium"><strong>El Discord:</strong> entra con el enlace del correo y escribe <code>/activar</code> con tu código en el canal de activación.</li>
+  </ol>
+  <p>¿No te ha llegado nada en una hora? Escríbenos desde <a href="https://chilieia.com/contacto">chilieia.com/contacto</a>.</p>
+</main>
+<script>
+  if (new URLSearchParams(location.search).get('plan') === 'premium') {
+    document.querySelectorAll('.premium').forEach((el) => { el.style.display = 'list-item'; });
+  }
+</script>
+</body>
+</html>
