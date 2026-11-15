@@ -135,6 +135,10 @@ module.exports = function montar(app, { anthropic, mailer }) {
     if (!pend || Date.now() - pend.t > 15 * 60 * 1000) {
       return res.status(400).send(pagina('Enlace caducado', '<p>Vuelve a abrir el enlace de conexión desde el panel.</p>'));
     }
+    if (String(req.query.error || '').startsWith('invalid_scope')) {
+      return res.status(400).send(pagina('LinkedIn aún no ha dado acceso a la app',
+        '<p>La app todavía no tiene concedidos los permisos que pide (el producto Community Management API está pendiente de aprobación). No hay nada que arreglar: cuando LinkedIn confirme el acceso por correo, vuelve a pulsar Conectar en el panel.</p>'));
+    }
     if (req.query.error || !req.query.code) {
       return res.status(400).send(pagina('No se ha conectado', '<p>LinkedIn no ha dado permiso. Puedes volver a intentarlo desde el panel.</p>'));
     }
