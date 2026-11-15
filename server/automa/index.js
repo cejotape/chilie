@@ -20,6 +20,11 @@ const PLANS = {
   premium: { name: 'Automa Premium', amount: 8900, repos: ['base', 'premium'] },
 };
 
+// Se vende en España y fuera de la Unión Europea: estos son los demás países de la UE.
+const EU_EXCEPT_SPAIN = new Set(['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT',
+  'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE']);
+const isBlockedCountry = (code) => Boolean(code) && EU_EXCEPT_SPAIN.has(String(code).toUpperCase());
+
 const env = () => ({
   stripeKey:     process.env.AUTOMA_STRIPE_SECRET_KEY,
   webhookSecret: process.env.AUTOMA_STRIPE_WEBHOOK_SECRET,
@@ -218,6 +223,30 @@ async function fulfil(session, mailer) {
   const previous = bot ? bot.getOrder(session.id) : memoryOrders.get(session.id);
   if (previous?.delivered) return { repeated: true };
 
+  // País de facturación que el comprador indica en Stripe. Si es de la UE y no es España,
+  // no se entrega: se avisa al comprador y al administrador, que hace el reembolso en Stripe.
+  const country = session.customer_details?.address?.country;
+  if (isBlockedCountry(country)) {
+    const record = { plan: planKey, createdAt: Date.now(), code: null, delivered: true, blocked: country };
+    if (bot) bot.setOrder(session.id, record);
+    else memoryOrders.set(session.id, record);
+    await mailer.sendMail({
+      from:    `"Automa" <${process.env.SMTP_USER}>`,
+      to:      email,
+      replyTo: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      subject: 'Tu pedido de Automa se ha cancelado',
+      text:    'Gracias por tu interés en Automa.\n\nAhora mismo solo vendemos en España y en países de fuera de la Unión Europea, y tu pago se ha hecho desde un país en el que no está disponible. Hemos cancelado el pedido y te devolvemos el importe completo en los próximos días, al mismo medio de pago.\n\nSi crees que es un error, responde a este correo.',
+    });
+    await mailer.sendMail({
+      from:    `"Automa" <${process.env.SMTP_USER}>`,
+      to:      process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      subject: `Automa: hay que REEMBOLSAR un pedido (${country})`,
+      text:    `Pedido no entregado por país no permitido (${country}).\n\nComprador: ${email}\nPedido de Stripe: ${session.id}\nPago: ${session.payment_intent || 'ver en Stripe'}\n\nHaz el reembolso completo desde el panel de Stripe. Al comprador ya se le ha avisado de que se le devuelve el dinero.`,
+    });
+    if (bot) await bot.notify(`⛔ Pedido de **${plan.name}** no entregado: país no permitido (${country}). Hay que reembolsarlo en Stripe.`);
+    return { blocked: country, problems: [] };
+  }
+
   const problems = [];
 
   // 1. GitHub
@@ -308,6 +337,11 @@ module.exports = function automaVenta(app, { getMailer }) {
     const { plan, consent } = req.body || {};
     if (!Object.hasOwn(PLANS, plan)) return res.status(400).json({ error: 'Plan no válido.' });
     if (consent !== true) return res.status(400).json({ error: 'Tienes que aceptar las condiciones para continuar.' });
+    // Primer filtro, antes de pagar: el país que detecta la red de Render (cabecera de Cloudflare).
+    // Si la cabecera no llega, se deja pasar; el webhook vuelve a comprobarlo con el país de facturación.
+    if (isBlockedCountry(req.get('cf-ipcountry'))) {
+      return res.status(403).json({ error: 'Automa solo está disponible en España y en países de fuera de la Unión Europea.' });
+    }
     try {
       res.json({ url: await createCheckoutSession(plan, cfg) });
     } catch (err) {
@@ -338,7 +372,7 @@ module.exports = function automaVenta(app, { getMailer }) {
     inFlight.add(session.id);
     try {
       const result = await fulfil(session, getMailer());
-      log(`Pedido ${session.id}:`, result.repeated ? 'ya estaba entregado' : `entregado (${result.problems.length} avisos)`);
+      log(`Pedido ${session.id}:`, result.repeated ? 'ya estaba entregado' : result.blocked ? `no entregado, país ${result.blocked}` : `entregado (${result.problems.length} avisos)`);
       res.json({ received: true });
     } catch (err) {
       // Un 500 hace que Stripe lo reintente más tarde.
