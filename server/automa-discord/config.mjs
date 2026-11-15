@@ -71,6 +71,8 @@ export function overwrites(access, ids) {
       ];
     case 'equipo':
       return [{ id: ids.everyone, deny: [P.ViewChannel] }, team];
+    case 'solo-admin':
+      return [{ id: ids.everyone, deny: [P.ViewChannel] }];
     default:
       throw new Error(`Acceso desconocido: ${access}`);
   }
@@ -125,6 +127,7 @@ export const CATEGORIES = [
     channels: [
       { key: 'equipo', name: 'equipo', type: text, access: 'equipo', topic: 'Coordinación interna.' },
       { key: 'registro', name: 'registro', type: text, access: 'equipo', topic: 'Altas, caducidades y revisiones. Lo escribe el bot.' },
+      { key: 'datos', name: 'datos-bot', type: text, access: 'solo-admin', topic: 'Copia de los datos del bot. No escribas ni borres nada aquí.' },
     ],
   },
 ];

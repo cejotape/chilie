@@ -292,14 +292,11 @@ services:
       # ─── Automa: bot de Discord (server/automa-discord/README.md) ───
       - key: AUTOMA_DISCORD_ENABLED   # "true" para que el bot arranque con el servidor
         value: "false"
-      - key: AUTOMA_DATA_DIR          # el disco de abajo: ahí viven los códigos y las fechas de soporte
-        value: /var/data/automa
+      # No necesita disco: el bot guarda sus datos en el canal #datos-bot de Discord
+      # y los recupera al arrancar. Esta carpeta es solo una caché temporal.
+      - key: AUTOMA_DATA_DIR
+        value: /tmp/automa
       - key: AUTOMA_DISCORD_TOKEN
         sync: false
       - key: AUTOMA_GUILD_ID
         sync: false
-    # Sin disco, cada despliegue borraría los códigos canjeados y las fechas de fin de soporte.
-    disk:
-      name: chilie-datos
-      mountPath: /var/data
-      sizeGB: 1

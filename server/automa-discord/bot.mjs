@@ -18,14 +18,17 @@ import {
 } from 'discord.js';
 import { BRAND_COLOR, SUPPORT_DAYS, RESPONSE_HOURS, TICKET_FIELDS, ROLES, CATEGORIES } from './config.mjs';
 import { load, save } from './store.mjs';
+import { attach } from './remote.mjs';
 
 // Este módulo se usa desde run.mjs (en local) y desde el servidor de Chilie (en Render).
 // Nunca llama a process.exit: si algo falla, lanza un error y quien lo arranca decide.
 const DAY = 24 * 60 * 60 * 1000;
 const EPHEMERAL = { flags: MessageFlags.Ephemeral };
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+// GuildMessages solo se usa para ver cuándo otra copia del bot escribe en #datos-bot.
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 let store;
 let GUILD_ID;
+let expiryTimer;
 
 // Los ids de roles y canales se buscan por nombre en el propio servidor, así el bot
 // funciona en una máquina nueva sin copiar el store.json de quien ejecutó el setup.
@@ -46,7 +49,9 @@ async function resolveIds(guild) {
       store.ids.channels[def.key] = ch.id;
     }
   }
-  save(store);
+  // Guardado silencioso: resolver ids no es un cambio de datos, y no debe hacer que un
+  // almacén recién creado (vacío) parezca más nuevo que la copia guardada en Discord.
+  save(store, { silent: true });
 }
 
 const daysLeft = (until) => Math.max(0, Math.ceil((until - Date.now()) / DAY));
@@ -294,7 +299,17 @@ export async function start({ token, guildId }) {
   await client.login(token);
   await ready;
   await resolveIds(await client.guilds.fetch(guildId));
+  await attach({
+    client,
+    store,
+    channelId: store.ids.channels.datos,
+    retire: async () => {
+      clearInterval(expiryTimer);
+      await client.destroy();
+    },
+  });
   console.log(`[automa-discord] Bot en marcha como ${client.user.tag}`);
   expireSupport().catch((err) => console.error(err));
-  setInterval(() => expireSupport().catch((err) => console.error(err)), 60 * 60 * 1000).unref();
+  expiryTimer = setInterval(() => expireSupport().catch((err) => console.error(err)), 60 * 60 * 1000);
+  expiryTimer.unref();
 }
