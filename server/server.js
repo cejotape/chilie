@@ -219,8 +219,8 @@ app.post('/api/reel-mail', express.raw({ type: 'video/mp4', limit: '20mb' }), as
   }
   const ahora = Date.now();
   reelEnvios = reelEnvios.filter(t => ahora - t < 24 * 60 * 60 * 1000);
-  if (reelEnvios.length >= 6) {
-    return res.status(429).json({ error: 'Ya se han enviado 6 reels en las últimas 24 horas.' });
+  if (reelEnvios.length >= 14) {
+    return res.status(429).json({ error: 'Ya se han enviado 14 vídeos en las últimas 24 horas.' });
   }
   const video = req.body;
   if (!Buffer.isBuffer(video) || video.length < 50000 || video.slice(4, 8).toString('latin1') !== 'ftyp') {
@@ -261,8 +261,8 @@ app.post('/api/reel-pack', express.raw({ type: 'application/x-reel-pack', limit:
   }
   const ahora = Date.now();
   reelEnvios = reelEnvios.filter(t => ahora - t < 24 * 60 * 60 * 1000);
-  if (reelEnvios.length >= 6) {
-    return res.status(429).json({ error: 'Ya se han enviado 6 reels en las últimas 24 horas.' });
+  if (reelEnvios.length >= 14) {
+    return res.status(429).json({ error: 'Ya se han enviado 14 vídeos en las últimas 24 horas.' });
   }
   let datos;
   try {
