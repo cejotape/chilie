@@ -25,9 +25,13 @@ const EU_EXCEPT_SPAIN = new Set(['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE',
   'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE']);
 const isBlockedCountry = (code) => Boolean(code) && EU_EXCEPT_SPAIN.has(String(code).toUpperCase());
 
+// Las claves se pegan a mano en el panel y a veces llegan con espacios, saltos de línea o el
+// nombre de la variable delante: se extrae solo la clave.
+const pick = (value, pattern) => { const m = pattern.exec(String(value || '')); return m ? m[0] : ''; };
+
 const env = () => ({
-  stripeKey:     process.env.AUTOMA_STRIPE_SECRET_KEY,
-  webhookSecret: process.env.AUTOMA_STRIPE_WEBHOOK_SECRET,
+  stripeKey:     pick(process.env.AUTOMA_STRIPE_SECRET_KEY, /[sr]k_(?:live|test)_[A-Za-z0-9]+/),
+  webhookSecret: pick(process.env.AUTOMA_STRIPE_WEBHOOK_SECRET, /whsec_[A-Za-z0-9]+/),
   siteUrl:       (process.env.AUTOMA_SITE_URL || '').replace(/\/+$/, ''),
   ghToken:       process.env.AUTOMA_GITHUB_TOKEN,
   ghOwner:       process.env.AUTOMA_GITHUB_OWNER,
