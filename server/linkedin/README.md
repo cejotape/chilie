@@ -29,15 +29,17 @@ trata el siguiente post, una sola vez.
 
 ### 2. Render (servicio `chilie-chatbot`)
 
-- Añadir un **disco** de 1 GB montado en `/var/data` (ya está en `render.yaml`; si el servicio
-  no se gestiona con el Blueprint, se añade a mano en *Disks*).
+- Los permisos de LinkedIn y el historial se guardan en una **base de datos Postgres externa**
+  (el disco de Render se borra en cada despliegue). Vale cualquier Postgres gratuito, por
+  ejemplo Supabase o Neon: crear un proyecto y copiar su cadena de conexión
+  (`postgresql://usuario:contraseña@host:5432/base`). La tabla `linkedin_estado` se crea sola.
 - Variables de entorno:
 
 | Variable | Valor |
 |---|---|
 | `LINKEDIN_CLIENT_ID` / `LINKEDIN_CLIENT_SECRET` | los de la app |
 | `LINKEDIN_ADMIN_KEY` | una contraseña larga inventada: es la clave del panel |
-| `LINKEDIN_DATA_DIR` | `/var/data` |
+| `LINKEDIN_DATABASE_URL` | la cadena de conexión del Postgres externo |
 | `LINKEDIN_ENABLED` | `false` al principio; `true` cuando todo esté conectado |
 | `LINKEDIN_ORG_ID` | opcional: el número de la página (el de la dirección `linkedin.com/company/NÚMERO/admin`). Solo hace falta si Iñigo administra más de una página |
 

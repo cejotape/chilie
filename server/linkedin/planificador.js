@@ -118,13 +118,16 @@ function crear({ anthropic, mailer, api = require('./api'), contenido = require(
       azar: Object.fromEntries(Object.keys(config.cuentas).map(id => [id, Math.floor(Math.random() * 25)])),
     };
     estado.cambiar(e => { e.publicaciones.push(pub); });
+    const quitar = () => estado.cambiar(e => { e.publicaciones = e.publicaciones.filter(p => p.id !== pub.id); });
+    // Si la marca no ha quedado guardada, no se publica: sin ella un reinicio podría duplicar el post.
+    try { await estado.guardado(); } catch (err) { quitar(); throw new Error(`No se ha podido guardar el estado: ${err.message}`); }
 
     let urn;
     try {
       urn = await api.crearPost(token, { author: org, texto, imagen: img, alt: titular });
     } catch (err) {
       // LinkedIn ha contestado con un error: seguro que no se ha publicado.
-      if (err.status) estado.cambiar(e => { e.publicaciones = e.publicaciones.filter(p => p.id !== pub.id); });
+      if (err.status) quitar();
       throw err;
     }
 
@@ -147,11 +150,13 @@ function crear({ anthropic, mailer, api = require('./api'), contenido = require(
     const texto = await contenido.redactarComentario(anthropic, cuenta, pub, otros);
 
     estado.cambiar(e => { e.publicaciones.find(p => p.id === pub.id).reposts[id] = { estado: 'publicando', texto, ts: ahora() }; });
+    const quitar = () => estado.cambiar(e => { delete e.publicaciones.find(p => p.id === pub.id).reposts[id]; });
+    try { await estado.guardado(); } catch (err) { quitar(); throw new Error(`No se ha podido guardar el estado: ${err.message}`); }
     let urn;
     try {
       urn = await api.crearPost(token, { author: estado.leer().cuentas[id].urn, texto, parent: pub.urn });
     } catch (err) {
-      if (err.status) estado.cambiar(e => { delete e.publicaciones.find(p => p.id === pub.id).reposts[id]; });
+      if (err.status) quitar();
       throw err;
     }
     estado.cambiar(e => { Object.assign(e.publicaciones.find(p => p.id === pub.id).reposts[id], { estado: 'publicado', urn }); });

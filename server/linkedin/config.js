@@ -24,8 +24,11 @@ module.exports = {
   // administradora (vale cuando esa persona solo administra una página).
   orgId: env.LINKEDIN_ORG_ID || '',
 
-  // Carpeta donde se guardan las claves de LinkedIn y el historial. En Render tiene que ser
-  // un disco persistente (/var/data): el disco normal se borra en cada despliegue.
+  // Base de datos Postgres externa (Supabase, Neon…) donde se guardan los permisos de
+  // LinkedIn y el historial. En Render es obligatoria: su disco se borra en cada despliegue.
+  databaseUrl: env.LINKEDIN_DATABASE_URL || '',
+
+  // Solo para local, cuando no hay base de datos: carpeta donde se guarda lo mismo en un archivo.
   dataDir: env.LINKEDIN_DATA_DIR || path.join(__dirname, '..', '.data'),
 
   modelo: env.LINKEDIN_MODEL || 'claude-opus-5-5',

@@ -24,9 +24,13 @@ module.exports = function montar(app, { anthropic, mailer }) {
     const b = crypto.createHash('sha256').update(config.adminKey).digest();
     return crypto.timingSafeEqual(a, b);
   };
+  let listo = false, errorInicio = '';
   const protegido = (req, res, next) => {
-    if (claveValida(req.get('x-linkedin-key') || req.query.clave)) return next();
-    res.status(config.adminKey ? 403 : 503).send(config.adminKey ? 'Clave incorrecta.' : 'Falta definir LINKEDIN_ADMIN_KEY en el servidor.');
+    if (!claveValida(req.get('x-linkedin-key') || req.query.clave)) {
+      return res.status(config.adminKey ? 403 : 503).send(config.adminKey ? 'Clave incorrecta.' : 'Falta definir LINKEDIN_ADMIN_KEY en el servidor.');
+    }
+    if (!listo) return res.status(503).json({ error: errorInicio ? `No se ha podido cargar el estado: ${errorInicio}` : 'Arrancando, prueba en unos segundos.' });
+    next();
   };
   const pagina = (titulo, cuerpo) => `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${titulo}</title><body style="font:17px/1.5 system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#0E0E12"><h1 style="font-size:24px">${titulo}</h1>${cuerpo}</body>`;
 
@@ -125,6 +129,7 @@ module.exports = function montar(app, { anthropic, mailer }) {
   });
 
   r.get('/callback', async (req, res) => {
+    if (!listo) return res.status(503).send(pagina('Servidor arrancando', '<p>Vuelve a intentarlo en unos segundos desde el panel.</p>'));
     const pend = pendientes.get(String(req.query.state || ''));
     pendientes.delete(String(req.query.state || ''));
     if (!pend || Date.now() - pend.t > 15 * 60 * 1000) {
@@ -163,7 +168,17 @@ module.exports = function montar(app, { anthropic, mailer }) {
   app.use('/linkedin', r);
 
   // ── Planificador ─────────────────────────────────────────
-  setInterval(() => plan.tick(), 60 * 1000).unref();
-  console.log(`  LinkedIn: ${config.activo ? 'activo' : 'apagado (LINKEDIN_ENABLED)'} · datos en ${config.dataDir}`);
+  // Hasta que el estado no está cargado no se publica nada ni se atiende el panel.
+  estado.iniciar().then(() => {
+    listo = true;
+    setInterval(() => plan.tick(), 60 * 1000).unref();
+    console.log(`  LinkedIn: ${config.activo ? 'activo' : 'apagado (LINKEDIN_ENABLED)'} · datos en ${estado.destino()}`);
+    if (!config.databaseUrl && process.env.RENDER) {
+      console.warn('⚠  LinkedIn: sin LINKEDIN_DATABASE_URL los permisos y el historial se pierden en cada despliegue.');
+    }
+  }).catch(err => {
+    errorInicio = err.message;
+    console.error('[LinkedIn] No se ha podido cargar el estado; no se publicará nada:', err.message);
+  });
   return plan;
 };
