@@ -331,6 +331,18 @@ app.get('/reel-host/:id.mp4', (req, res) => {
   res.end(v.buf);
 });
 
+// ── Automa: bot de Discord del soporte premium ────────────
+// Vive en server/automa-discord/ (ver su README). Va aparte del resto del servidor:
+// si no arranca, se anota en el log y la web y el chatbot siguen funcionando.
+if (process.env.AUTOMA_DISCORD_ENABLED === 'true') {
+  import('./automa-discord/bot.mjs')
+    .then((bot) => bot.start({
+      token:   process.env.AUTOMA_DISCORD_TOKEN,
+      guildId: process.env.AUTOMA_GUILD_ID,
+    }))
+    .catch((err) => console.error('[automa-discord] No ha arrancado:', err.message));
+}
+
 // ── Health check ──────────────────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Chilie IA', timestamp: new Date().toISOString() });
