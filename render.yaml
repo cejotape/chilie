@@ -314,8 +314,10 @@ services:
       # ─── LinkedIn automático (server/linkedin/README.md) ───
       - key: LINKEDIN_ENABLED        # "true" para que empiece a publicar
         value: "false"
-      # LINKEDIN_DATA_DIR: carpeta persistente para los permisos y el historial (pendiente de
-      # decidir dónde; sin ella, cada despliegue los borra y el post del día podría repetirse).
+      # Postgres externo (Supabase, Neon…) con los permisos y el historial. Sin él, cada
+      # despliegue los borra y el post del día podría repetirse.
+      - key: LINKEDIN_DATABASE_URL
+        sync: false
       - key: LINKEDIN_CLIENT_ID
         sync: false
       - key: LINKEDIN_CLIENT_SECRET
