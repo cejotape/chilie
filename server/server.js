@@ -302,6 +302,35 @@ app.post('/api/reel-pack', express.raw({ type: 'application/x-reel-pack', limit:
   }
 });
 
+// ── Reel diario: alojamiento temporal para publicar en Instagram ──
+// La API de Instagram solo publica un reel si puede descargarlo de una dirección pública (la subida
+// directa del archivo falla con la clave de página). La tarea de publicación sube aquí el mp4 con la
+// llave del agente y recibe una dirección de un solo uso práctico: nombre aleatorio, en memoria,
+// caduca a las 2 horas y solo se guardan los 2 últimos. No lista nada ni acepta otro tipo de archivo.
+const reelAlojados = new Map();
+app.post('/api/reel-host', express.raw({ type: 'video/mp4', limit: '20mb' }), (req, res) => {
+  const huella = crypto.createHash('sha256').update(String(req.get('x-reel-key') || '')).digest('hex');
+  if (!crypto.timingSafeEqual(Buffer.from(huella), Buffer.from(REEL_KEY_SHA256))) {
+    return res.status(403).json({ error: 'No autorizado.' });
+  }
+  const video = req.body;
+  if (!Buffer.isBuffer(video) || video.length < 50000 || video.slice(4, 8).toString('latin1') !== 'ftyp') {
+    return res.status(400).json({ error: 'El cuerpo tiene que ser un archivo mp4.' });
+  }
+  const ahora = Date.now();
+  for (const [k, v] of reelAlojados) if (ahora - v.t > 2 * 60 * 60 * 1000) reelAlojados.delete(k);
+  while (reelAlojados.size >= 2) reelAlojados.delete(reelAlojados.keys().next().value);
+  const id = crypto.randomBytes(16).toString('hex');
+  reelAlojados.set(id, { buf: video, t: ahora });
+  res.json({ ok: true, url: 'https://' + req.get('host') + '/reel-host/' + id + '.mp4', mb: +(video.length / 1e6).toFixed(1) });
+});
+app.get('/reel-host/:id.mp4', (req, res) => {
+  const v = reelAlojados.get(String(req.params.id));
+  if (!v || Date.now() - v.t > 2 * 60 * 60 * 1000) return res.status(404).end();
+  res.set({ 'Content-Type': 'video/mp4', 'Content-Length': v.buf.length, 'Cache-Control': 'no-store' });
+  res.end(v.buf);
+});
+
 // ── Health check ──────────────────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Chilie IA', timestamp: new Date().toISOString() });
