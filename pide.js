@@ -55,6 +55,19 @@
           ejemplo: 'Por ejemplo: los contesta una persona cuando puede y algunos se quedan días sin respuesta.' },
       ],
     },
+    // Reel "El menú que pierde clientes" (15-nov-2026): del chatbot de botones al que entiende, reserva y traspasa
+    botones: {
+      titulo: 'Que tu chat entienda lo que le escriben.',
+      sub: 'Cuéntanos por dónde te escriben tus clientes y qué preguntan, y te decimos qué resolvería un chatbot con IA en tu negocio. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'canal', texto: '¿Por dónde te escriben tus clientes?', multi: true,
+          opciones: ['WhatsApp', 'Instagram', 'La web', 'Correo', 'Otro'] },
+        { id: 'piden', texto: '¿Qué te piden más?', multi: true,
+          opciones: ['Citas y cambios de hora', 'Precios y horarios', 'Estado de un pedido', 'Reservas', 'Otra cosa'] },
+        { id: 'ahora', texto: '¿Quién contesta hoy esos mensajes?', libre: true,
+          ejemplo: 'Por ejemplo: tenemos un menú de opciones en WhatsApp y al final contesta recepción cuando puede.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
