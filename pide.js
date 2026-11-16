@@ -68,6 +68,19 @@
           ejemplo: 'Por ejemplo: tenemos un menú de opciones en WhatsApp y al final contesta recepción cuando puede.' },
       ],
     },
+    // Reel "Un pedido, cuatro sitios" (16-nov-2026): del Excel, el correo y la libreta a un solo panel
+    panel: {
+      titulo: 'Todo lo de tu negocio, en una sola pantalla.',
+      sub: 'Cuéntanos dónde apuntáis hoy los pedidos, las citas o los clientes y te decimos cómo sería un panel hecho para vosotros. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'sitios', texto: '¿Dónde lleváis hoy el trabajo del día a día?', multi: true,
+          opciones: ['Hoja de cálculo', 'Correo', 'WhatsApp', 'Papel', 'Un programa que se queda corto', 'Otro'] },
+        { id: 'usuarios', texto: '¿Cuántas personas lo usarían?',
+          opciones: ['De 1 a 3', 'De 4 a 10', 'De 11 a 30', 'Más de 30', 'No lo sé'] },
+        { id: 'detalle', texto: '¿Qué te gustaría ver de un vistazo?', libre: true,
+          ejemplo: 'Por ejemplo: en qué punto está cada pedido sin tener que preguntar a tres personas.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
