@@ -81,6 +81,19 @@
           ejemplo: 'Por ejemplo: en qué punto está cada pedido sin tener que preguntar a tres personas.' },
       ],
     },
+    // Reel "No quieren hablar con una máquina" (17-nov-2026): las cuatro dudas sobre el agente de voz
+    tono: {
+      titulo: 'Que tu teléfono se coja al primer tono.',
+      sub: 'Cuéntanos cómo atendéis hoy las llamadas y qué duda te frena, y te decimos cómo lo cogería un agente de voz en tu negocio. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'cuando', texto: '¿Cuándo se os quedan llamadas sin coger?', multi: true,
+          opciones: ['Fuera de horario', 'A mediodía', 'Cuando hay gente en el local', 'Fines de semana', 'No lo sé'] },
+        { id: 'duda', texto: '¿Qué te preocupa de que conteste un agente de voz?', multi: true,
+          opciones: ['Que suene a máquina', 'Que no pase la llamada a una persona', 'Tener que cambiar de número', 'El precio', 'Nada, quiero probarlo'] },
+        { id: 'detalle', texto: '¿Para qué te llaman más tus clientes?', libre: true,
+          ejemplo: 'Por ejemplo: para pedir cita, cambiarla o preguntar precios y horarios.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
