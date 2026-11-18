@@ -94,6 +94,19 @@
           ejemplo: 'Por ejemplo: para pedir cita, cambiarla o preguntar precios y horarios.' },
       ],
     },
+    // Reel "Las facturas se leen solas" (18-nov-2026): lo claro pasa solo y lo dudoso lo revisa una persona
+    facturas: {
+      titulo: 'Que nadie teclee una factura más.',
+      sub: 'Cuéntanos cómo os llegan las facturas y dónde las apuntáis, y te decimos qué se puede leer y pasar solo en tu negocio. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'volumen', texto: '¿Cuántas facturas de proveedores os llegan al mes, más o menos?',
+          opciones: ['Menos de 20', 'De 20 a 100', 'De 100 a 500', 'Más de 500', 'No lo sé'] },
+        { id: 'destino', texto: '¿Dónde las apuntáis hoy?', multi: true,
+          opciones: ['Hoja de cálculo', 'Programa de facturación', 'Las lleva la gestoría', 'Papel', 'Otro'] },
+        { id: 'detalle', texto: '¿Quién las teclea y cuánto tiempo le lleva?', libre: true,
+          ejemplo: 'Por ejemplo: administración pasa un par de mañanas a fin de mes copiando importes a la hoja.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
