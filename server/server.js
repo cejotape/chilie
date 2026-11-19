@@ -314,30 +314,35 @@ app.post('/api/reel-pack', express.raw({ type: 'application/x-reel-pack', limit:
 
 // ── Reel diario: alojamiento temporal para publicar en Instagram ──
 // La API de Instagram solo publica un reel si puede descargarlo de una dirección pública (la subida
-// directa del archivo falla con la clave de página). La tarea de publicación sube aquí el mp4 con la
-// llave del agente y recibe una dirección de un solo uso práctico: nombre aleatorio, en memoria,
-// caduca a las 2 horas y solo se guardan los 2 últimos. No lista nada ni acepta otro tipo de archivo.
+// directa del archivo falla con la clave de página), y la portada (cover_url) también tiene que ser una
+// URL pública. La tarea de publicación sube aquí el mp4 y el png de la portada con la llave del agente y
+// recibe direcciones de un solo uso práctico: nombre aleatorio, en memoria, caducan a las 2 horas y solo
+// se guardan los 4 últimos archivos. No lista nada ni acepta otro tipo de archivo.
 const reelAlojados = new Map();
-app.post('/api/reel-host', express.raw({ type: 'video/mp4', limit: '20mb' }), (req, res) => {
+app.post('/api/reel-host', express.raw({ type: ['video/mp4', 'image/png'], limit: '20mb' }), (req, res) => {
   const huella = crypto.createHash('sha256').update(String(req.get('x-reel-key') || '')).digest('hex');
   if (!crypto.timingSafeEqual(Buffer.from(huella), Buffer.from(REEL_KEY_SHA256))) {
     return res.status(403).json({ error: 'No autorizado.' });
   }
-  const video = req.body;
-  if (!Buffer.isBuffer(video) || video.length < 50000 || video.slice(4, 8).toString('latin1') !== 'ftyp') {
-    return res.status(400).json({ error: 'El cuerpo tiene que ser un archivo mp4.' });
+  const buf = req.body;
+  const esMp4 = Buffer.isBuffer(buf) && buf.length > 50000 && buf.slice(4, 8).toString('latin1') === 'ftyp';
+  const esPng = Buffer.isBuffer(buf) && buf.length > 1000 && buf.slice(0, 8).toString('hex') === '89504e470d0a1a0a';
+  if (!esMp4 && !esPng) {
+    return res.status(400).json({ error: 'El cuerpo tiene que ser un mp4 o un png.' });
   }
   const ahora = Date.now();
   for (const [k, v] of reelAlojados) if (ahora - v.t > 2 * 60 * 60 * 1000) reelAlojados.delete(k);
-  while (reelAlojados.size >= 2) reelAlojados.delete(reelAlojados.keys().next().value);
+  while (reelAlojados.size >= 4) reelAlojados.delete(reelAlojados.keys().next().value);
   const id = crypto.randomBytes(16).toString('hex');
-  reelAlojados.set(id, { buf: video, t: ahora });
-  res.json({ ok: true, url: 'https://' + req.get('host') + '/reel-host/' + id + '.mp4', mb: +(video.length / 1e6).toFixed(1) });
+  const ext = esMp4 ? 'mp4' : 'png';
+  reelAlojados.set(id, { buf, t: ahora, ext });
+  res.json({ ok: true, url: 'https://' + req.get('host') + '/reel-host/' + id + '.' + ext, mb: +(buf.length / 1e6).toFixed(1) });
 });
-app.get('/reel-host/:id.mp4', (req, res) => {
-  const v = reelAlojados.get(String(req.params.id));
-  if (!v || Date.now() - v.t > 2 * 60 * 60 * 1000) return res.status(404).end();
-  res.set({ 'Content-Type': 'video/mp4', 'Content-Length': v.buf.length, 'Cache-Control': 'no-store' });
+app.get('/reel-host/:file', (req, res) => {
+  const m = String(req.params.file).match(/^([0-9a-f]{32})\.(mp4|png)$/);
+  const v = m && reelAlojados.get(m[1]);
+  if (!v || v.ext !== m[2] || Date.now() - v.t > 2 * 60 * 60 * 1000) return res.status(404).end();
+  res.set({ 'Content-Type': v.ext === 'mp4' ? 'video/mp4' : 'image/png', 'Content-Length': v.buf.length, 'Cache-Control': 'no-store' });
   res.end(v.buf);
 });
 
