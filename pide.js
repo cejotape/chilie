@@ -107,6 +107,19 @@
           ejemplo: 'Por ejemplo: administración pasa un par de mañanas a fin de mes copiando importes a la hoja.' },
       ],
     },
+    // Reel "Black Friday en tu chat" (19-nov-2026): un día de campaña en el chat de una tienda online
+    tienda: {
+      titulo: 'Que tu tienda conteste también en plena campaña.',
+      sub: 'Cuéntanos por dónde os escriben y qué os preguntan más, y te decimos qué podría contestar un chatbot consultando tu tienda. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'canal', texto: '¿Por dónde os escriben vuestros clientes?', multi: true,
+          opciones: ['WhatsApp', 'Instagram', 'Chat de la web', 'Correo', 'Otro'] },
+        { id: 'preguntas', texto: '¿Qué os preguntan más?', multi: true,
+          opciones: ['Tallas y stock', 'Dónde está mi pedido', 'Envíos y plazos', 'Cambios y devoluciones', 'Otra cosa'] },
+        { id: 'detalle', texto: '¿Con qué está montada tu tienda y quién contesta hoy los mensajes?', libre: true,
+          ejemplo: 'Por ejemplo: Shopify; contestamos entre dos cuando podemos, y en campaña no damos abasto.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
