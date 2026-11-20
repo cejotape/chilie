@@ -120,6 +120,19 @@
           ejemplo: 'Por ejemplo: Shopify; contestamos entre dos cuando podemos, y en campaña no damos abasto.' },
       ],
     },
+    // Reel "El contacto del portal se enfría" (20-nov-2026): del portal inmobiliario al CRM, con resumen, aviso y primera respuesta
+    portal: {
+      titulo: 'Que ningún contacto del portal se enfríe.',
+      sub: 'Cuéntanos por dónde os llegan los contactos y quién los contesta, y te decimos qué puede entrar y responderse solo en tu inmobiliaria. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'origen', texto: '¿Por dónde os llegan los contactos?', multi: true,
+          opciones: ['Portales inmobiliarios', 'Formulario de la web', 'WhatsApp', 'Teléfono', 'Otro'] },
+        { id: 'tiempo', texto: '¿Cuánto tardáis en dar la primera respuesta?',
+          opciones: ['Minutos', 'Un par de horas', 'El mismo día', 'Al día siguiente', 'No lo sé'] },
+        { id: 'detalle', texto: '¿Dónde apuntáis hoy cada contacto y quién lo hace?', libre: true,
+          ejemplo: 'Por ejemplo: los copiamos del correo al CRM cuando volvemos de las visitas.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
