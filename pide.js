@@ -133,6 +133,19 @@
           ejemplo: 'Por ejemplo: los copiamos del correo al CRM cuando volvemos de las visitas.' },
       ],
     },
+    // Reel "La cena de grupo sin contestar" (20-nov-2026): chatbot de WhatsApp para restaurantes (carta, mesas libres, alergias, reserva y traspaso al encargado)
+    mesa: {
+      titulo: 'Que ninguna reserva se quede sin contestar.',
+      sub: 'Cuéntanos por dónde os piden mesa y quién contesta en pleno servicio, y te decimos qué puede responder y reservar solo un chatbot en tu restaurante. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'canal', texto: '¿Por dónde os piden mesa?', multi: true,
+          opciones: ['WhatsApp', 'Teléfono', 'Instagram', 'La web', 'Otro'] },
+        { id: 'quien', texto: '¿Quién contesta los mensajes durante el servicio?',
+          opciones: ['Quien puede, entre mesa y mesa', 'El encargado', 'Se contestan al cerrar', 'Muchos se quedan sin contestar'] },
+        { id: 'detalle', texto: '¿Dónde apuntáis hoy las reservas y qué os preguntan más?', libre: true,
+          ejemplo: 'Por ejemplo: en una libreta y en la app de reservas; preguntan por el menú de grupo y los alérgenos.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
