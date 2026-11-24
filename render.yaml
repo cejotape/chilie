@@ -47,6 +47,9 @@ services:
         destination: /pages/blog.html
       # ── blog:start (lo genera tools/build_blog.py)
       - type: rewrite
+        source: /blog/agentes-ia-decalogo-aepd
+        destination: /pages/blog/agentes-ia-decalogo-aepd.html
+      - type: rewrite
         source: /blog/ayudas-ia-kit-digital-bono-ia
         destination: /pages/blog/ayudas-ia-kit-digital-bono-ia.html
       - type: rewrite

@@ -110,6 +110,12 @@
   </url>
   <!-- blog:start -->
   <url>
+    <loc>https://www.chilieia.com/blog/agentes-ia-decalogo-aepd</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.chilieia.com/blog/ayudas-ia-kit-digital-bono-ia</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>yearly</changefreq>
