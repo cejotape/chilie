@@ -159,6 +159,19 @@
           ejemplo: 'Por ejemplo: pedidos, incidencias y avisos al cliente, que hoy están en tres sitios.' },
       ],
     },
+    // Reel "Enero y el teléfono que nadie coge" (26-nov-2026): agente de voz para academias y gimnasios (horarios, precios, clase de prueba y traspaso a una persona)
+    enero: {
+      titulo: 'Que enero no te pille sin coger el teléfono.',
+      sub: 'Cuéntanos quién coge hoy el teléfono y qué os preguntan al llamar, y te decimos qué puede atender un agente de voz en tu centro. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'quien', texto: '¿Quién coge hoy el teléfono?',
+          opciones: ['Recepción', 'Quien puede, entre clase y clase', 'Yo mismo', 'Muchas llamadas se pierden'] },
+        { id: 'motivo', texto: '¿Qué os preguntan al llamar?', multi: true,
+          opciones: ['Horarios', 'Precios', 'Matrículas', 'Clases de prueba', 'Otra cosa'] },
+        { id: 'detalle', texto: '¿En qué meses se os junta más trabajo?', libre: true,
+          ejemplo: 'Por ejemplo: en enero y en septiembre, por las tardes, cuando estamos todos dando clase.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
