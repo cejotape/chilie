@@ -146,6 +146,19 @@
           ejemplo: 'Por ejemplo: en una libreta y en la app de reservas; preguntan por el menú de grupo y los alérgenos.' },
       ],
     },
+    // Reel "Lo que te han contado de un programa propio" (26-nov-2026): software a medida, mito y realidad (plazo, licencias por usuario y cambiarlo todo)
+    medida: {
+      titulo: 'Un programa hecho a tu forma de trabajar.',
+      sub: 'Cuéntanos qué lleváis hoy en hojas de cálculo o en programas que no se hablan, y te decimos si compensa hacerlo a medida o si te vale una herramienta estándar. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'hoy', texto: '¿Dónde lo lleváis hoy?', multi: true,
+          opciones: ['Hojas de cálculo', 'Un programa genérico', 'Varios programas que no se hablan', 'Correo y WhatsApp', 'Papel'] },
+        { id: 'equipo', texto: '¿Cuántas personas lo usarían?',
+          opciones: ['De 1 a 5', 'De 6 a 15', 'De 16 a 50', 'Más de 50'] },
+        { id: 'detalle', texto: '¿Qué tarea te gustaría tener en una sola pantalla?', libre: true,
+          ejemplo: 'Por ejemplo: pedidos, incidencias y avisos al cliente, que hoy están en tres sitios.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
