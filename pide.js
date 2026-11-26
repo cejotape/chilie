@@ -172,6 +172,18 @@
           ejemplo: 'Por ejemplo: en enero y en septiembre, por las tardes, cuando estamos todos dando clase.' },
       ],
     },
+    renta: {
+      titulo: 'Que los papeles lleguen sin perseguir a nadie.',
+      sub: 'Cuéntanos cómo pedís hoy la documentación a vuestros clientes y dónde se os atasca, y te decimos qué se puede dejar funcionando solo en tu despacho. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'como', texto: '¿Cómo pedís hoy los documentos a vuestros clientes?',
+          opciones: ['Por teléfono', 'Por correo', 'Por WhatsApp', 'Un poco de todo'] },
+        { id: 'atasco', texto: '¿Dónde se os va más tiempo?', multi: true,
+          opciones: ['Recordar lo que falta', 'Clasificar el correo', 'Avisar de los plazos', 'Revisar lo que llega', 'Otra cosa'] },
+        { id: 'detalle', texto: '¿Cuándo se os junta más trabajo?', libre: true,
+          ejemplo: 'Por ejemplo: en los cierres de trimestre y en la campaña de la renta, con unos doscientos clientes.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
