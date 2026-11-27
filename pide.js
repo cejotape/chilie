@@ -196,6 +196,19 @@
           ejemplo: 'Por ejemplo: somos tres, las apuntamos en una libreta y contesto yo el WhatsApp cuando cierro.' },
       ],
     },
+    // Reel "El presupuesto que se queda en el correo" (27-nov-2026): del correo al programa de clientes, con fotos y aviso al técnico
+    obra: {
+      titulo: 'Que ningún presupuesto se quede días en el correo.',
+      sub: 'Cuéntanos cómo te llegan hoy las peticiones de presupuesto y dónde las apuntas, y te decimos cómo quedarían solas en tu programa de clientes, con sus fotos y el aviso a tu técnico. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'entrada', texto: '¿Por dónde te piden presupuesto?', multi: true,
+          opciones: ['Por correo', 'Por WhatsApp', 'Por teléfono', 'Por el formulario de la web', 'Otro'] },
+        { id: 'volumen', texto: '¿Cuántas peticiones te llegan en una semana normal?',
+          opciones: ['Menos de 5', 'De 5 a 15', 'De 15 a 40', 'Más de 40', 'No lo sé'] },
+        { id: 'detalle', texto: '¿Dónde las apuntas hoy y cuánto tardas en contestar?', libre: true,
+          ejemplo: 'Por ejemplo: llegan al correo con fotos, las paso a una hoja por la noche y contesto a los dos o tres días.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
