@@ -184,6 +184,18 @@
           ejemplo: 'Por ejemplo: en los cierres de trimestre y en la campaña de la renta, con unos doscientos clientes.' },
       ],
     },
+    citas: {
+      titulo: 'Que las citas se den solas, también con el salón cerrado.',
+      sub: 'Cuéntanos cómo se reservan hoy las citas en tu peluquería y cuántas se quedan sin presentarse, y te decimos cómo quedaría un asistente en tu WhatsApp que da hora y manda el recordatorio. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'como', texto: '¿Cómo se piden hoy las citas?', multi: true,
+          opciones: ['Por teléfono', 'Por WhatsApp', 'Por Instagram', 'En el salón', 'Con una app de reservas'] },
+        { id: 'plantones', texto: '¿Cuántas citas se quedan sin presentarse en una semana normal?',
+          opciones: ['Casi ninguna', 'Una o dos', 'De tres a cinco', 'Más de cinco'] },
+        { id: 'detalle', texto: '¿Dónde apuntáis las citas y quién contesta los mensajes?', libre: true,
+          ejemplo: 'Por ejemplo: somos tres, las apuntamos en una libreta y contesto yo el WhatsApp cuando cierro.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
