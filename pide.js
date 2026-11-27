@@ -209,6 +209,19 @@
           ejemplo: 'Por ejemplo: llegan al correo con fotos, las paso a una hoja por la noche y contesto a los dos o tres días.' },
       ],
     },
+    // Reel "La llamada de las once por la llave" (27-nov-2026): el agente de voz que coge las llamadas de los huéspedes de noche
+    llave: {
+      titulo: 'Que la llamada de tu huésped se coja, también de noche.',
+      sub: 'Cuéntanos cuántos alojamientos llevas y para qué te llaman tus huéspedes, y te decimos cómo las cogería un agente de voz con los datos de cada alojamiento, avisándote solo de lo urgente. Te escribimos en menos de 24 horas.',
+      preguntas: [
+        { id: 'alojamientos', texto: '¿Cuántos alojamientos gestionas?',
+          opciones: ['Uno', 'De 2 a 5', 'De 6 a 20', 'Más de 20'] },
+        { id: 'motivos', texto: '¿Para qué te llaman más tus huéspedes?', multi: true,
+          opciones: ['La llave o el acceso', 'El wifi', 'La hora de entrada o de salida', 'Una avería', 'Otra cosa'] },
+        { id: 'detalle', texto: '¿Quién coge hoy el teléfono por la noche?', libre: true,
+          ejemplo: 'Por ejemplo: lo cojo yo desde casa, y si estoy dormido el huésped se queda esperando en el portal.' },
+      ],
+    },
   };
 
   const form = document.getElementById('pideForm');
